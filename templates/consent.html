@@ -1,27 +1,48 @@
 {{#if showHeading}}
 <h1 class="consent-form__heading-level-1">
-{{formOfWords.copy.heading1}}
-{{#if formOfWords.copy.straplineHeading}}
-<span class="consent-form__heading-strapline">{{formOfWords.copy.straplineHeading}}</span>
-{{/if}}
+	{{formOfWords.copy.heading1}}
+	{{#if formOfWords.copy.straplineHeading}}
+	<span class="consent-form__heading-strapline">{{formOfWords.copy.straplineHeading}}</span>
+	{{/if}}
 </h1>
 {{/if}}
 <input type="hidden" name="formOfWordsVersion" value="{{formOfWords.id}}" />
 <div class="consent-form__intro-text">
-	{{#if formOfWords.copy.straplineSmall}}{{formOfWords.copy.straplineSmall}}{{/if}}
+	{{#if formOfWords.copy.straplineSmall}}
+		{{formOfWords.copy.straplineSmall}}
+	{{/if}}
 	<a class="consent-form-link-external" href="https://help.ft.com/help/legal-privacy/privacy/" target="_blank">{{formOfWords.copy.dataUseLink}}</a>
 </div>
 <fieldset name="consent" class="consent-form">
 	<legend class="o-normalise-visually-hidden">Marketing consent</legend>
-	{{#each formOfWords.consents}}
+	{{#each formOfWords.consents as |categoryConsents categoryName|}}
 	<div class="consent-form__section">
-		<{{#if isSubsection}}h3{{else}}h2{{/if}} class="consent-form__heading-level-2 consent-form__no-margin-bottom">{{heading}}</{{#if isSubsection}}h3{{else}}h2{{/if}}>
+		{{#if isSubsection}}
+		<h3 class="consent-form__heading-level-2 consent-form__no-margin-bottom">
+			{{categoryConsents.heading}}
+		</h3>
+		{{else}}
+		<h2 class="consent-form__heading-level-2 consent-form__no-margin-bottom">
+			{{categoryConsents.heading}}
+		</h2>
+		{{/if}}
 		<div class="consent-form__section-label">
-			{{label}}
+			{{categoryConsents.label}}
 		</div>
 		<div class="consent-form__switches-group">
-			{{#each channels}}
-			{{>n-profile-ui/templates/yes-no-switch label=label id=id checkedYes=checkedYes  checkedNo=checkedNo elementAttrs=elementAttrs lbi=lbi }}
+			{{#each categoryConsents.channels}}
+			{{>n-profile-ui/templates/yes-no-switch
+				label=label
+				id=id
+				checkedYes=checkedYes
+				checkedNo=checkedNo
+				elementAttrs=elementAttrs
+				lbi=lbi
+				channel={{@key}}
+				category={{categoryName}}
+				fow=formOfWords.id
+				scope=formOfWords.scope
+			}}
 			{{/each}}
 		</div>
 	</div>

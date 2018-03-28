@@ -1,8 +1,8 @@
-const Overlay = require('o-overlay');
-const expander = require('o-expander');
+import Overlay from 'o-overlay';
+import expander from 'o-expander';
 const overlayContentSelector = '.consent-form-content';
 
-module.exports = class Reconsent {
+export class Reconsent {
     consentOverlay: any;
 
 	constructor({flag}) {
