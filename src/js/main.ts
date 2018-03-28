@@ -13,9 +13,11 @@ export class Reconsent {
 	}
 
 	bannerSetup() {
-		const banner = document.querySelector('.consent-banner__outer');
+		const banner = document.querySelector('.consent-banner__outer') as HTMLDivElement;
+		const bannerButton = document.querySelector('.consent-banner__button') as HTMLButtonElement;
+
 		banner.classList.add('active');
-		document.querySelector('.consent-banner__button').addEventListener('click', () => {
+		bannerButton.addEventListener('click', () => {
 			banner.classList.remove('active');
 			this.overlaySetup();
 		});
@@ -30,13 +32,15 @@ export class Reconsent {
 		this.consentOverlay.open();
 		document.addEventListener('oOverlay.ready', () => {
 			expander.init();
-			const content = document.querySelector(overlayContentSelector);
-			content.parentNode.removeChild(content);
-			const form = document.querySelector('.reconsent-form');
+			const content = document.querySelector(overlayContentSelector) as HTMLElement;
+			content.remove();
+
+			const form = document.querySelector('.reconsent-form') as HTMLElement;
 			this.formSubmitEnable(form);
 			this.formSubmitHandler(form);
 			this.overlayCloseHandler();
 			document.documentElement.classList.add('overlay-scroll-block');
+
 			const contentInner = document.querySelector('.reconsent-form') as HTMLElement;
 			contentInner.setAttribute('style', `height: ${contentInner.offsetHeight}px`)
 		});
@@ -64,17 +68,22 @@ export class Reconsent {
 	formSubmitHandler(form) {
 		form.addEventListener('submit', (e) => {
 			const overlayContentWrapper = document.querySelector('.o-overlay__content') as HTMLElement;
+			const confirmation = document.querySelector('.reconsent-confirmation') as HTMLElement;
+			const closeOverlay = document.querySelector('.o-overlay__close') as HTMLElement;
+
 			overlayContentWrapper.setAttribute('style', `height:auto;width:${overlayContentWrapper.offsetWidth}px`);
-			document.querySelector('.reconsent-confirmation').classList.remove('hidden');
+			confirmation.classList.remove('hidden');
 			form.classList.add('hidden');
-			document.querySelector('.o-overlay__close').innerHTML = '';
+			closeOverlay.innerHTML = '';
 			e.preventDefault();
 			e.stopPropagation();
 		});
 	}
 
 	overlayCloseHandler() {
-		document.querySelector('.consent-form__close').addEventListener('click', () => {
+		const closeConsentForm = document.querySelector('.consent-form__close') as HTMLAnchorElement;
+
+		closeConsentForm.addEventListener('click', () => {
 			this.consentOverlay.close();
 		});
 	}
