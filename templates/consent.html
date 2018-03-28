@@ -7,6 +7,7 @@
 </h1>
 {{/if}}
 <input type="hidden" name="formOfWordsVersion" value="{{formOfWords.id}}" />
+<input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
 <div class="consent-form__intro-text">
 	{{#if formOfWords.copy.straplineSmall}}
 		{{formOfWords.copy.straplineSmall}}
@@ -33,15 +34,12 @@
 			{{#each categoryConsents.channels}}
 			{{>n-profile-ui/templates/yes-no-switch
 				label=label
-				id=id
 				checkedYes=checkedYes
 				checkedNo=checkedNo
 				elementAttrs=elementAttrs
 				lbi=lbi
 				channel={{@key}}
 				category={{categoryName}}
-				fow=formOfWords.id
-				scope=formOfWords.scope
 			}}
 			{{/each}}
 		</div>
