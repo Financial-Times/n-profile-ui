@@ -19,12 +19,12 @@
   },
   "homepage": "https://github.com/Financial-Times/n-profile-ui#readme",
   "devDependencies": {
-    "@financial-times/n-gage": "^1.19.6",
-    "@types/node": "^9.4.7",
+    "@financial-times/n-gage": "^1.19.13",
+    "@types/node": "^9.6.0",
     "bower": "^1.8.2",
     "chai": "^4.1.2",
-    "mocha": "^5.0.4",
-    "typescript": "^2.7.2"
+    "mocha": "^5.0.5",
+    "typescript": "^2.8.1"
   },
   "engines": {
     "node": "^8.9.4"

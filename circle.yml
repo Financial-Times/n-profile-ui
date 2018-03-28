@@ -2,21 +2,12 @@ machine:
   node:
     version: 8.9.4
 
-dependencies:
-  override:
-    - make install
-compile:
-  override:
-    - make build
-test:
-  override:
-    - make test
-
 deployment:
   release:
     tag: /^v?\d+\.\d+\.\d+(?:-beta\.\d+)?$/
     owner: Financial-Times
     commands:
+      - make build
       - npm version --no-git-tag-version ${CIRCLE_TAG}
       - npm publish --access public
     
