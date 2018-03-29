@@ -48,11 +48,11 @@ function populateConsentModel(
 				(channelObj: FowAPI.Channel, key: number): FowAPI.Channel =>
 					consent
 						? transformInputChannel(
-								channelObj,
-								consent.hasOwnProperty('fow')
-									? consent
-									: consent[categoryObj.category][channelObj.channel]
-						  )
+							channelObj,
+							consent.hasOwnProperty('fow')
+								? consent
+								: consent[categoryObj.category][channelObj.channel]
+						)
 						: transformInputChannel(channelObj)
 			);
 			return categoryObj;

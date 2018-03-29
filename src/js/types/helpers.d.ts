@@ -7,13 +7,13 @@ export namespace ConsentModelData {
 		channel: string;
 		category: string;
 	}
-	
+
 	export interface Channel extends FowAPI.Channel {
 		checkedYes: boolean;
 		checkedNo: boolean;
 	}
-	
+
 	export interface KeyedValues {
 		[name: string]: string;
-	}	
+	}
 }

@@ -8,13 +8,13 @@ export namespace FowAPI {
 		channel: string;
 		lbi: boolean;
 	}
-	
+
 	export interface Category extends FreeForm {
 		label: string;
 		category: string;
 		channels: Array<Channel>;
 	}
-	
+
 	export interface Fow extends FreeForm {
 		scope: string;
 		id: string;

@@ -3,7 +3,7 @@ import expander from 'o-expander';
 const overlayContentSelector = '.consent-form-content';
 
 export class Reconsent {
-    consentOverlay: any;
+	public consentOverlay: any;
 
 	constructor({ flag }) {
 		if (flag === 'autoload')
