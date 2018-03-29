@@ -5,7 +5,7 @@ const overlayContentSelector = '.consent-form-content';
 export class Reconsent {
     consentOverlay: any;
 
-	constructor({flag}) {
+	constructor({ flag }) {
 		if (flag === 'autoload')
 			this.overlaySetup();
 		else if (flag === 'banner')
@@ -88,8 +88,3 @@ export class Reconsent {
 		});
 	}
 };
-
-
-
-
-
