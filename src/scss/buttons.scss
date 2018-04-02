@@ -4,9 +4,7 @@
 
 .consent-form__submit,
 .consent-form__close {
-	@include oButtons();
-	@include oButtonsSize(big);
-	@include oButtonsTheme(primary);
+	@include oButtons($size: big, $theme: primary);
 	display: block;
 	width: 100%;
 }

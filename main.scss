@@ -1,8 +1,5 @@
-@import 'o-colors/main';
-@import 'o-typography/main';
-@import 'o-forms/main';
-@import 'o-icons/main';
-@import 'o-buttons/main';
-@import 'o-expander/main';
-@import 'o-banner/main';
-@import 'src/scss/main';
+@import 'src/scss/common';
+
+@mixin Reconsent {
+	@import 'src/scss/reconsent';
+}

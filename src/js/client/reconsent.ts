@@ -1,15 +1,25 @@
 import Overlay from 'o-overlay';
 import expander from 'o-expander';
+import { UpdateConsentOnSave } from './update-on-save';
+import { ConsentOptions } from './consent';
+
 const overlayContentSelector = '.consent-form-content';
 
-export class Reconsent {
+interface ReconsentOptions extends ConsentOptions {
+	flag: string;
+}
+
+export class Reconsent extends UpdateConsentOnSave {
 	public consentOverlay: any;
 
-	constructor({ flag }) {
-		if (flag === 'autoload')
+	constructor(opts: ReconsentOptions) {
+		opts.checkValidityBeforeSubmit = opts.checkValidityBeforeSubmit || true;
+		super(opts);
+		if (opts.flag === 'autoload') {
 			this.overlaySetup();
-		else if (flag === 'banner')
+		} else if (opts.flag === 'banner') {
 			this.bannerSetup();
+		}
 	}
 
 	bannerSetup() {
@@ -36,8 +46,17 @@ export class Reconsent {
 			content.remove();
 
 			const form = document.querySelector('.reconsent-form') as HTMLElement;
-			this.formSubmitEnable(form);
-			this.formSubmitHandler(form);
+			this.onChange();
+			this.onSubmit(() => {
+				const overlayContentWrapper = document.querySelector('.o-overlay__content') as HTMLElement;
+				const confirmation = document.querySelector('.reconsent-confirmation') as HTMLElement;
+				const closeOverlay = document.querySelector('.o-overlay__close') as HTMLElement;
+	
+				overlayContentWrapper.setAttribute('style', `height:auto;width:${overlayContentWrapper.offsetWidth}px`);
+				confirmation.classList.remove('hidden');
+				form.classList.add('hidden');
+				closeOverlay.innerHTML = '';
+			});
 			this.overlayCloseHandler();
 			document.documentElement.classList.add('overlay-scroll-block');
 
@@ -46,37 +65,6 @@ export class Reconsent {
 		});
 		document.addEventListener('oOverlay.destroy', () => {
 			document.documentElement.classList.remove('overlay-scroll-block');
-		});
-	}
-
-	formSubmitEnable(form) {
-		const radios = form.querySelectorAll('.consent-form__radio-button');
-		const submitButton = form.querySelector('.consent-form__submit');
-		radios.forEach((radio) => {
-			radio.addEventListener('change', () => {
-				let enableSubmit = true;
-				form.querySelectorAll('.consent-form__radio-button').forEach(radio => {
-					if (!radio.checkValidity())
-						enableSubmit = false;
-				});
-				if (enableSubmit)
-					submitButton.removeAttribute('disabled');
-			});
-		});
-	}
-
-	formSubmitHandler(form) {
-		form.addEventListener('submit', (e) => {
-			const overlayContentWrapper = document.querySelector('.o-overlay__content') as HTMLElement;
-			const confirmation = document.querySelector('.reconsent-confirmation') as HTMLElement;
-			const closeOverlay = document.querySelector('.o-overlay__close') as HTMLElement;
-
-			overlayContentWrapper.setAttribute('style', `height:auto;width:${overlayContentWrapper.offsetWidth}px`);
-			confirmation.classList.remove('hidden');
-			form.classList.add('hidden');
-			closeOverlay.innerHTML = '';
-			e.preventDefault();
-			e.stopPropagation();
 		});
 	}
 

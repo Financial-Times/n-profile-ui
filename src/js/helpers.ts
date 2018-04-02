@@ -4,7 +4,9 @@ import { ConsentModelData } from './types/helpers';
 
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/g;
 
-function extractMetaFromString(name: string): ConsentModelData.Radio | null {
+export function extractMetaFromString(
+	name: string
+): ConsentModelData.Radio | null {
 	// extracts channel, category and lbi from strings like:
 	// lbi-categoryName-channelName
 	// consent-categoryName-channelName
@@ -21,7 +23,7 @@ function extractMetaFromString(name: string): ConsentModelData.Radio | null {
 	};
 }
 
-function transformInputChannel(
+export function decorateChannel(
 	fowChannel: FowAPI.Channel,
 	consentChannel?: ConsentAPI.Channel
 ): ConsentModelData.Channel {
@@ -36,7 +38,7 @@ function transformInputChannel(
 	});
 }
 
-function populateConsentModel(
+export function populateConsentModel(
 	fow: FowAPI.Fow,
 	consent?: ConsentAPI.Record | ConsentAPI.Channel
 ): FowAPI.Fow {
@@ -47,13 +49,13 @@ function populateConsentModel(
 			categoryObj.channels.forEach(
 				(channelObj: FowAPI.Channel, key: number): FowAPI.Channel =>
 					consent
-						? transformInputChannel(
+						? decorateChannel(
 							channelObj,
 							consent.hasOwnProperty('fow')
 								? consent
 								: consent[categoryObj.category][channelObj.channel]
 						)
-						: transformInputChannel(channelObj)
+						: decorateChannel(channelObj)
 			);
 			return categoryObj;
 		}
@@ -61,7 +63,7 @@ function populateConsentModel(
 	return fow;
 }
 
-function validateConsent(
+export function validateConsent(
 	fow: string | FowAPI.Fow,
 	scope: string,
 	category: string,
@@ -91,10 +93,10 @@ function validateConsent(
 	return true;
 }
 
-function buildConsentRecord(
-	fow: string | FowAPI.Fow,
-	scope: string,
-	keyedConsents: ConsentModelData.KeyedValues
+export function buildConsentRecord(
+	fow: string | FowAPI.Fow | null,
+	keyedConsents: ConsentModelData.KeyedValues,
+	scope: string = 'FTPINK'
 ): ConsentAPI.Record {
 	// builds a consent record
 	// based on a form of words, scope
@@ -103,10 +105,15 @@ function buildConsentRecord(
 	// 	lbi-categoryName-channelName: 'yes',
 	// 	consent-categoryName-channelName: 'no'
 	// }
-	let consentRecord = {};
-	const fowId: string = typeof fow === 'string' ? fow : fow.id;
 
-	if (!fowId) {
+	// consents will be validated against form of words
+	// if fow is a form of words object
+	let consentRecord = {};
+	const { id: fowId } = typeof fow === 'string' || !fow
+		? { id: fow }
+		: fow;
+
+	if (!fow || !fowId) {
 		throw new Error('Missing form of words (fow) id');
 	}
 	if (!scope) {
