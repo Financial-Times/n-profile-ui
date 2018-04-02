@@ -51,7 +51,7 @@ export class Reconsent extends UpdateConsentOnSave {
 				const overlayContentWrapper = document.querySelector('.o-overlay__content') as HTMLElement;
 				const confirmation = document.querySelector('.reconsent-confirmation') as HTMLElement;
 				const closeOverlay = document.querySelector('.o-overlay__close') as HTMLElement;
-	
+
 				overlayContentWrapper.setAttribute('style', `height:auto;width:${overlayContentWrapper.offsetWidth}px`);
 				confirmation.classList.remove('hidden');
 				form.classList.add('hidden');

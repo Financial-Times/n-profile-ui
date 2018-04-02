@@ -7,7 +7,7 @@ export interface ConsentOptions {
 }
 
 export interface ConsentCallback {
-    (consent?: ConsentAPI.Record, e?: Event): void;
+	(consent?: ConsentAPI.Record, e?: Event): void;
 }
 
 export class ConsentForm {
