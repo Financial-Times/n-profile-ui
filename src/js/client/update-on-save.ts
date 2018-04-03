@@ -26,7 +26,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 	}
 
 	public checkValidity(): boolean {
-		for (let radio of this.radios) {
+		for (const radio of this.radios) {
 			if (!radio.checkValidity()) {
 				return false;
 			}
