@@ -13,7 +13,6 @@ export class Reconsent extends UpdateConsentOnSave {
 	public consentOverlay: any;
 
 	constructor(opts: ReconsentOptions) {
-		opts.checkValidityBeforeSubmit = opts.checkValidityBeforeSubmit || true;
 		super(opts);
 		if (opts.flag === 'autoload') {
 			this.overlaySetup();
