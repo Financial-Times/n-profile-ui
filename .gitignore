@@ -7,7 +7,6 @@ bower_components
 package-lock.json
 node_modules
 *.env*
-dist
 public
 
 .eslintrc.js
