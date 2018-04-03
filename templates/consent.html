@@ -16,31 +16,23 @@
 </div>
 <fieldset name="consent" class="consent-form">
 	<legend class="o-normalise-visually-hidden">Marketing consent</legend>
-	{{#each formOfWords.consents as |categoryConsents categoryName|}}
+	{{#each formOfWords.consents}}
 	<div class="consent-form__section">
 		{{#if isSubsection}}
 		<h3 class="consent-form__heading-level-2 consent-form__no-margin-bottom">
-			{{categoryConsents.heading}}
+			{{heading}}
 		</h3>
 		{{else}}
 		<h2 class="consent-form__heading-level-2 consent-form__no-margin-bottom">
-			{{categoryConsents.heading}}
+			{{heading}}
 		</h2>
 		{{/if}}
 		<div class="consent-form__section-label">
-			{{categoryConsents.label}}
+			{{label}}
 		</div>
 		<div class="consent-form__switches-group">
-			{{#each categoryConsents.channels}}
-			{{>n-profile-ui/templates/yes-no-switch
-				label=label
-				checkedYes=checkedYes
-				checkedNo=checkedNo
-				elementAttrs=elementAttrs
-				lbi=lbi
-				channel={{@key}}
-				category={{categoryName}}
-			}}
+			{{#each channels}}
+			{{>n-profile-ui/templates/yes-no-switch category=../category}}
 			{{/each}}
 		</div>
 	</div>

@@ -1,5 +1,5 @@
-import Overlay from 'o-overlay';
-import expander from 'o-expander';
+// import Overlay from 'o-overlay';
+// import expander from 'o-expander';
 import { UpdateConsentOnSave } from './update-on-save';
 import { ConsentOptions } from './consent';
 
@@ -33,39 +33,41 @@ export class Reconsent extends UpdateConsentOnSave {
 		});
 	}
 
+	// TODO: fix bower resolution in demos and uncomment this
+	// reconsent component not in use pre 25th May 2017
 	overlaySetup() {
-		this.consentOverlay = new Overlay('overlay-gdpr-consent', {
-			src: overlayContentSelector,
-			modal: true,
-			customclose: '.o-overlay__close'
-		});
-		this.consentOverlay.open();
-		document.addEventListener('oOverlay.ready', () => {
-			expander.init();
-			const content = document.querySelector(overlayContentSelector) as HTMLElement;
-			content.remove();
+		// this.consentOverlay = new Overlay('overlay-gdpr-consent', {
+		// 	src: overlayContentSelector,
+		// 	modal: true,
+		// 	customclose: '.o-overlay__close'
+		// });
+		// this.consentOverlay.open();
+		// document.addEventListener('oOverlay.ready', () => {
+		// 	expander.init();
+		// 	const content = document.querySelector(overlayContentSelector) as HTMLElement;
+		// 	content.remove();
 
-			const form = document.querySelector('.reconsent-form') as HTMLElement;
-			this.onChange();
-			this.onSubmit(() => {
-				const overlayContentWrapper = document.querySelector('.o-overlay__content') as HTMLElement;
-				const confirmation = document.querySelector('.reconsent-confirmation') as HTMLElement;
-				const closeOverlay = document.querySelector('.o-overlay__close') as HTMLElement;
+		// 	const form = document.querySelector('.reconsent-form') as HTMLElement;
+		// 	this.onChange();
+		// 	this.onSubmit(() => {
+		// 		const overlayContentWrapper = document.querySelector('.o-overlay__content') as HTMLElement;
+		// 		const confirmation = document.querySelector('.reconsent-confirmation') as HTMLElement;
+		// 		const closeOverlay = document.querySelector('.o-overlay__close') as HTMLElement;
 
-				overlayContentWrapper.setAttribute('style', `height:auto;width:${overlayContentWrapper.offsetWidth}px`);
-				confirmation.classList.remove('hidden');
-				form.classList.add('hidden');
-				closeOverlay.innerHTML = '';
-			});
-			this.overlayCloseHandler();
-			document.documentElement.classList.add('overlay-scroll-block');
+		// 		overlayContentWrapper.setAttribute('style', `height:auto;width:${overlayContentWrapper.offsetWidth}px`);
+		// 		confirmation.classList.remove('hidden');
+		// 		form.classList.add('hidden');
+		// 		closeOverlay.innerHTML = '';
+		// 	});
+		// 	this.overlayCloseHandler();
+		// 	document.documentElement.classList.add('overlay-scroll-block');
 
-			const contentInner = document.querySelector('.reconsent-form') as HTMLElement;
-			contentInner.setAttribute('style', `height: ${contentInner.offsetHeight}px`)
-		});
-		document.addEventListener('oOverlay.destroy', () => {
-			document.documentElement.classList.remove('overlay-scroll-block');
-		});
+		// 	const contentInner = document.querySelector('.reconsent-form') as HTMLElement;
+		// 	contentInner.setAttribute('style', `height: ${contentInner.offsetHeight}px`)
+		// });
+		// document.addEventListener('oOverlay.destroy', () => {
+		// 	document.documentElement.classList.remove('overlay-scroll-block');
+		// });
 	}
 
 	overlayCloseHandler() {

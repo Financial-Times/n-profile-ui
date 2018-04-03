@@ -4,7 +4,7 @@
   "description": "UI components for profile / consent",
   "main": "dist/server/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "make test",
     "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "commit": "commit-wizard",
@@ -22,10 +22,19 @@
   "homepage": "https://github.com/Financial-Times/n-profile-ui#readme",
   "devDependencies": {
     "@financial-times/n-gage": "^1.19.13",
+    "@financial-times/n-internal-tool": "^2.2.4",
+    "@types/express": "^4.11.1",
     "@types/isomorphic-fetch": "0.0.34",
     "@types/node": "^9.6.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "bower": "^1.8.4",
-    "typescript": "^2.8.1"
+    "chalk": "^2.3.2",
+    "node-sass": "^4.8.3",
+    "pa11y-ci": "^2.0.1",
+    "typescript": "^2.8.1",
+    "webpack": "^3.11.0"
   },
   "engines": {
     "node": "^8.9.4"

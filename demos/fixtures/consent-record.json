@@ -1,0 +1,24 @@
+{
+  "marketing": {
+    "byEmail": {
+      "status": true,
+      "lbi": true,
+      "fow": "string",
+      "source": "string"
+    },
+    "byPost": {
+      "status": true,
+      "lbi": true,
+      "fow": "string",
+      "source": "string"
+    }
+  },
+  "categoryName": {
+    "channelName": {
+      "status": true,
+      "lbi": true,
+      "fow": "string",
+      "source": "string"
+    }
+  }
+}

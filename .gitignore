@@ -8,6 +8,8 @@ package-lock.json
 node_modules
 *.env*
 dist
+public
 
 .eslintrc.js
 .editorconfig
+**/*/.DS_Store

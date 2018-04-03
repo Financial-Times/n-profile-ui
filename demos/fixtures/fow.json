@@ -1,0 +1,58 @@
+{
+  "copy": {
+    "heading1": "We're improving how you stay up to date with the FT.",
+    "straplineHeading": "Choose how we contact you.",
+    "dataUseLink": "How we use your data"
+  },
+  "consents": [
+    {
+      "heading": "Do you want top stories & features?",
+      "label":
+        "Get the most from The Financial Times with personalised special reports, recommended reads and latest feature announcements.",
+      "category": "enhancement",
+      "channels": [
+        {
+          "label": "By email",
+          "channel": "byEmail",
+          "lbi": true
+        },
+        {
+          "label": "By phone call",
+          "channel": "byPhoneCall",
+          "lbi": false
+        },
+        {
+          "label": "By post",
+          "channel": "byPost",
+          "lbi": false
+        }
+      ]
+    },
+    {
+      "heading": "Do you want invites & offers from the FT?",
+      "label":
+        "Receive exclusive personalised event invitations, carefully-curated offers and promotions from The Financial Times.",
+      "category": "marketing",
+      "channels": [
+        {
+          "label": "By email",
+          "channel": "byEmail",
+          "lbi": true
+        },
+        {
+          "label": "By phone call",
+          "channel": "byPhoneCall",
+          "lbi": false
+        },
+        {
+          "label": "By post",
+          "channel": "byPost",
+          "lbi": false
+        }
+      ]
+    }
+  ],
+  "name": "consentPreferences",
+  "scope": "FTPINK",
+  "id": "consentPreferences/v1"
+}

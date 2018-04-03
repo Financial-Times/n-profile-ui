@@ -1,0 +1,52 @@
+@import 'n-ui-foundations/main';
+@import '../../main.scss';
+
+.demo-header {
+	@include oTypographySansBold($scale: 2);
+	border-bottom: 5px solid getColor('slate');
+	color: getColor('slate');
+	margin-bottom: 2em;
+}
+
+.demo-wrapper {
+	margin-bottom: 2em;
+}
+
+.demo-consent__output-console {
+	margin: 1em 0 0 2em;
+	padding: 1em;
+	@include oTypographySans($scale: 0);
+	background-color: getColor('slate');
+	color: getColor('white');
+
+	h2 {
+		@include oTypographySansBold($scale: 1);
+		margin-top: 0;
+	}
+
+	button {
+		position: absolute;
+		top: 3em;
+		right: 1em;
+	}
+}
+
+.demo-consent__output-results {
+	p {
+		margin-bottom: 0;
+	}
+
+	pre {
+		font-size: 0.8em;
+		margin-top: 0;
+		overflow-x: scroll;
+		background-color: getColor('sky');
+		color: getColor('black');
+	}
+}
+
+@media only screen and (max-width: 740px) {
+	.demo-consent__output-console {
+		margin-left: 0;
+	}
+}

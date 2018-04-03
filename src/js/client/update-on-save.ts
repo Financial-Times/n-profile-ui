@@ -5,7 +5,11 @@ import { buildConsentRecord } from '../helpers';
 export class UpdateConsentOnSave extends ConsentForm {
 	constructor(opts: ConsentOptions) {
 		super(opts);
-		if (this.options.checkValidityBeforeSubmit && this.submitButton) {
+		if (
+			this.submitButton &&
+			this.options.checkValidityBeforeSubmit &&
+			!this.checkValidity()
+		) {
 			this.submitButton.disabled = true;
 		}
 	}
@@ -21,7 +25,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 		return buildConsentRecord(this.fow, consentObject, this.scope);
 	}
 
-	private checkValidity(): boolean {
+	public checkValidity(): boolean {
 		for (let radio of this.radios) {
 			if (!radio.checkValidity()) {
 				return false;
@@ -53,7 +57,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 	// TODO: Validation messages on failed update
 	public onSubmit(callback: ConsentCallback) {
 		if (this.submitButton) {
-			this.submitButton.addEventListener('submit', e => {
+			this.submitButton.addEventListener('click', e => {
 				e.preventDefault();
 				e.stopPropagation();
 				callback(this.values, e);
