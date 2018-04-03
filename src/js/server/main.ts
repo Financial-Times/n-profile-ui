@@ -18,6 +18,16 @@ export async function getFormOfWords(
 	return await fow.json();
 }
 
+export function getConsentRecord(
+	uuid: string,
+	source: string,
+	mode: string = 'PROD',
+	scope: string = 'FTPINK'
+): Promise<ConsentAPI.Record> {
+	const api = new UserConsent(uuid, source, mode, scope);
+	return api.getConsentRecord();
+}
+
 export function saveConsent(
 	uuid: string,
 	consentRecord: ConsentAPI.Record,

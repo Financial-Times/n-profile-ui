@@ -4,6 +4,12 @@ import { ConsentModelData } from "./types/helpers";
 
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
 
+export function isConsentField(
+	name: string
+): boolean {
+	return Rx.test(name);
+}
+
 export function extractMetaFromString(
 	name: string
 ): ConsentModelData.Radio | null {
