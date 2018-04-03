@@ -59,6 +59,7 @@ export function decorateChannel(
 
 export function populateConsentModel(
 	fow: FowAPI.Fow,
+	source: string,
 	consent?: ConsentAPI.Record | ConsentAPI.Channel | null,
 	elementAttrs?: Array<ElementAttr>
 ): FowAPI.Fow {
@@ -69,6 +70,7 @@ export function populateConsentModel(
 			? consent
 			: (consent[category] || {})[channel];
 
+	fow.source = source;
 	fow.consents = fow.consents.map(
 		(categoryObj: FowAPI.Category): FowAPI.Category => {
 			categoryObj.channels.forEach(
@@ -90,18 +92,15 @@ export function populateConsentModel(
 
 export function validateConsent(
 	fow: string | FowAPI.Fow,
-	scope: string,
 	category: string,
-	channel: string
+	channel: string,
+	source: string
 ): boolean {
 	// checks that the scope, category and channel
 	// match the form of words
 	// if fow is an object
 	if (typeof fow === 'string') {
 		return true;
-	}
-	if (scope !== fow.scope) {
-		throw new Error(`Scope ${scope} does not match form of words`);
 	}
 	const categoryObj = fow.consents.find(
 		categoryObj => categoryObj.category === category
@@ -121,7 +120,7 @@ export function validateConsent(
 export function buildConsentRecord(
 	fow: string | FowAPI.Fow | null,
 	keyedConsents: ConsentModelData.KeyedValues,
-	scope: string = 'FTPINK'
+	source?: string
 ): ConsentAPI.Record {
 	// builds a consent record
 	// based on a form of words, scope
@@ -139,20 +138,20 @@ export function buildConsentRecord(
 	if (!fow || !fowId) {
 		throw new Error('Missing form of words (fow) id');
 	}
-	if (!scope) {
-		throw new Error('Missing scope');
+	if (!source) {
+		throw new Error('Missing consent source');
 	}
 
 	for (let [key, value] of Object.entries(keyedConsents)) {
 		const consent = extractMetaFromString(key);
 		if (consent) {
 			const { category, channel, lbi } = consent;
-			if (validateConsent(fow, scope, category, channel)) {
+			if (validateConsent(fow, category, channel, source)) {
 				consentRecord[category] = consentRecord[category] || {};
 				consentRecord[category][channel] = {
 					status: value === 'yes',
 					lbi,
-					scope,
+					source,
 					fow: fowId
 				};
 			}

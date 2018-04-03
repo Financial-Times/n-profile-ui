@@ -31,6 +31,7 @@ function render(
 			title,
 			formOfWords: helpers.populateConsentModel(
 				fow,
+				'n-profile-ui-demo',
 				consentRecord,
 				elementAttrs
 			),

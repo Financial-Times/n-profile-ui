@@ -22,7 +22,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 			consentObject[radio.name] = radio.value;
 		});
 
-		return buildConsentRecord(this.fow, consentObject, this.scope);
+		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
 
 	public checkValidity(): boolean {

@@ -14,6 +14,7 @@ export class ConsentForm {
 	public element: HTMLElement;
 	public fow: string;
 	public scope: string;
+	public source: string;
 	public submitButton: HTMLButtonElement | null;
 	public radios: Array<HTMLInputElement>;
 	protected options: ConsentOptions;
@@ -30,6 +31,12 @@ export class ConsentForm {
 			throw new Error('Form of words field missing');
 		}
 		this.fow = fow;
+
+		const source = this.getValue('consentSource');
+		if (!source) {
+			throw new Error('Consent source field missing');
+		}
+		this.source = source;
 
 		this.scope = this.getValue('formOfWordsScope') || 'FTPINK';
 		this.radios = this.getRadios();
@@ -53,6 +60,6 @@ export class ConsentForm {
 
 	protected consentFromRadio(radio: HTMLInputElement): ConsentAPI.Record {
 		const consentObject = { [radio.name]: radio.value };
-		return buildConsentRecord(this.fow, consentObject, this.scope);
+		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
 }
