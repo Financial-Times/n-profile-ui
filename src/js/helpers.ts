@@ -1,6 +1,6 @@
-import { FowAPI } from "./types/fow-api";
-import { ConsentAPI } from "./types/consent-api";
-import { ConsentModelData } from "./types/helpers";
+import { FowAPI } from './types/fow-api';
+import { ConsentAPI } from './types/consent-api';
+import { ConsentModelData } from './types/helpers';
 
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
 
@@ -21,7 +21,7 @@ export function extractMetaFromString(
 		return null;
 	}
 	const [, fieldType, category, channel] = match;
-	const lbi = fieldType === "lbi";
+	const lbi = fieldType === 'lbi';
 	return {
 		lbi,
 		channel,
@@ -65,7 +65,7 @@ export function populateConsentModel(
 	// returns a populated model for the consent view
 	// based on a FoW and a consent record or unit
 	const getConsent = (category: string, channel: string) =>
-		!consent || consent.hasOwnProperty("fow")
+		!consent || consent.hasOwnProperty('fow')
 			? consent
 			: (consent[category] || {})[channel];
 
@@ -97,7 +97,7 @@ export function validateConsent(
 	// checks that the scope, category and channel
 	// match the form of words
 	// if fow is an object
-	if (typeof fow === "string") {
+	if (typeof fow === 'string') {
 		return true;
 	}
 	if (scope !== fow.scope) {
@@ -121,7 +121,7 @@ export function validateConsent(
 export function buildConsentRecord(
 	fow: string | FowAPI.Fow | null,
 	keyedConsents: ConsentModelData.KeyedValues,
-	scope: string = "FTPINK"
+	scope: string = 'FTPINK'
 ): ConsentAPI.Record {
 	// builds a consent record
 	// based on a form of words, scope
@@ -134,13 +134,13 @@ export function buildConsentRecord(
 	// consents will be validated against form of words
 	// if fow is a form of words object
 	let consentRecord = {};
-	const { id: fowId } = typeof fow === "string" || !fow ? { id: fow } : fow;
+	const { id: fowId } = typeof fow === 'string' || !fow ? { id: fow } : fow;
 
 	if (!fow || !fowId) {
-		throw new Error("Missing form of words (fow) id");
+		throw new Error('Missing form of words (fow) id');
 	}
 	if (!scope) {
-		throw new Error("Missing scope");
+		throw new Error('Missing scope');
 	}
 
 	for (let [key, value] of Object.entries(keyedConsents)) {
@@ -150,7 +150,7 @@ export function buildConsentRecord(
 			if (validateConsent(fow, scope, category, channel)) {
 				consentRecord[category] = consentRecord[category] || {};
 				consentRecord[category][channel] = {
-					status: value === "yes",
+					status: value === 'yes',
 					lbi,
 					scope,
 					fow: fowId
