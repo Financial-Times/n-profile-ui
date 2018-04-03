@@ -4,8 +4,6 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
-IGNORE_A11Y = true;
-
 build:
 	tsc
 
