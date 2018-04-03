@@ -5,7 +5,8 @@ node_modules/@financial-times/n-gage/index.mk:
 -include node_modules/@financial-times/n-gage/index.mk
 
 build:
-	tsc
+	rm -rf dist
+	tsc 
 
 watch:
 	tsc -w

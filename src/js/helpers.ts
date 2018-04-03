@@ -73,8 +73,8 @@ export function populateConsentModel(
 	fow.source = source;
 	fow.consents = fow.consents.map(
 		(categoryObj: FowAPI.Category): FowAPI.Category => {
-			categoryObj.channels.forEach(
-				(channelObj: FowAPI.Channel, key: number): FowAPI.Channel =>
+			categoryObj.channels.map(
+				(channelObj: FowAPI.Channel): FowAPI.Channel =>
 					decorateChannel(
 						channelObj,
 						getConsent(
@@ -93,8 +93,7 @@ export function populateConsentModel(
 export function validateConsent(
 	fow: string | FowAPI.Fow,
 	category: string,
-	channel: string,
-	source: string
+	channel: string
 ): boolean {
 	// checks that the scope, category and channel
 	// match the form of words
@@ -111,7 +110,7 @@ export function validateConsent(
 	const validChannel = categoryObj.channels.some(
 		channelObj => channelObj.channel === channel
 	);
-	if (!categoryObj) {
+	if (!validChannel) {
 		throw new Error(`Channel ${channel} does not match form of words`);
 	}
 	return true;
@@ -146,7 +145,7 @@ export function buildConsentRecord(
 		const consent = extractMetaFromString(key);
 		if (consent) {
 			const { category, channel, lbi } = consent;
-			if (validateConsent(fow, category, channel, source)) {
+			if (validateConsent(fow, category, channel)) {
 				consentRecord[category] = consentRecord[category] || {};
 				consentRecord[category][channel] = {
 					status: value === 'yes',

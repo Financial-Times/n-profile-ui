@@ -3,7 +3,7 @@
 import { UpdateConsentOnSave } from './update-on-save';
 import { ConsentOptions } from './consent';
 
-const overlayContentSelector = '.consent-form-content';
+// const overlayContentSelector = '.consent-form-content';
 
 interface ReconsentOptions extends ConsentOptions {
 	flag: string;

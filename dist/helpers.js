@@ -1,11 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
-function isConsentField(name) {
+function isConsentField (name) {
     return Rx.test(name);
 }
 exports.isConsentField = isConsentField;
-function extractMetaFromString(name) {
+function extractMetaFromString (name) {
     const match = Rx.exec(name);
     if (!match) {
         return null;
@@ -19,7 +19,7 @@ function extractMetaFromString(name) {
     };
 }
 exports.extractMetaFromString = extractMetaFromString;
-function decorateChannel(fowChannel, consentChannel, elementAttrs) {
+function decorateChannel (fowChannel, consentChannel, elementAttrs) {
     let checkedYes = false;
     let checkedNo = false;
     if (consentChannel) {
@@ -36,19 +36,19 @@ function decorateChannel(fowChannel, consentChannel, elementAttrs) {
     });
 }
 exports.decorateChannel = decorateChannel;
-function populateConsentModel(fow, source, consent, elementAttrs) {
+function populateConsentModel (fow, source, consent, elementAttrs) {
     const getConsent = (category, channel) => !consent || consent.hasOwnProperty('fow')
         ? consent
         : (consent[category] || {})[channel];
     fow.source = source;
     fow.consents = fow.consents.map((categoryObj) => {
-        categoryObj.channels.forEach((channelObj, key) => decorateChannel(channelObj, getConsent(categoryObj.category, channelObj.channel), elementAttrs));
+        categoryObj.channels.map((channelObj) => decorateChannel(channelObj, getConsent(categoryObj.category, channelObj.channel), elementAttrs));
         return categoryObj;
     });
     return fow;
 }
 exports.populateConsentModel = populateConsentModel;
-function validateConsent(fow, category, channel, source) {
+function validateConsent (fow, category, channel) {
     if (typeof fow === 'string') {
         return true;
     }
@@ -57,13 +57,13 @@ function validateConsent(fow, category, channel, source) {
         throw new Error(`Category ${category} does not match form of words`);
     }
     const validChannel = categoryObj.channels.some(channelObj => channelObj.channel === channel);
-    if (!categoryObj) {
+    if (!validChannel) {
         throw new Error(`Channel ${channel} does not match form of words`);
     }
     return true;
 }
 exports.validateConsent = validateConsent;
-function buildConsentRecord(fow, keyedConsents, source) {
+function buildConsentRecord (fow, keyedConsents, source) {
     let consentRecord = {};
     const { id: fowId } = typeof fow === 'string' || !fow ? { id: fow } : fow;
     if (!fow || !fowId) {
@@ -76,7 +76,7 @@ function buildConsentRecord(fow, keyedConsents, source) {
         const consent = extractMetaFromString(key);
         if (consent) {
             const { category, channel, lbi } = consent;
-            if (validateConsent(fow, category, channel, source)) {
+            if (validateConsent(fow, category, channel)) {
                 consentRecord[category] = consentRecord[category] || {};
                 consentRecord[category][channel] = {
                     status: value === 'yes',
