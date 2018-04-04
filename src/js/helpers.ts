@@ -34,12 +34,22 @@ interface ElementAttr {
 	value?: string | boolean | number;
 }
 
+interface DecorateChannelArgs {
+	fowChannel: FowAPI.Channel;
+	consentChannel?: ConsentAPI.Channel;
+	elementAttrs?: Array<ElementAttr>;
+}
+
 export function decorateChannel(
-	fowChannel: FowAPI.Channel,
-	consentChannel?: ConsentAPI.Channel,
-	elementAttrs?: Array<ElementAttr>
+	options: DecorateChannelArgs
 ): ConsentModelData.Channel {
 	// adds checkedYes and checkedNo to a FoW channel object
+	let {
+		fowChannel,
+		consentChannel,
+		elementAttrs
+	 } = options;
+
 	let checkedYes: boolean = false;
 	let checkedNo: boolean = false;
 
@@ -57,14 +67,25 @@ export function decorateChannel(
 	});
 }
 
+interface PopulateConsentModelArgs {
+	fow: FowAPI.Fow;
+	source: string;
+	consent?: ConsentAPI.Record | ConsentAPI.Channel | null;
+	elementAttrs?: Array<ElementAttr>;
+}
+
 export function populateConsentModel(
-	fow: FowAPI.Fow,
-	source: string,
-	consent?: ConsentAPI.Record | ConsentAPI.Channel | null,
-	elementAttrs?: Array<ElementAttr>
+	options: PopulateConsentModelArgs
 ): FowAPI.Fow {
 	// returns a populated model for the consent view
 	// based on a FoW and a consent record or unit
+	let {
+		fow,
+		source,
+		consent,
+		elementAttrs
+	} = options;
+
 	const getConsent = (category: string, channel: string) =>
 		!consent || consent.hasOwnProperty('fow')
 			? consent
@@ -75,14 +96,14 @@ export function populateConsentModel(
 		(categoryObj: FowAPI.Category): FowAPI.Category => {
 			categoryObj.channels.map(
 				(channelObj: FowAPI.Channel): FowAPI.Channel =>
-					decorateChannel(
-						channelObj,
-						getConsent(
+					decorateChannel({
+						fowChannel: channelObj,
+						consentChannel: getConsent(
 							categoryObj.category,
 							channelObj.channel
 						),
 						elementAttrs
-					)
+					})
 			);
 			return categoryObj;
 		}

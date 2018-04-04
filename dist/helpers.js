@@ -1,11 +1,11 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
-function isConsentField (name) {
+function isConsentField(name) {
     return Rx.test(name);
 }
 exports.isConsentField = isConsentField;
-function extractMetaFromString (name) {
+function extractMetaFromString(name) {
     const match = Rx.exec(name);
     if (!match) {
         return null;
@@ -19,7 +19,8 @@ function extractMetaFromString (name) {
     };
 }
 exports.extractMetaFromString = extractMetaFromString;
-function decorateChannel (fowChannel, consentChannel, elementAttrs) {
+function decorateChannel(options) {
+    let { fowChannel, consentChannel, elementAttrs } = options;
     let checkedYes = false;
     let checkedNo = false;
     if (consentChannel) {
@@ -36,19 +37,24 @@ function decorateChannel (fowChannel, consentChannel, elementAttrs) {
     });
 }
 exports.decorateChannel = decorateChannel;
-function populateConsentModel (fow, source, consent, elementAttrs) {
+function populateConsentModel(options) {
+    let { fow, source, consent, elementAttrs } = options;
     const getConsent = (category, channel) => !consent || consent.hasOwnProperty('fow')
         ? consent
         : (consent[category] || {})[channel];
     fow.source = source;
     fow.consents = fow.consents.map((categoryObj) => {
-        categoryObj.channels.map((channelObj) => decorateChannel(channelObj, getConsent(categoryObj.category, channelObj.channel), elementAttrs));
+        categoryObj.channels.map((channelObj) => decorateChannel({
+            fowChannel: channelObj,
+            consentChannel: getConsent(categoryObj.category, channelObj.channel),
+            elementAttrs
+        }));
         return categoryObj;
     });
     return fow;
 }
 exports.populateConsentModel = populateConsentModel;
-function validateConsent (fow, category, channel) {
+function validateConsent(fow, category, channel) {
     if (typeof fow === 'string') {
         return true;
     }
@@ -63,7 +69,7 @@ function validateConsent (fow, category, channel) {
     return true;
 }
 exports.validateConsent = validateConsent;
-function buildConsentRecord (fow, keyedConsents, source) {
+function buildConsentRecord(fow, keyedConsents, source) {
     let consentRecord = {};
     const { id: fowId } = typeof fow === 'string' || !fow ? { id: fow } : fow;
     if (!fow || !fowId) {

@@ -29,12 +29,12 @@ function render(
 	return function(req: Request, res: Response): void {
 		res.render(`demo-${title}`, {
 			title,
-			formOfWords: helpers.populateConsentModel(
+			formOfWords: helpers.populateConsentModel({
 				fow,
-				'n-profile-ui-demo',
-				consentRecord,
+				source: 'n-profile-ui-demo',
+				consent: consentRecord,
 				elementAttrs
-			),
+			}),
 			showHeading: true,
 			showSubmitButton: true
 		});
