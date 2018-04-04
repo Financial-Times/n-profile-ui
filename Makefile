@@ -32,7 +32,7 @@ build-demo:
 	@$(DONE)
 
 demo: build-demo
-	npx ts-node demos/app.ts
+	ts-node demos/app.ts
 
 a11y:
 	@node .pa11yci.js
