@@ -5,16 +5,16 @@
 		<span class="consent-form__heading-strapline">{{formOfWords.copy.straplineHeading}}</span>
 	{{/if}}
 </h1>
-{{/if}}
-<input type="hidden" name="formOfWordsId" value="{{formOfWords.id}}" />
-<input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
-<input type="hidden" name="consentSource" value="{{formOfWords.source}}" />
 <div class="consent-form__intro-text">
 	{{#if formOfWords.copy.straplineSmall}}
 		{{formOfWords.copy.straplineSmall}}
 	{{/if}}
 	<a class="consent-form-link-external" href="https://help.ft.com/help/legal-privacy/privacy/" target="_blank">{{formOfWords.copy.dataUseLink}}</a>
 </div>
+{{/if}}
+<input type="hidden" name="formOfWordsId" value="{{formOfWords.id}}" />
+<input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
+<input type="hidden" name="consentSource" value="{{formOfWords.source}}" />
 <fieldset name="consent" class="consent-form">
 	<legend class="o-normalise-visually-hidden">Marketing consent</legend>
 	{{#each formOfWords.consents}}
