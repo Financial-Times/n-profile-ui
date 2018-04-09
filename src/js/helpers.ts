@@ -152,7 +152,7 @@ export function buildConsentRecord(
 
 	// consents will be validated against form of words
 	// if fow is a form of words object
-	let consentRecord = {};
+	let consentRecord;
 	const { id: fowId } = typeof fow === 'string' || !fow ? { id: fow } : fow;
 
 	if (!fow || !fowId) {
@@ -167,6 +167,7 @@ export function buildConsentRecord(
 		if (consent) {
 			const { category, channel, lbi } = consent;
 			if (validateConsent(fow, category, channel)) {
+				consentRecord = consentRecord || {};
 				consentRecord[category] = consentRecord[category] || {};
 				consentRecord[category][channel] = {
 					status: value === 'yes',
@@ -177,5 +178,9 @@ export function buildConsentRecord(
 			}
 		}
 	}
+	if (!source) {
+		throw new Error('Found no valid consents');
+	}
+
 	return consentRecord;
 }
