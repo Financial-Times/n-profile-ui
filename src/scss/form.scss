@@ -21,7 +21,11 @@
 }
 
 .consent-form__section {
-	margin-bottom: oTypographySpacingSize(7);
+	margin-bottom: oTypographySpacingSize(8);
+}
+
+.consent-form__intro-text {
+	margin-bottom: oTypographySpacingSize(6)
 }
 
 .consent-form__switches-group {
@@ -68,6 +72,11 @@
 	font-weight: normal;
 	padding-top: 3px;
 	padding-bottom: 5px;
+}
+
+.consent-form__label-bold {
+	@include oTypographySans(2);
+	font-weight: 600;
 }
 
 .consent-form__radio-button+.consent-form__label {

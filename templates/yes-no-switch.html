@@ -1,7 +1,7 @@
 <fieldset class="consent-form consent-form--inline">
 	<div class="consent-form__inline-wrapper">
 		<div class="consent-form__inline-item">
-			<legend class="consent-form__label" id="legend-{{{category}}}-{{{channel}}}">{{label}}</legend>
+			<legend class="consent-form__label{{#if boldLabel}} consent-form__label-bold{{/if}}" id="legend-{{{category}}}-{{{channel}}}">{{label}}</legend>
 		</div>
 		<div class="consent-form__inline-item">
 			<div class="consent-form__group consent-form__group--inline-together">
@@ -13,12 +13,12 @@
 		</div>
 	</div>
 	{{#if description}}
-	<div class="consent-form__item-additional-text">
+	<div class="consent-form__item-description">
 		{{description}}
 	</div>
 	{{/if}}
 	{{#if advisory}}
-	<div class="consent-form__item-additional-text">
+	<div class="consent-form__item-advisory">
 		{{advisory}}
 	</div>
 	{{/if}}

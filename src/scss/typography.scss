@@ -1,6 +1,6 @@
 .consent-form__heading-level-1 {
 	@include oTypographyProductHeadingLevel3;
-	margin-bottom: oTypographySpacingSize(4);
+	margin-bottom: oTypographySpacingSize(1);
 }
 
 .consent-form__heading-strapline {
@@ -9,22 +9,29 @@
 }
 
 .consent-form__heading-level-2 {
-	@include oTypographyProductHeadingLevel7;
-	margin-top: oTypographySpacingSize(5);
-	margin-bottom: oTypographySpacingSize(3);
+	@include oTypographyProductHeadingLevel5;
 	@include oTypographyBold(sans);
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.consent-form__heading-level-3 {
+	@include oTypographyProductHeadingLevel7;
+	@include oTypographyBold(sans);
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .consent-form-link-external {
 	@include oTypographyLink;
-	padding-right: oTypographySpacingSize(6);
+	margin-right: oTypographySpacingSize(6);
 	position: relative;
 	&::after {
 		@include oIconsGetIcon('series', oColorsGetPaletteColor('teal'), 24);
 		content: '';
 		display: block;
 		position: absolute;
-		right: 0;
+		right: oTypographySpacingSize(6) * -1;
 		top: 50%;
 		transform: translateY(-50%);
 	}

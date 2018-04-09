@@ -1,0 +1,36 @@
+<h1 class="consent-form__heading-level-1">
+	{{formOfWords.copy.heading1}}
+</h1>
+<div class="consent-form__intro-text">
+	{{{formOfWords.copy.straplineSmall}}}
+	<a class="consent-form-link-external" href="https://help.ft.com/help/legal-privacy/privacy/" target="_blank">{{formOfWords.copy.dataUseLink}}</a>
+</div>
+<input type="hidden" name="formOfWordsId" value="{{formOfWords.id}}" />
+<input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
+<input type="hidden" name="consentSource" value="{{formOfWords.source}}" />
+<fieldset name="consent" class="consent-form">
+	<legend class="o-normalise-visually-hidden">Privacy settings</legend>
+	{{#each formOfWords.consents}}
+	<div class="consent-form__section">
+		<div class="heading-bar heading-bar--full-width">
+			<h2 class="consent-form__heading-level-2">
+				{{label}}
+			</h2>
+		</div>
+		<div class="consent-form__switches-group">
+			{{#each channels}}
+			{{>n-profile-ui/templates/yes-no-switch category=../category boldLabel=true}}
+			{{/each}}
+		</div>
+	</div>
+	{{/each}}
+	<div class="consent-form__submit-wrapper">
+		<button type="submit" class="consent-form__submit">
+			{{#if formOfWords.copy.submitButton}}
+			{{{formOfWords.copy.submitButton}}}
+			{{else}}
+			Confirm
+			{{/if}}
+		</button>
+	</div>
+</fieldset>
