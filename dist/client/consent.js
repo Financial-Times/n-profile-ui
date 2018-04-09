@@ -1,8 +1,8 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const helpers_1 = require('../helpers');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const helpers_1 = require("../helpers");
 class ConsentForm {
-    constructor (opts) {
+    constructor(opts) {
         const element = document.querySelector(opts.selector);
         if (!element) {
             throw new Error('Invalid selector');
@@ -23,14 +23,14 @@ class ConsentForm {
         this.submitButton = this.element.querySelector('.consent-form__submit');
         this.options = opts;
     }
-    getValue (name) {
+    getValue(name) {
         const field = this.element.querySelector(`input[name='${name}']`);
         return field ? field.value : null;
     }
-    getRadios (checked) {
+    getRadios(checked) {
         return Array.from(this.element.querySelectorAll(`.consent-form__radio-button${checked ? ':checked' : ''}`));
     }
-    consentFromRadio (radio) {
+    consentFromRadio(radio) {
         const consentObject = { [radio.name]: radio.value };
         return helpers_1.buildConsentRecord(this.fow, consentObject, this.source);
     }

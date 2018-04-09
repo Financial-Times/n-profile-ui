@@ -12,4 +12,14 @@
 			</div>
 		</div>
 	</div>
+	{{#if description}}
+	<div class="consent-form__item-additional-text">
+		{{description}}
+	</div>
+	{{/if}}
+	{{#if advisory}}
+	<div class="consent-form__item-additional-text">
+		{{advisory}}
+	</div>
+	{{/if}}
 </fieldset>

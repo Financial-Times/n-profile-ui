@@ -74,3 +74,15 @@
 	padding-top: 3px;
 	padding-bottom: 5px;
 }
+
+.consent-form__item-description,
+.consent-form__item-advisory{
+	margin-top: oTypographySpacingSize(3);
+	@include oGridRespondTo(M) {
+		margin-right: 170px;
+	}
+}
+
+.consent-form__item-advisory{
+	font-weight: 600;
+}
