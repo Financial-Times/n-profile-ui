@@ -29,7 +29,12 @@
 }
 
 .consent-form__switches-group {
-	margin-top: oTypographySpacingSize(5);
+	padding-top: oTypographySpacingSize(3);
+	margin-top: oTypographySpacingSize(2);
+	&--bordered {
+		border-top: 1px solid oColorsGetPaletteColor($name: 'black-30');
+		margin-top: oTypographySpacingSize(1);
+	}
 }
 
 .consent-form-content {

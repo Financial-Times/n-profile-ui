@@ -3,7 +3,7 @@
   "homepage": "https://github.com/financial-times/n-profile-ui",
   "main": [
     "main.scss",
-	"./dist/client/main.js"
+    "./dist/client/main.js"
   ],
   "ignore": [
     "**/.*",
@@ -21,6 +21,7 @@
     "o-expander": "^4.4.4",
     "o-overlay": "^2.4.1",
     "o-banner": "^1.5.0",
-    "n-ui-foundations": "^3.0.1"
+    "n-ui-foundations": "^3.0.1",
+    "o-message": "^2.0.5"
   }
 }

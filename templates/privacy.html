@@ -15,12 +15,14 @@
 	<legend class="o-normalise-visually-hidden">Privacy settings</legend>
 	{{#each formOfWords.consents}}
 	<div class="consent-form__section">
+		{{#unless hideLabel}}
 		<div class="heading-bar heading-bar--full-width">
 			<h2 class="consent-form__heading-level-2">
 				{{label}}
 			</h2>
 		</div>
-		<div class="consent-form__switches-group">
+		{{/unless}}
+		<div class="consent-form__switches-group consent-form__switches-group--bordered">
 			{{#each channels}}
 			{{>n-profile-ui/templates/yes-no-switch category=../category boldLabel=true}}
 			{{/each}}
