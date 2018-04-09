@@ -1,6 +1,9 @@
 <h1 class="consent-form__heading-level-1">
 	{{formOfWords.copy.heading1}}
 </h1>
+{{#if changesSaved}}
+	{{>n-profile-ui/templates/changes-saved-message}}
+{{/if}}
 <div class="consent-form__intro-text">
 	{{{formOfWords.copy.straplineSmall}}}
 	<a class="consent-form-link-external" href="https://help.ft.com/help/legal-privacy/privacy/" target="_blank">{{formOfWords.copy.dataUseLink}}</a>
