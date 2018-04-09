@@ -178,7 +178,7 @@ export function buildConsentRecord(
 			}
 		}
 	}
-	if (!source) {
+	if (!consentRecord) {
 		throw new Error('Found no valid consents');
 	}
 
