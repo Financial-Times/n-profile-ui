@@ -16,10 +16,13 @@
 	{{#each formOfWords.consents}}
 	<div class="consent-form__section">
 		{{#unless hideLabel}}
-		<div class="heading-bar heading-bar--full-width">
+		<div class="consent-row consent-row--align-baseline consent-row--justify-between heading-bar heading-bar--full-width">
 			<h2 class="consent-form__heading-level-2">
 				{{label}}
 			</h2>
+			<div>
+				<a class="consent-form-link-external" href="https://help.ft.com/help/legal-privacy/privacy/" target="_blank">Learn more</a>
+			</div>
 		</div>
 		{{/unless}}
 		<div class="consent-form__switches-group consent-form__switches-group--bordered">
