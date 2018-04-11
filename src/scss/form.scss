@@ -24,6 +24,9 @@ $five-sixths-width: percentage(5 / 6);
 
 .consent-form__section {
 	margin-bottom: oTypographySpacingSize(8);
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .consent-form__intro-text {

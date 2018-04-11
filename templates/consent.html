@@ -20,27 +20,29 @@
 <input type="hidden" name="consentSource" value="{{formOfWords.source}}" />
 <fieldset name="consent" class="consent-form">
 	<legend class="o-normalise-visually-hidden">Marketing consent</legend>
-	{{#each formOfWords.consents}}
-	<div class="consent-form__section">
-		{{#if isSubsection}}
-		<h3 class="consent-form__heading-level-3">
-			{{heading}}
-		</h3>
-		{{else}}
-		<h2 class="consent-form__heading-level-3">
-			{{heading}}
-		</h2>
-		{{/if}}
-		<div class="consent-form__section-label">
-			{{label}}
+	<div class="consent-form__section-wrapper">
+		{{#each formOfWords.consents}}
+		<div class="consent-form__section">
+			{{#if isSubsection}}
+			<h3 class="consent-form__heading-level-3">
+				{{heading}}
+			</h3>
+			{{else}}
+			<h2 class="consent-form__heading-level-3">
+				{{heading}}
+			</h2>
+			{{/if}}
+			<div class="consent-form__section-label">
+				{{label}}
+			</div>
+			<div class="consent-form__switches-group">
+				{{#each channels}}
+				{{>n-profile-ui/templates/yes-no-switch category=../category}}
+				{{/each}}
+			</div>
 		</div>
-		<div class="consent-form__switches-group">
-			{{#each channels}}
-			{{>n-profile-ui/templates/yes-no-switch category=../category}}
-			{{/each}}
-		</div>
+		{{/each}}
 	</div>
-	{{/each}}
 	{{#if formOfWords.copy.serviceMessagesInfo}}
 	<div class="consent-form__consent-info">
 		{{{formOfWords.copy.serviceMessagesInfo}}}
