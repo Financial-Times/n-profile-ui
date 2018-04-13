@@ -1,10 +1,10 @@
-.consent-form__submit {
-	margin-top: oTypographySpacingSize(10);
-}
-
 .consent-form__submit,
 .consent-form__close {
 	@include oButtons($size: big, $theme: primary);
 	display: block;
 	width: 100%;
+}
+
+.consent-form__submit {
+	margin-top: oTypographySpacingSize(10);
 }
