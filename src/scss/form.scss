@@ -1,6 +1,7 @@
 @include oFormsBaseFeatures($class: 'consent-form');
 @include oFormsRadioCheckboxFeatures($class: 'consent-form');
 @include oFormsRadioButtonsStyledFeature($class: 'consent-form');
+@include oFormsInlineFeature($class: 'consent-form');
 
 $five-sixths-width: percentage(5 / 6);
 
@@ -9,13 +10,11 @@ $five-sixths-width: percentage(5 / 6);
 }
 
 .consent-form {
-	@include oTypographySans($scale: 0);
-	margin-bottom: 0;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 0;
-	padding-right: 0;
 	max-width: none;
+}
+
+.consent-form__group {
+	margin-left: auto;
 }
 
 .consent-form--scrollable {
@@ -62,21 +61,6 @@ $five-sixths-width: percentage(5 / 6);
 	margin-bottom: oTypographySpacingSize(5);
 	&:last-child {
 		margin-bottom: 0;
-	}
-}
-
-.consent-form__inline-wrapper {
-	@include oGridRespondTo(M) {
-		align-items: center;
-		justify-content: space-between;
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.consent-form__group {
-		margin-bottom: 0;
-	}
-	.consent-form__group input + .consent-form__label {
-		margin: 0;
 	}
 }
 
