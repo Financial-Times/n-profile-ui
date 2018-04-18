@@ -27,13 +27,13 @@
 	margin-bottom: 0;
 }
 
-.consent-form-link-external {
+.link-external {
 	@include oTypographyLink;
 	@include oTypographySans(0);
 	margin-right: oTypographySpacingSize(6);
 	position: relative;
 	&::after {
-		@include oIconsGetIcon('series', oColorsGetPaletteColor('teal'), 24);
+		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('teal'), 24);
 		content: '';
 		display: block;
 		position: absolute;
