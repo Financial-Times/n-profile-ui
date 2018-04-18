@@ -16,18 +16,10 @@
 <div name="consent" class="consent-form">
 	{{#each formOfWords.consents}}
 	<div class="consent-form__section">
-		{{#unless hideLabel}}
-		<div class="consent-row consent-row--align-baseline consent-row--justify-between heading-bar heading-bar--full-width">
-			<h2 class="consent-row__cell-grow consent-form__heading-level-2">
-				{{label}}
-			</h2>
-			{{#unless ../noOutboundLinks}}
-			<div>
-				<a class="consent-form-link-external" href="https://help.ft.com/help/legal-privacy/privacy/" target="_blank" rel="noopener">Learn more</a>
-			</div>
-			{{/unless}}
-		</div>
-		{{/unless}}
+		{{> subheading
+			text=label
+			hideLink=../noOutboundLinks
+			linkUrl='https://help.ft.com/help/legal-privacy/privacy' }}
 		<div class="consent-form__switches-group consent-form__switches-group--bordered">
 			{{#each channels}}
 			{{>n-profile-ui/templates/yes-no-switch category=../category}}

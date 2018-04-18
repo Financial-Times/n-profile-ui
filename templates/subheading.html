@@ -1,0 +1,10 @@
+<div class="consent-row consent-row--align-baseline{{#ifEquals linkAlign 'right'}} consent-row--justify-between{{/ifEquals}} heading-bar heading-bar--full-width">
+	<h2 class="consent-row__cell-grow consent-form__heading-level-2">
+		{{{text}}}
+	</h2>
+	{{#unless hideLink}}
+	<div>
+		<a class="link-external" href="{{linkUrl}}" target="_blank" rel="noopener" aria-label="{{linkAriaLabel}}" data-trackable="{{trackable}}">{{linkText}}</a>
+	</div>
+	{{/unless}}
+</div>
