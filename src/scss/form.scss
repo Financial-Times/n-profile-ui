@@ -109,7 +109,6 @@ $five-sixths-width: percentage(5 / 6);
 }
 
 .consent-form__item-advisory{
-	font-weight: oFontsWeight(semibold);
 	margin-top: oTypographySpacingSize(3);
 	@include oGridRespondTo(M) {
 		width: $five-sixths-width;
