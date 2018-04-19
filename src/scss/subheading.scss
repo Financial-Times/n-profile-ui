@@ -1,0 +1,16 @@
+.subheading {
+	@include oTeaserCollectionHeadingBorderTypography;
+	padding-top: oTypographySpacingSize(4);
+}
+
+.subheading__title {
+	@include oTypographyProductHeadingLevel5;
+	@include oTypographyBold(sans);
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.subheading__link {
+	@include oTypographyLinkExternal;
+	@include oTypographySans(0);
+}
