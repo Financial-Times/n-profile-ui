@@ -5,14 +5,13 @@
 
 $two-thirds-width: percentage(2 / 3);
 
-.consent-form.hidden {
-	display: none;
-}
-
 .consent-form {
 	max-width: none;
 	padding-left: 0;
 	padding-right: 0;
+	&.hidden {
+		display: none;
+	}
 }
 
 .consent-form__group {
