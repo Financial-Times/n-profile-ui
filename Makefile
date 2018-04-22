@@ -6,16 +6,19 @@ node_modules/@financial-times/n-gage/index.mk:
 
 build:
 	rm -rf dist
-	tsc 
+	tsc
 
 watch:
 	tsc -w
 
 build-production: build
 
-build-for-commit:
-	make build
+build-for-commit: build eslint-fix-dist
 	git add dist
+
+eslint-fix-dist:
+	eslint --fix ./dist
+	eslint --rule 'indent: [error, tab]' --fix "./dist/**/*.js"
 
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
@@ -44,3 +47,4 @@ a11y:
 	@$(DONE)
 
 test: verify a11y
+	mocha "test/**/*.spec.ts" -r ts-node/register --exit

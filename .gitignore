@@ -10,4 +10,5 @@ node_modules
 public
 
 .eslintrc.js
+.editorconfig
 *.DS_Store

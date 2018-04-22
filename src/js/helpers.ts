@@ -48,7 +48,7 @@ export function decorateChannel(
 		fowChannel,
 		consentChannel,
 		elementAttrs
-	 } = options;
+	} = options;
 
 	let checkedYes: boolean = false;
 	let checkedNo: boolean = false;
