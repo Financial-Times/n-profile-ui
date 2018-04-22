@@ -14,15 +14,15 @@
   ],
   "dependencies": {
     "o-forms": "^5.5.1",
-    "o-buttons": "^5.11.1",
+    "o-buttons": "^5.11.2",
     "o-icons": "^5.6.1",
-    "o-colors": "^4.2.4",
-    "o-typography": "^5.6.2",
+    "o-colors": "^4.3.1",
+    "o-typography": "^5.6.5",
     "o-expander": "^4.4.4",
     "o-overlay": "^2.4.1",
     "o-banner": "^1.5.0",
     "n-ui-foundations": "^3.0.1",
-    "o-message": "^2.0.5",
+    "o-message": "^2.1.0",
     "o-teaser-collection": "^2.2.0",
     "o-fonts": "^3.0.4"
   }

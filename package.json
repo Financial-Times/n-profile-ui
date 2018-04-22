@@ -21,28 +21,28 @@
   },
   "homepage": "https://github.com/Financial-Times/n-profile-ui#readme",
   "devDependencies": {
-    "@financial-times/n-gage": "^1.19.13",
+    "@financial-times/n-gage": "^1.19.14",
     "@financial-times/n-internal-tool": "^2.2.4",
     "@types/express": "^4.11.1",
     "@types/isomorphic-fetch": "0.0.34",
-    "@types/node": "^9.6.2",
+    "@types/node": "^9.6.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "bower": "^1.8.4",
-    "chalk": "^2.3.2",
+    "chalk": "^2.4.0",
     "node-sass": "^4.8.3",
-    "pa11y-ci": "^2.0.1",
-    "ts-node": "^5.0.1",
+    "pa11y-ci": "^2.1.0",
+    "ts-node": "^6.0.0",
     "tslint": "^5.9.1",
-    "typescript": "^2.8.1",
+    "typescript": "^2.8.3",
     "webpack": "^3.11.0"
   },
   "engines": {
     "node": "^8.9.4"
   },
   "dependencies": {
-    "@financial-times/n-user-api-client": "^2.0.0",
+    "@financial-times/n-user-api-client": "^2.5.0",
     "isomorphic-fetch": "^2.2.1"
   }
 }
