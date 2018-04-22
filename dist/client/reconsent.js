@@ -1,8 +1,8 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const update_on_save_1 = require('./update-on-save');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const update_on_save_1 = require("./update-on-save");
 class Reconsent extends update_on_save_1.UpdateConsentOnSave {
-    constructor (opts) {
+    constructor(opts) {
         super(opts);
         if (opts.flag === 'autoload') {
             this.overlaySetup();
@@ -11,7 +11,7 @@ class Reconsent extends update_on_save_1.UpdateConsentOnSave {
             this.bannerSetup();
         }
     }
-    bannerSetup () {
+    bannerSetup() {
         const banner = document.querySelector('.consent-banner__outer');
         const bannerButton = document.querySelector('.consent-banner__button');
         banner.classList.add('active');
@@ -20,9 +20,9 @@ class Reconsent extends update_on_save_1.UpdateConsentOnSave {
             this.overlaySetup();
         });
     }
-    overlaySetup () {
+    overlaySetup() {
     }
-    overlayCloseHandler () {
+    overlayCloseHandler() {
         const closeConsentForm = document.querySelector('.consent-form__close');
         closeConsentForm.addEventListener('click', () => {
             this.consentOverlay.close();

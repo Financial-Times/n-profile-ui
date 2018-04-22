@@ -13,6 +13,10 @@ watch:
 
 build-production: build
 
+build-for-commit:
+	make build
+	git add dist
+
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
 
