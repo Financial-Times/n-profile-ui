@@ -5,9 +5,7 @@ const helpers_1 = require('../helpers');
 class UpdateConsentOnSave extends consent_1.ConsentForm {
 	constructor (opts) {
 		super(opts);
-		if (this.submitButton &&
-            this.options.checkValidityBeforeSubmit &&
-            !this.checkValidity()) {
+		if (this.submitButton && this.options.checkValidityBeforeSubmit && !this.checkValidity()) {
 			this.submitButton.disabled = true;
 		}
 	}
@@ -31,9 +29,7 @@ class UpdateConsentOnSave extends consent_1.ConsentForm {
 		if (callback || this.options.checkValidityBeforeSubmit) {
 			this.radios.forEach((radio) => {
 				radio.addEventListener('change', e => {
-					if (this.submitButton &&
-                        this.options.checkValidityBeforeSubmit &&
-                        this.checkValidity()) {
+					if (this.submitButton && this.options.checkValidityBeforeSubmit && this.checkValidity()) {
 						this.submitButton.disabled = false;
 					}
 					if (callback) {

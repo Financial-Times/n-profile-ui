@@ -5,11 +5,7 @@ import { buildConsentRecord } from '../helpers';
 export class UpdateConsentOnSave extends ConsentForm {
 	constructor(opts: ConsentOptions) {
 		super(opts);
-		if (
-			this.submitButton &&
-			this.options.checkValidityBeforeSubmit &&
-			!this.checkValidity()
-		) {
+		if (this.submitButton && this.options.checkValidityBeforeSubmit && !this.checkValidity()) {
 			this.submitButton.disabled = true;
 		}
 	}
@@ -38,11 +34,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 		if (callback || this.options.checkValidityBeforeSubmit) {
 			this.radios.forEach((radio: HTMLInputElement) => {
 				radio.addEventListener('change', e => {
-					if (
-						this.submitButton &&
-						this.options.checkValidityBeforeSubmit &&
-						this.checkValidity()
-					) {
+					if (this.submitButton && this.options.checkValidityBeforeSubmit && this.checkValidity()) {
 						this.submitButton.disabled = false;
 					}
 					if (callback) {
