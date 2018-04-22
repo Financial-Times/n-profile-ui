@@ -22,7 +22,7 @@ build-demo:
 	# transpiling client-side code
 	rm -rf public
 	tsc --p demos/tsconfig.demo.json
-	webpack --config demos/webpack.config.demo.js
+	webpack-cli --config demos/webpack.config.demo.js
 	# copying views
 	rm -rf bower_components/n-profile-ui
 	mkdir bower_components/n-profile-ui
