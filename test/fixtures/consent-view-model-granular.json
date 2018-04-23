@@ -1,0 +1,73 @@
+{
+  "consents": [
+    {
+      "heading": "Top stories & features",
+      "label": "Get the most from The Financial Times",
+      "category": "categoryA",
+      "channels": [
+        {
+          "label": "By email",
+          "channel": "channel1",
+          "lbi": false,
+          "checkedYes": false,
+          "checkedNo": true,
+          "elementAttrs": [{ "name": "required" }]
+        },
+        {
+          "label": "By phone call",
+          "channel": "channel2",
+          "lbi": false,
+          "checkedYes": false,
+          "checkedNo": true,
+          "elementAttrs": [{ "name": "required" }]
+        },
+        {
+          "label": "By post",
+          "channel": "channel3",
+          "lbi": false,
+          "checkedYes": false,
+          "checkedNo": true,
+          "elementAttrs": [{ "name": "required" }]
+        }
+      ]
+    },
+    {
+      "heading": "Invites & offers from the FT",
+      "label": "Make more of The Financial Times",
+      "category": "categoryB",
+      "channels": [
+        {
+          "label": "By email",
+          "channel": "channel1",
+          "lbi": false,
+          "checkedYes": false,
+          "checkedNo": true,
+          "elementAttrs": [{ "name": "required" }]
+        },
+        {
+          "label": "By phone call",
+          "channel": "channel2",
+          "lbi": false,
+          "checkedYes": false,
+          "checkedNo": true,
+          "elementAttrs": [{ "name": "required" }]
+        },
+        {
+          "label": "By post",
+          "channel": "channel3",
+          "lbi": false,
+          "checkedYes": false,
+          "checkedNo": true,
+          "elementAttrs": [{ "name": "required" }]
+        }
+      ]
+    }
+  ],
+  "name": "testFow",
+  "scope": "testScope",
+  "metaSchemaVersion": "metaSchemaTestVersion",
+  "id": "testFow/testVersion",
+  "version": "testVersion",
+  "creationDate": "2018-04-09T12:41:15.000Z",
+  "source": "test-consent-source"
+}

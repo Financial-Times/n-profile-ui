@@ -1,0 +1,27 @@
+{
+  "categoryA": {
+    "channel1": {
+      "status": false,
+      "source": "test-consent-source",
+      "lbi": true,
+      "lastModified": "2018-04-20T11:29:31Z",
+      "fow": "testFow/testVersion"
+    }
+  },
+  "categoryB": {
+    "channel1": {
+      "status": true,
+      "source": "test-consent-source",
+      "lbi": true,
+      "lastModified": "2018-04-17T14:18:12Z",
+      "fow": "testFow/testVersion"
+    },
+    "channel2": {
+      "status": true,
+      "source": "test-consent-source",
+      "lbi": false,
+      "lastModified": "2018-04-17T14:18:12Z",
+      "fow": "testFow/testVersion"
+    }
+  }
+}

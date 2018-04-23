@@ -6,12 +6,19 @@ node_modules/@financial-times/n-gage/index.mk:
 
 build:
 	rm -rf dist
-	tsc 
+	tsc
 
 watch:
 	tsc -w
 
 build-production: build
+
+build-for-commit: build eslint-fix-dist
+	git add dist
+
+eslint-fix-dist:
+	eslint --fix ./dist
+	eslint --rule 'indent: [error, tab]' --ext .js --fix ./dist
 
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
@@ -22,7 +29,7 @@ build-demo:
 	# transpiling client-side code
 	rm -rf public
 	tsc --p demos/tsconfig.demo.json
-	webpack --config demos/webpack.config.demo.js
+	webpack-cli --config demos/webpack.config.demo.js
 	# copying views
 	rm -rf bower_components/n-profile-ui
 	mkdir bower_components/n-profile-ui
@@ -39,4 +46,7 @@ a11y:
 	@PA11Y=true make build-demo
 	@$(DONE)
 
-test: verify a11y
+unit-test:
+	mocha "test/**/*.spec.ts" -r ts-node/register --exit
+
+test: verify a11y unit-test
