@@ -1,0 +1,9 @@
+@import 'o-message/main';
+
+@mixin alertMessage($type, $status) {
+	@include oMessage($class: 'o-message', $types: $type, $status: $status);
+
+	.o-message__close {
+		border: 0;
+	}
+}
