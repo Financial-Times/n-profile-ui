@@ -1,15 +1,15 @@
-<div class="o-message o-message--alert-inner o-message--error" data-o-component="o-message">
-	<div class="o-message__container">
-		<div class="o-message__content">
-			<p class="o-message__content-main">
-				<span class="o-message__content-highlight">
+<div class="consent-message consent-message--alert-inner consent-message--error" data-o-component="o-message">
+	<div class="consent-message__container">
+		<div class="consent-message__content">
+			<p class="consent-message__content-main">
+				<span class="consent-message__content-highlight">
 					{{#if highlight}}
 						{{{highlight}}}
 					{{else}}
 						Your contact preferences couldn't be saved.
 					{{/if}}
 				</span>
-				<span class="o-message__content-detail">
+				<span class="consent-message__content-detail">
 					{{#if detail}}
 						{{{detail}}}
 					{{else}}
@@ -18,24 +18,24 @@
 				</span>
 			</p>
 			{{#if additional}}
-			<p class="o-message__content--additional">
+			<p class="consent-message__content--additional">
 				{{{additional}}}
 			</p>
 			{{/if}}
 			{{#with actions}}
-			<div class="o-message__actions">
+			<div class="consent-message__actions">
 				{{#with primary}}
-					<a href="{{{url}}}" class="o-message__actions__primary">{{{text}}}</a>
+					<a href="{{{url}}}" class="consent-message__actions__primary">{{{text}}}</a>
 				{{/with}}
 				{{#with secondary}}
-					<a href="{{{url}}}" class="o-message__actions__secondary">{{{text}}}</a>
+					<a href="{{{url}}}" class="consent-message__actions__secondary">{{{text}}}</a>
 				{{/with}}
 			</div>
 			{{else}}
 				{{#unless hideActions}}
-				<div class="o-message__actions">
-					<a href="/myft/alerts/" class="o-message__actions__primary">Visit contact preferences</a>
-					<a href="https://help.ft.com/" class="o-message__actions__secondary">Help centre</a>
+				<div class="consent-message__actions">
+					<a href="/myft/alerts/" class="consent-message__actions__primary">Visit contact preferences</a>
+					<a href="https://help.ft.com/" class="consent-message__actions__secondary">Help centre</a>
 				</div>
 				{{/unless}}
 			{{/with}}

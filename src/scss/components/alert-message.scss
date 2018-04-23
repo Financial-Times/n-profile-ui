@@ -1,10 +1,10 @@
 @import 'o-message/main';
 
 @mixin alertMessage($type, $status) {
-	@include oMessage($class: 'o-message', $types: $type, $status: $status);
+	@include oMessage($class: 'consent-message', $types: $type, $status: $status);
 	// TODO: remove this override
 	// once Origami have addressed https://github.com/Financial-Times/o-message/issues/26
-	.o-message__close {
+	.consent-message__close {
 		border: 0;
 	}
 }
