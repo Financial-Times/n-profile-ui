@@ -2,14 +2,15 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 const o_message_1 = require('o-message');
 class ConsentMessage {
-	constructor (opts) {
-		const element = document.querySelector(opts.selector);
+	constructor (options) {
+		this.options = options;
+		const element = document.querySelector(this.options.selector);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
 		this.element = element;
 		this._message = new o_message_1.default(element);
-		if (opts.hideOnInit) {
+		if (this.options.hideOnInit) {
 			this.hide();
 		}
 	}
@@ -19,9 +20,9 @@ class ConsentMessage {
 	show () {
 		this.element.style.display = 'block';
 	}
-	init (show) {
+	init () {
 		this._message.init();
-		if (show) {
+		if (this.options.hideOnInit) {
 			this.show();
 		}
 	}

@@ -9,15 +9,15 @@ export class ConsentMessage {
 	public element: HTMLElement;
 	private _message: any;
 
-	constructor(opts: ConsentMessageOptions) {
-		const element = document.querySelector(opts.selector);
+	constructor(private options: ConsentMessageOptions) {
+		const element = document.querySelector(this.options.selector);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
 		this.element = element as HTMLElement;
 		this._message = new oMessage(element);
 
-		if(opts.hideOnInit) {
+		if(this.options.hideOnInit) {
 			this.hide();
 		}
 	}
@@ -30,9 +30,9 @@ export class ConsentMessage {
 		this.element.style.display = 'block';
 	}
 
-	public init(show?: boolean) {
+	public init() {
 		this._message.init();
-		if(show) {
+		if(this.options.hideOnInit) {
 			this.show();
 		}
 	}
