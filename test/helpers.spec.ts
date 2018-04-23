@@ -19,8 +19,8 @@ describe('helper functions', () => {
 			'lbi-category-channel'
 		].map(fieldName => sinon.assert.match(helpers.isConsentField(fieldName), true));
 		[
-			'not-consent-category-channel',
-			'lbi-category-channel-etc'
+			'consent-cate&gory-channel',
+			'thing-category-channel-etc'
 		].map(fieldName => sinon.assert.match(helpers.isConsentField(fieldName), false));
 	});
 });

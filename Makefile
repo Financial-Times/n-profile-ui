@@ -46,5 +46,7 @@ a11y:
 	@PA11Y=true make build-demo
 	@$(DONE)
 
-test: verify a11y
+unit-test:
 	mocha "test/**/*.spec.ts" -r ts-node/register --exit
+
+test: verify a11y unit-test
