@@ -143,7 +143,7 @@ export function buildConsentRecord(
 	source?: string
 ): ConsentAPI.Record {
 	// builds a consent record
-	// based on a form of words, scope
+	// based on a form of words, source
 	// and keyedConsents:
 	// {
 	// 	lbi-categoryName-channelName: 'yes',
