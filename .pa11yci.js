@@ -15,7 +15,8 @@ const viewports = [
 
 const urls = [
 	'http://localhost:5005/live-update',
-	'http://localhost:5005/update-on-save'
+	'http://localhost:5005/update-on-save',
+	'http://localhost:5005/message'
 ];
 
 const config = {
