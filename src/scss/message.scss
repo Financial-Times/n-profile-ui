@@ -1,5 +1,5 @@
 @import './components/alert-message';
 
 .consent-msg {
-	@include alertMessage($type: 'alert-inner', $status: 'success');
+	@include successMessage();
 }

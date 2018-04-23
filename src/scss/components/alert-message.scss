@@ -2,8 +2,17 @@
 
 @mixin alertMessage($type, $status) {
 	@include oMessage($class: 'o-message', $types: $type, $status: $status);
-
+	// TODO: remove this override
+	// once Origami have addressed https://github.com/Financial-Times/o-message/issues/26
 	.o-message__close {
 		border: 0;
 	}
+}
+
+@mixin errorMessage() {
+	@include alertMessage($type: 'alert-inner', $status: 'error');
+}
+
+@mixin successMessage() {
+	@include alertMessage($type: 'alert-inner', $status: 'success');
 }
