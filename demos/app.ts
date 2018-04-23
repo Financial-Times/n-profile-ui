@@ -21,10 +21,11 @@ const app = express({
 	s3o: false
 }) as Application;
 
-function render(
-	title: string,
-	consentRecord?: any,
-	elementAttrs?: any
+function render(title: string,
+	{
+		consentRecord,
+		elementAttrs
+	}: any = {}
 ) {
 	return function(req: Request, res: Response): void {
 		res.render(`demo-${title}`, {
@@ -45,7 +46,9 @@ app.get('/message', render('message'));
 app.get('/live-update', render('live-update'));
 
 const elementAttrs = [{ name: 'required' }];
-app.get('/update-on-save', render('update-on-save', consentRecord, elementAttrs));
+app.get('/update-on-save', render('update-on-save', {
+	consentRecord, elementAttrs
+}));
 
 function runPa11yTests(): void {
 	const spawn = require('child_process').spawn;
