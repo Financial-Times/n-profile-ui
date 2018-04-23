@@ -41,6 +41,7 @@ function render(
 	};
 }
 
+app.get('/message', render('message'));
 app.get('/live-update', render('live-update'));
 
 const elementAttrs = [{ name: 'required' }];
@@ -51,11 +52,13 @@ function runPa11yTests(): void {
 	const pa11y = spawn('pa11y-ci');
 
 	pa11y.stdout.on('data', (data: Object) => {
-		console.log(highlight(`${data}`)); // eslint-disable-line // tslint:disable-line
+		// tslint:disable-next-line
+		console.log(highlight(`${data}`)); // eslint-disable-line
 	});
 
 	pa11y.stderr.on('data', (error: Object) => {
-		console.log(errorHighlight(`${error}`)); // eslint-disable-line // tslint:disable-line
+		// tslint:disable-next-line
+		console.log(errorHighlight(`${error}`)); // eslint-disable-line
 	});
 
 	pa11y.on('close', (code: number) => {

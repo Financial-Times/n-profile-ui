@@ -1,6 +1,7 @@
 import {
 	LiveUpdateConsent,
-	UpdateConsentOnSave
+	UpdateConsentOnSave,
+	ConsentMessage
 } from '../../src/js/client/main';
 
 let component;
@@ -25,7 +26,8 @@ const logOutput = (message: string, payload: any): void => {
 	output.insertBefore(title, output.firstChild);
 };
 
-if (document.querySelector('[data-consent-component=\'live-update\']')) {
+if (document.querySelector('[data-consent-component="live-update"]')) {
+
 	component = new LiveUpdateConsent({ selector });
 	component.onChange((consent, e) => {
 		const msg = 'Change event triggered';
@@ -33,9 +35,9 @@ if (document.querySelector('[data-consent-component=\'live-update\']')) {
 		// tslint:disable-next-line
 		console.log(msg, consent, e.target);
 	});
-} else if (
-	document.querySelector('[data-consent-component=\'update-on-save\']')
-) {
+
+} else if (document.querySelector('[data-consent-component="update-on-save"]')) {
+
 	component = new UpdateConsentOnSave({
 		selector,
 		checkValidityBeforeSubmit: true
@@ -52,4 +54,21 @@ if (document.querySelector('[data-consent-component=\'live-update\']')) {
 		// tslint:disable-next-line
 		console.log(msg, consent, e.target);
 	});
+
+} else if (document.querySelector('[data-consent-component="messages"]')) {
+
+	component = {
+		success: new ConsentMessage({
+			selector: '.consent-msg',
+			hideOnInit: true
+		}),
+		error:  new ConsentMessage({
+			selector: '.consent-msg--error',
+			hideOnInit: true
+		})
+	};
+
+	component.success.init(true);
+	component.error.init(true);
+
 }

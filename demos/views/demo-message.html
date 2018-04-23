@@ -1,6 +1,10 @@
-<h1 class="demo-header" data-consent-component="live-update">Consent component: Messages</h1>
+<h1 class="demo-header" data-consent-component="messages">Consent component: Messages</h1>
 <main class="o-grid-row demo-wrapper">
 	<h1>Messages</h1>
-	<h2></h2>
-	{{> consent-component}}
+	<h2>Error</h2>
+	<div class="consent-msg--error">
+		{{> n-profile-ui/templates/components/error-message-core}}
+	</div>
+	<h2>Success</h2>
+	{{> n-profile-ui/templates/consent-saved-message}}
 </main>
