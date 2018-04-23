@@ -15,7 +15,8 @@ export class ConsentMessage {
 			throw new Error('Invalid selector');
 		}
 		this.element = element as HTMLElement;
-		this._message = new oMessage(element, {
+
+		this._message = new oMessage(this.element, {
 			close: true
 		});
 
@@ -33,7 +34,6 @@ export class ConsentMessage {
 	}
 
 	public init() {
-		this._message.init();
 		if(this.options.hideOnInit) {
 			this.show();
 		}

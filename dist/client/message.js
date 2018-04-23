@@ -9,7 +9,7 @@ class ConsentMessage {
 			throw new Error('Invalid selector');
 		}
 		this.element = element;
-		this._message = new o_message_1.default(element, {
+		this._message = new o_message_1.default(this.element, {
 			close: true
 		});
 		if (this.options.hideOnInit) {
@@ -23,7 +23,6 @@ class ConsentMessage {
 		this.element.style.display = 'block';
 	}
 	init () {
-		this._message.init();
 		if (this.options.hideOnInit) {
 			this.show();
 		}

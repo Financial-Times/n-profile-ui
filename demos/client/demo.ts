@@ -8,11 +8,12 @@ let component;
 
 const selector = '.demo-consent__component';
 const output = document.querySelector('.demo-consent__output-results');
-document
-	.querySelector('.demo-consent__output-clear')
-	.addEventListener('click', () => {
+const clear = document.querySelector('.demo-consent__output-clear');
+if (clear) {
+	clear.addEventListener('click', () => {
 		output.innerHTML = '';
 	});
+}
 
 const logOutput = (message: string, payload: any): void => {
 	const now = new Date();
