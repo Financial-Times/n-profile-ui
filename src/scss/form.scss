@@ -5,14 +5,13 @@
 
 $two-thirds-width: percentage(2 / 3);
 
-.consent-form.hidden {
-	display: none;
-}
-
 .consent-form {
 	max-width: none;
 	padding-left: 0;
 	padding-right: 0;
+	&.hidden {
+		display: none;
+	}
 }
 
 .consent-form__group {
@@ -30,6 +29,9 @@ $two-thirds-width: percentage(2 / 3);
 	}
 }
 
+.consent-form__section-label {
+	margin-top: oTypographySpacingSize(2);
+}
 .consent-form__intro-text {
 	@include oTypographySans(2);
 	margin-bottom: oTypographySpacingSize(6)
@@ -111,4 +113,3 @@ $two-thirds-width: percentage(2 / 3);
 		width: $two-thirds-width;
 	}
 }
-

@@ -21,10 +21,11 @@ const app = express({
 	s3o: false
 }) as Application;
 
-function render(
-	title: string,
-	consentRecord?: any,
-	elementAttrs?: any
+function render(title: string,
+	{
+		consentRecord,
+		elementAttrs
+	}: any = {}
 ) {
 	return function(req: Request, res: Response): void {
 		res.render(`demo-${title}`, {
@@ -41,21 +42,26 @@ function render(
 	};
 }
 
+app.get('/message', render('message'));
 app.get('/live-update', render('live-update'));
 
 const elementAttrs = [{ name: 'required' }];
-app.get('/update-on-save', render('update-on-save', consentRecord, elementAttrs));
+app.get('/update-on-save', render('update-on-save', {
+	consentRecord, elementAttrs
+}));
 
 function runPa11yTests(): void {
 	const spawn = require('child_process').spawn;
 	const pa11y = spawn('pa11y-ci');
 
 	pa11y.stdout.on('data', (data: Object) => {
-		console.log(highlight(`${data}`)); // eslint-disable-line // tslint:disable-line
+		// tslint:disable-next-line
+		console.log(highlight(`${data}`)); // eslint-disable-line
 	});
 
 	pa11y.stderr.on('data', (error: Object) => {
-		console.log(errorHighlight(`${error}`)); // eslint-disable-line // tslint:disable-line
+		// tslint:disable-next-line
+		console.log(errorHighlight(`${error}`)); // eslint-disable-line
 	});
 
 	pa11y.on('close', (code: number) => {

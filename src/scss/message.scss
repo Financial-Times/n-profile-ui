@@ -1,1 +1,5 @@
-@include oMessage($class: 'consent-msg', $types: 'alert-inner', $status: 'success');
+@import './components/alert-message';
+
+.consent-msg {
+	@include successMessage();
+}

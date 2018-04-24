@@ -6,6 +6,5 @@
     "removeComments": true,
     "noImplicitAny": false,
     "strict": false
-  },
-  "files": ["client/demo.ts"]
+  }
 }

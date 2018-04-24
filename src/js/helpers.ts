@@ -48,7 +48,7 @@ export function decorateChannel(
 		fowChannel,
 		consentChannel,
 		elementAttrs
-	 } = options;
+	} = options;
 
 	let checkedYes: boolean = false;
 	let checkedNo: boolean = false;
@@ -143,7 +143,7 @@ export function buildConsentRecord(
 	source?: string
 ): ConsentAPI.Record {
 	// builds a consent record
-	// based on a form of words, scope
+	// based on a form of words, source
 	// and keyedConsents:
 	// {
 	// 	lbi-categoryName-channelName: 'yes',
