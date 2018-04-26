@@ -7,6 +7,10 @@
 	.consent-message__close {
 		border: 0;
 	}
+
+	.consent-message--hidden {
+		display: none;
+	}
 }
 
 @mixin errorMessage() {

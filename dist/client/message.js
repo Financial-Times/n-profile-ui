@@ -4,7 +4,7 @@ const o_message_1 = require('o-message');
 class ConsentMessage {
 	constructor (options) {
 		this.options = options;
-		const element = document.querySelector(this.options.selector);
+		const element = document.querySelector(`${this.options.selector} > .consent-message`);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
@@ -17,10 +17,10 @@ class ConsentMessage {
 		}
 	}
 	hide () {
-		this.element.style.display = 'none';
+		this.element.classList.add('.consent-message--hidden');
 	}
 	show () {
-		this.element.style.display = 'block';
+		this.element.classList.remove('.consent-message--hidden');
 	}
 	init () {
 		if (this.options.hideOnInit) {

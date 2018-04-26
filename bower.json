@@ -22,7 +22,7 @@
     "o-overlay": "^2.4.1",
     "o-banner": "^1.5.0",
     "n-ui-foundations": "^3.0.1",
-    "o-message": "^2.1.0",
+    "o-message": "^2.2.0",
     "o-teaser-collection": "^2.2.0",
     "o-fonts": "^3.0.4"
   }

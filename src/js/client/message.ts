@@ -10,7 +10,7 @@ export class ConsentMessage {
 	private _message: any;
 
 	constructor(private options: ConsentMessageOptions) {
-		const element = document.querySelector(this.options.selector);
+		const element = document.querySelector(`${this.options.selector} > .consent-message`);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
@@ -26,11 +26,11 @@ export class ConsentMessage {
 	}
 
 	public hide() {
-		this.element.style.display = 'none';
+		this.element.classList.add('.consent-message--hidden');
 	}
 
 	public show() {
-		this.element.style.display = 'block';
+		this.element.classList.remove('.consent-message--hidden');
 	}
 
 	public init() {
