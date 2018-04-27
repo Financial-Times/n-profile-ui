@@ -9,6 +9,7 @@
 						Your contact preferences couldn't be saved.
 					{{/if}}
 				</span>
+				{{#unless hideDetail}}
 				<span class="consent-message__content-detail">
 					{{#if detail}}
 						{{{detail}}}
@@ -16,6 +17,7 @@
 						These can be set anytime in myFT.
 					{{/if}}
 				</span>
+				{{/unless}}
 			</p>
 			{{#if additional}}
 			<p class="consent-message__content--additional">

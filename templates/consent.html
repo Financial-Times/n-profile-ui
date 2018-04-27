@@ -1,14 +1,14 @@
 {{#if showHeading}}
 {{#if isSubsection}}
 <h2 class="consent-form__heading-level-1">
-	{{else}}
-	<h1 class="consent-form__heading-level-1">
-		{{/if}}
-		{{formOfWords.copy.heading1}}
-		{{#if formOfWords.copy.straplineHeading}}
-		<span class="consent-form__heading-strapline">{{formOfWords.copy.straplineHeading}}</span>
-		{{/if}}
-		{{#if isSubsection}}</h1>{{else}}
+{{else}}
+<h1 class="consent-form__heading-level-1">
+	{{/if}}
+	{{formOfWords.copy.heading1}}
+	{{#if formOfWords.copy.straplineHeading}}
+	<span class="consent-form__heading-strapline">{{formOfWords.copy.straplineHeading}}</span>
+	{{/if}}
+{{#if isSubsection}}</h1>{{else}}
 </h2>{{/if}}
 <div class="consent-form__intro-text">
 	{{#if formOfWords.copy.straplineSmall}}
@@ -16,6 +16,13 @@
 	{{/if}}
 </div>
 {{/if}}
+
+{{#with formOfWords.error}}
+<div class="consent-msg consent-msg--error margin-bottom-x5">
+	{{>n-profile-ui/templates/components/error-message-core error=formOfWords.error}}
+</div>
+{{/with}}
+
 <input type="hidden" name="formOfWordsId" value="{{formOfWords.id}}" />
 <input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
 <input type="hidden" name="consentSource" value="{{formOfWords.source}}" />

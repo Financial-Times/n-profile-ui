@@ -2,4 +2,7 @@
 
 .consent-msg {
 	@include successMessage();
+	&--error {
+		@include errorMessage();
+	}
 }

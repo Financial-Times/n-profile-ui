@@ -1,11 +1,10 @@
 import * as sinon from 'sinon';
-import * as helpers from '../src/js/helpers';
+import * as helpers from '../../src/js/helpers';
 
 import { clone, fixtures } from './util';
 
 describe('helper functions', () => {
 	let sandbox: sinon.SinonSandbox;
-	let stubs: any;
 	const category = 'testCategory';
 	const channel = 'testChannel';
 	const source = fixtures.consentRecord.categoryA.channel1.source;

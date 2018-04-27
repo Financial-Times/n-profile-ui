@@ -47,6 +47,9 @@ a11y:
 	@$(DONE)
 
 unit-test:
-	mocha "test/**/*.spec.ts" -r ts-node/register --exit
+	mocha "test/unit/*.spec.ts" -r ts-node/register --exit
 
-test: verify a11y unit-test
+client-js-tests:
+	jest ./test/client-js/*.spec.js --config=./test/client-js/jest-config.json
+
+test: verify a11y unit-test client-js-tests
