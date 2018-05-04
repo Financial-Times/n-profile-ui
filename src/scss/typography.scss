@@ -25,3 +25,17 @@
 .consent-form__link--external {
 	@include oTypographyLinkExternal;
 }
+
+
+.text--scale-2 {
+	@include oTypographySans(2);
+}
+
+.heading--sm {
+	@include oTypographySansBold(0);
+	margin: 0;
+}
+
+.heading--xl {
+	@include oTypographySans(5);
+}

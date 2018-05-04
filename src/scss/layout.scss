@@ -1,19 +1,27 @@
-.consent-row {
+.flex-row {
 	display: flex;
 }
 
-.consent-row--align-baseline {
+.flex-row--align-baseline {
 	align-items: baseline;
 }
 
-.consent-row--justify-between {
+.flex-row--justify-between {
 	justify-content: space-between;
 	// required for IE11
-	.consent-row__cell-grow {
+	.flex-row__cell-grow {
 		flex-grow: 1;
 	}
 }
 
-.consent-row__cell-grow {
+.flex-row--justify-end {
+	justify-content: flex-end;
+}
+
+.flex-row__cell-grow {
 	margin-right: oTypographySpacingSize(3);
+}
+
+.flex-row__cell--order-2 {
+	order: 2;
 }
