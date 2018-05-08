@@ -1,17 +1,8 @@
 {
   "name": "n-profile-ui",
   "homepage": "https://github.com/financial-times/n-profile-ui",
-  "main": [
-    "main.scss",
-    "./dist/client/main.js"
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "main": ["main.scss", "./dist/client/main.js"],
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
     "o-forms": "^5.6.0",
     "o-buttons": "^5.11.4",

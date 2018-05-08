@@ -11,7 +11,7 @@ describe('helper functions', () => {
 	const elementAttrs = [{ name: 'required' }];
 
 	beforeEach(() => {
-		sandbox = sinon.sandbox.create();
+		sandbox = sinon.createSandbox();
 	});
 
 	afterEach(() => {
