@@ -6,11 +6,11 @@ node_modules/@financial-times/n-gage/index.mk:
 
 build:
 	rm -rf dist
-	tsc --p tsconfig.commonjs.json
-	tsc --p tsconfig.es6.json
+	tsc -p tsconfig.commonjs.json
+	tsc -p tsconfig.es6.json
 
 watch:
-	tsc -w
+	tsc -w -p tsconfig.commonjs.json -p tsconfig.es6.json
 
 build-production: build
 
@@ -29,7 +29,7 @@ verify-with-tslint: _verify_tslint verify
 build-demo:
 	# transpiling client-side code
 	rm -rf public
-	tsc --p demos/tsconfig.demo.json
+	tsc -p demos/tsconfig.demo.json
 	webpack-cli --config demos/webpack.config.demo.js
 	# copying views
 	rm -rf bower_components/n-profile-ui
