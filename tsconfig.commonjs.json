@@ -4,8 +4,7 @@
     "bower_components",
     "dist",
     "demos",
-    "test",
-    "src/js/client"
+    "test"
   ],
   "compilerOptions": {
     "target": "es2017",
