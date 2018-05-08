@@ -1,5 +1,12 @@
 {
-  "exclude": ["node_modules", "bower_components", "dist", "demos", "test", "src/js/server"],
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "dist",
+    "demos",
+    "test",
+    "src/js/server"
+  ],
   "compilerOptions": {
     "target": "es2017",
     "sourceMap": false,
