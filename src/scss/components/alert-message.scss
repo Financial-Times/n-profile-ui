@@ -2,14 +2,13 @@
 
 @mixin alertMessage($type, $status) {
 	@include oMessage($class: 'consent-message', $types: $type, $status: $status);
-	// TODO: remove this override
-	// once Origami have addressed https://github.com/Financial-Times/o-message/issues/26
-	.consent-message__close {
-		border: 0;
-	}
 
 	.consent-message--hidden {
 		display: none;
+	}
+
+	.consent-message__content-block {
+		display: block;
 	}
 }
 
