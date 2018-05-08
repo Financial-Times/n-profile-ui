@@ -1,10 +1,8 @@
 {
+  "extends": "../tsconfig.es6.json",
+  "exclude": [ "../node_modules", "../bower_components" ],
   "compilerOptions": {
-    "target": "es2017",
     "outDir": "../public",
-    "rootDirs": ["./client", "../src/js"],
-    "removeComments": true,
-    "noImplicitAny": false,
-    "strict": false
+    "rootDirs": ["./client", "../src/js"]
   }
 }

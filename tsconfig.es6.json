@@ -10,10 +10,10 @@
     "target": "es2017",
     "sourceMap": false,
     "outDir": "./dist/es6",
-    "rootDir": "./src/js",
+    "rootDirs": [ "./src/js" ],
     "strict": true,
     "removeComments": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2015", "es2017", "dom"],
     "noImplicitAny": false
   }
 }
