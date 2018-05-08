@@ -49,7 +49,7 @@ a11y:
 unit-test:
 	mocha "test/unit/*.spec.ts" -r ts-node/register --exit
 
-client-js-tests:
-	jest ./test/client-js/*.spec.js --config=./test/client-js/jest-config.json
+client-test:
+	jest ./test/client/*.test.ts --config=./test/client/jest.config.json
 
-test: verify a11y unit-test client-js-tests
+test: verify a11y unit-test client-test

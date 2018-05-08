@@ -1,7 +1,5 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const helpers_1 = require('../helpers');
-class ConsentForm {
+import { buildConsentRecord } from '../helpers';
+export class ConsentForm {
 	constructor (opts) {
 		const element = document.querySelector(opts.selector);
 		if (!element) {
@@ -32,7 +30,6 @@ class ConsentForm {
 	}
 	consentFromRadio (radio) {
 		const consentObject = { [radio.name]: radio.value };
-		return helpers_1.buildConsentRecord(this.fow, consentObject, this.source);
+		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
 }
-exports.ConsentForm = ConsentForm;

@@ -1,7 +1,5 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const update_on_save_1 = require('./update-on-save');
-class Reconsent extends update_on_save_1.UpdateConsentOnSave {
+import { UpdateConsentOnSave } from './update-on-save';
+export class Reconsent extends UpdateConsentOnSave {
 	constructor (opts) {
 		super(opts);
 		if (opts.flag === 'autoload') {
@@ -29,5 +27,4 @@ class Reconsent extends update_on_save_1.UpdateConsentOnSave {
 		});
 	}
 }
-exports.Reconsent = Reconsent;
 ;

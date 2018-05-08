@@ -1,9 +1,6 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-require('isomorphic-fetch');
-const helpers = require('../helpers');
-exports.helpers = helpers;
-async function getFormOfWords (name, scope = 'FTPINK') {
+import 'isomorphic-fetch';
+import * as helpers from '../helpers';
+export async function getFormOfWords (name, scope = 'FTPINK') {
 	if (!process.env.FOW_API_HOST) {
 		throw new Error('Missing FOW_API_HOST environment variable');
 	}
@@ -13,4 +10,4 @@ async function getFormOfWords (name, scope = 'FTPINK') {
 	});
 	return await fow.json();
 }
-exports.getFormOfWords = getFormOfWords;
+export { helpers };

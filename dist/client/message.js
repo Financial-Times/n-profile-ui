@@ -1,7 +1,5 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const o_message_1 = require('o-message');
-class ConsentMessage {
+import oMessage from 'o-message';
+export class ConsentMessage {
 	constructor (options) {
 		this.options = options;
 		const element = document.querySelector(`${this.options.selector} > .consent-message`);
@@ -9,7 +7,7 @@ class ConsentMessage {
 			throw new Error('Invalid selector');
 		}
 		this.element = element;
-		this._message = new o_message_1.default(this.element, {
+		this._message = new oMessage(this.element, {
 			messageClass: 'consent-message'
 		});
 		if (this.options.hideOnInit) {
@@ -28,4 +26,3 @@ class ConsentMessage {
 		}
 	}
 }
-exports.ConsentMessage = ConsentMessage;

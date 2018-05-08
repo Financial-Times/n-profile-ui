@@ -1,8 +1,6 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const consent_1 = require('./consent');
-const helpers_1 = require('../helpers');
-class UpdateConsentOnSave extends consent_1.ConsentForm {
+import { ConsentForm } from './consent';
+import { buildConsentRecord } from '../helpers';
+export class UpdateConsentOnSave extends ConsentForm {
 	constructor (opts) {
 		super(opts);
 		if (this.submitButton && this.options.checkValidityBeforeSubmit && !this.checkValidity()) {
@@ -15,7 +13,7 @@ class UpdateConsentOnSave extends consent_1.ConsentForm {
 		radios.forEach((radio) => {
 			consentObject[radio.name] = radio.value;
 		});
-		return helpers_1.buildConsentRecord(this.fow, consentObject, this.source);
+		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
 	checkValidity () {
 		for (const radio of this.radios) {
@@ -50,4 +48,3 @@ class UpdateConsentOnSave extends consent_1.ConsentForm {
 		}
 	}
 }
-exports.UpdateConsentOnSave = UpdateConsentOnSave;

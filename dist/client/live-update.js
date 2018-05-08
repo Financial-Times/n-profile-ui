@@ -1,7 +1,5 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const consent_1 = require('./consent');
-class LiveUpdateConsent extends consent_1.ConsentForm {
+import { ConsentForm } from './consent';
+export class LiveUpdateConsent extends ConsentForm {
 	constructor (opts) {
 		super(opts);
 		if (this.submitButton) {
@@ -57,4 +55,3 @@ class LiveUpdateConsent extends consent_1.ConsentForm {
 		});
 	}
 }
-exports.LiveUpdateConsent = LiveUpdateConsent;

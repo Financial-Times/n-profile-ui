@@ -1,9 +1,10 @@
-const { LiveUpdateConsent } = require('../../../dist/client/live-update');
-const formOfWords = require('../../fixtures/form-of-words.json');
-const loadHtml = require('./load-html');
-require('./polyfills');
+import { LiveUpdateConsent } from '../../../src/js/client/live-update';
+import './polyfills';
+import loadHtml from './load-html';
 
-module.exports = callback => {
+const formOfWords = require('../../fixtures/form-of-words.json');
+
+export default function (callback) {
 	document.body.innerHTML = loadHtml({
 		formOfWords: { ...formOfWords, source: 'test' }
 	});

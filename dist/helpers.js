@@ -1,11 +1,8 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
-function isConsentField (name) {
+export function isConsentField (name) {
 	return Rx.test(name);
 }
-exports.isConsentField = isConsentField;
-function extractMetaFromString (name) {
+export function extractMetaFromString (name) {
 	const match = Rx.exec(name);
 	if (!match) {
 		return null;
@@ -18,8 +15,7 @@ function extractMetaFromString (name) {
 		category
 	};
 }
-exports.extractMetaFromString = extractMetaFromString;
-function decorateChannel (options) {
+export function decorateChannel (options) {
 	let { fowChannel, consentChannel, elementAttrs } = options;
 	let checkedYes = false;
 	let checkedNo = false;
@@ -36,8 +32,7 @@ function decorateChannel (options) {
 		elementAttrs
 	});
 }
-exports.decorateChannel = decorateChannel;
-function populateConsentModel (options) {
+export function populateConsentModel (options) {
 	let { fow, source, consent, elementAttrs } = options;
 	const getConsent = (category, channel) => !consent || consent.hasOwnProperty('fow')
 		? consent
@@ -53,8 +48,7 @@ function populateConsentModel (options) {
 	});
 	return fow;
 }
-exports.populateConsentModel = populateConsentModel;
-function validateConsent (fow, category, channel) {
+export function validateConsent (fow, category, channel) {
 	if (typeof fow === 'string') {
 		return true;
 	}
@@ -68,8 +62,7 @@ function validateConsent (fow, category, channel) {
 	}
 	return true;
 }
-exports.validateConsent = validateConsent;
-function buildConsentRecord (fow, keyedConsents, source) {
+export function buildConsentRecord (fow, keyedConsents, source) {
 	let consentRecord;
 	const { id: fowId } = typeof fow === 'string' || !fow ? { id: fow } : fow;
 	if (!fow || !fowId) {
@@ -99,4 +92,3 @@ function buildConsentRecord (fow, keyedConsents, source) {
 	}
 	return consentRecord;
 }
-exports.buildConsentRecord = buildConsentRecord;

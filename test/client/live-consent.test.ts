@@ -1,7 +1,6 @@
-const stubFetch = require('./helpers/stub-fetch');
-const initConsentForm = require('./helpers/init-consent-form');
-const $ = require('jquery');
-const sinon = require('sinon');
+import * as sinon from 'sinon';
+import stubFetch from './helpers/stub-fetch';
+import initConsentForm from './helpers/init-consent-form';
 
 let afterFormSaved = () => { };
 
@@ -10,14 +9,14 @@ describe('Live consent form', () => {
 		initConsentForm(() => { afterFormSaved(); });
 	});
 
-	const radioButton = () => $('#categoryB-channel1-yes');
+	const radioButton = (): HTMLInputElement => document.querySelector('#categoryB-channel1-yes');
 
 	it('shows an updated switch value when the form is saved', async done => {
 		stubFetch();
-		expect(radioButton().prop('checked')).toEqual(false);
+		expect(radioButton().checked).toEqual(false);
 		radioButton().click();
 		afterFormSaved = () => {
-			expect(radioButton().prop('checked')).toEqual(true);
+			expect(radioButton().checked).toEqual(true);
 			done();
 		};
 	});
@@ -29,7 +28,7 @@ describe('Live consent form', () => {
 		radioButton().click();
 		afterFormSaved = () => {
 			expect(locationSpy.calledWith(redirectLocation)).toEqual(true);
-			expect(radioButton().prop('checked')).toEqual(false);
+			expect(radioButton().checked).toEqual(false);
 			done();
 		};
 	});
