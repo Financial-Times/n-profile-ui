@@ -6,7 +6,8 @@ node_modules/@financial-times/n-gage/index.mk:
 
 build:
 	rm -rf dist
-	tsc
+	tsc --p tsconfig.commonjs.json
+	tsc --p tsconfig.es6.json
 
 watch:
 	tsc -w

@@ -1,0 +1,13 @@
+{
+  "exclude": ["node_modules", "bower_components", "dist", "demos", "test", "src/js/server"],
+  "compilerOptions": {
+    "target": "es2017",
+    "sourceMap": false,
+    "outDir": "./dist/es6",
+    "rootDir": "./src/js",
+    "strict": true,
+    "removeComments": true,
+    "lib": ["es2017", "dom"],
+    "noImplicitAny": false
+  }
+}
