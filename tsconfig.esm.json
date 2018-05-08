@@ -9,11 +9,11 @@
   "compilerOptions": {
     "target": "es2017",
     "sourceMap": false,
-    "outDir": "./dist/es6",
+    "outDir": "./dist/esm",
     "rootDirs": [ "./src/js" ],
     "strict": true,
     "removeComments": true,
-    "lib": ["es2015", "es2017", "dom"],
+    "lib": ["es2017", "dom"],
     "noImplicitAny": false
   }
 }

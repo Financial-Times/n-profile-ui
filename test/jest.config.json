@@ -7,7 +7,7 @@
   "moduleFileExtensions": ["ts", "js", "json", "node"],
   "globals": {
     "ts-jest": {
-      "tsConfigFile": "../tsconfig.es6.json"
+      "tsConfigFile": "../tsconfig.esm.json"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.es6.json",
+  "extends": "../tsconfig.esm.json",
   "exclude": [ "../node_modules", "../bower_components" ],
   "compilerOptions": {
     "outDir": "../public",
