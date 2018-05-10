@@ -8,7 +8,10 @@ const registerPartial = partialName => {
 	);
 };
 
-['yes-no-switch'].forEach(partialName => registerPartial(partialName));
+[
+	'components/yes-no-switch',
+	'components/fow-hidden-inputs'
+].forEach(partialName => registerPartial(partialName));
 
 const consent = readFileSync(`${process.cwd()}/templates/consent.html`, 'utf8');
 const template = Handlebars.compile(consent);

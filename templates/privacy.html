@@ -1,6 +1,8 @@
+{{#if formOfWords.copy.heading1}}
 <h1 class="consent-form__heading-level-1">
 	{{formOfWords.copy.heading1}}
 </h1>
+{{/if}}
 {{#if changesSaved}}
 <div class="margin-top-x4 margin-bottom-x5">
 	{{>n-profile-ui/templates/components/changes-saved-message}}
@@ -12,23 +14,22 @@
 	{{>n-profile-ui/templates/components/error-message-core error=formOfWords.error}}
 </div>
 {{/with}}
+{{#if formOfWords.copy.straplineSmall}}
 <div class="consent-form__intro-text">
 	{{{formOfWords.copy.straplineSmall}}}
 </div>
-<input type="hidden" name="formOfWordsId" value="{{formOfWords.id}}" />
-<input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
-<input type="hidden" name="consentSource" value="{{formOfWords.source}}" />
+{{/if}}
+{{>n-profile-ui/templates/components/fow-hidden-inputs }}
 <div name="consent" class="consent-form">
 	{{#each formOfWords.consents}}
 	<div class="consent-form__section">
 		{{> n-profile-ui/templates/subheading
 			text=label
-			hideLink=@root.flags.hideOutboundLinks
-			linkText='Learn more'
-			linkUrl='https://help.ft.com/help/legal-privacy/privacy' }}
+			linkText=linkText
+			linkUrl=linkUrl }}
 		<div>
 			{{#each channels}}
-			{{>n-profile-ui/templates/yes-no-switch category=../category}}
+			{{>n-profile-ui/templates/components/yes-no-switch category=../category}}
 			{{/each}}
 		</div>
 	</div>

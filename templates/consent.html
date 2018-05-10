@@ -23,9 +23,7 @@
 </div>
 {{/with}}
 
-<input type="hidden" name="formOfWordsId" value="{{formOfWords.id}}" />
-<input type="hidden" name="formOfWordsScope" value="{{formOfWords.scope}}" />
-<input type="hidden" name="consentSource" value="{{formOfWords.source}}" />
+{{>n-profile-ui/templates/components/fow-hidden-inputs }}
 <div name="consent" class="consent-form">
 	<div class="consent-form__section-wrapper">
 		{{#each formOfWords.consents}}
@@ -44,7 +42,7 @@
 			</div>
 			<div class="consent-form__switches-group">
 				{{#each channels}}
-				{{>n-profile-ui/templates/yes-no-switch category=../category}}
+				{{>n-profile-ui/templates/components/yes-no-switch category=../category}}
 				{{/each}}
 			</div>
 		</div>

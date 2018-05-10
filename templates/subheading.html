@@ -2,9 +2,9 @@
 	<h2 class="flex-row__cell-grow subheading__title">
 		{{{text}}}
 	</h2>
-	{{#unless hideLink}}
+	{{#ifSome linkText @root.flags.hideOutboundLinks}}
 	<div>
 		<a class="subheading__link" href="{{linkUrl}}" target="_blank" rel="noopener" aria-label="{{linkAriaLabel}}" data-trackable="{{trackable}}">{{linkText}}</a>
 	</div>
-	{{/unless}}
+	{{/ifSome}}
 </div>
