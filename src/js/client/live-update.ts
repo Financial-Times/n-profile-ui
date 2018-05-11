@@ -12,6 +12,7 @@ export class LiveUpdateConsent extends ConsentForm {
 	private saveSuccess (radioWrapper) {
 		if (radioWrapper) {
 			radioWrapper.classList.remove('consent-form--error');
+			radioWrapper.classList.add('consent-form--saved');
 		}
 		this.savedEvent({ success: true });
 	}
@@ -46,19 +47,23 @@ export class LiveUpdateConsent extends ConsentForm {
 			radio.addEventListener('change', (e) => {
 				const consent = this.consentFromRadio(radio);
 				const radioWrapper = radio.closest('.consent-form');
-				callback(consent, e)
-					.then(response => {
-						if (response.status < 400) {
-							return this.saveSuccess(radioWrapper);
-						}
-						if (response.status === 403) {
-							return this.redirect();
-						}
-						this.saveFail(radioWrapper);
-					})
-					.catch(() => {
-						this.saveFail(radioWrapper);
-					});
+				if (radioWrapper) {
+					radioWrapper.classList.remove('consent-form--saved');
+					callback(consent, e)
+						.then(response => {
+							if (response.status < 400) {
+								return this.saveSuccess(radioWrapper);
+							}
+							if (response.status === 403) {
+								return this.redirect();
+							}
+							this.saveFail(radioWrapper);
+						})
+						.catch(() => {
+							this.saveFail(radioWrapper);
+						});
+				}
+
 			});
 		});
 	}
