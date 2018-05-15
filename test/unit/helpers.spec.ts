@@ -3,7 +3,7 @@ import * as helpers from '../../src/js/helpers';
 
 import { clone, fixtures } from './util';
 
-Object.defineProperty(document, 'cookie', { value: 'miau', writable: true });
+Object.defineProperty(document, 'cookie', { value: '', writable: true });
 
 describe('helper functions', () => {
 	let sandbox: sinon.SinonSandbox;
