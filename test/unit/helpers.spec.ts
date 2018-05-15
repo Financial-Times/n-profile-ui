@@ -138,7 +138,7 @@ describe('helper functions', () => {
 		);
 	});
 
-	describe.only('cookie handling', () => {
+	describe('cookie handling', () => {
 		const consentObject = {
 			categoryName: {
 				channelName: {
