@@ -3,6 +3,8 @@ import * as helpers from '../../src/js/helpers';
 
 import { clone, fixtures } from './util';
 
+Object.defineProperty(document, 'cookie', { value: 'miau', writable: true });
+
 describe('helper functions', () => {
 	let sandbox: sinon.SinonSandbox;
 	const category = 'testCategory';
@@ -134,5 +136,83 @@ describe('helper functions', () => {
 			helpers.buildConsentRecord(fow, consentFields, source),
 			expectedResult
 		);
+	});
+
+	describe.only('cookie handling', () => {
+		const consentObject = {
+			categoryName: {
+				channelName: {
+					status: true,
+					lbi: true,
+					fow: 'testFow',
+					source: 'testSource'
+				}
+			}
+		};
+
+		const mockCookie = (value: string): string =>
+			`FTConsent=${value}; domain=.ft.com; path=/; max-age=2592000000`;
+
+		beforeEach(() => {
+			document.cookie = '';
+		});
+
+		it('sets a cookie based on consent with default cookie values', () => {
+			helpers.updateConsentCookie(consentObject);
+			sinon.assert.match(
+				document.cookie,
+				sinon.match('FTConsent=categorynameChannelname:on')
+			);
+			sinon.assert.match(document.cookie, sinon.match('domain=.ft.com'));
+			sinon.assert.match(document.cookie, sinon.match('path=/'));
+			sinon.assert.match(document.cookie, sinon.match(/max-age=\d*/));
+		});
+
+		it('sets a cookie based on consent with custom options', () => {
+			helpers.updateConsentCookie(consentObject, {
+				name: 'foo',
+				domain: 'bar',
+				path: '/baz',
+				maxAge: 1
+			});
+			sinon.assert.match(
+				document.cookie,
+				sinon.match('foo=categorynameChannelname:on')
+			);
+			sinon.assert.match(document.cookie, sinon.match('domain=bar'));
+			sinon.assert.match(document.cookie, sinon.match('path=/baz'));
+			sinon.assert.match(document.cookie, sinon.match('max-age=1'));
+		});
+
+		it('updates a cookie if the value exists', () => {
+			document.cookie = mockCookie('categorynameChannelname:off');
+			helpers.updateConsentCookie(consentObject);
+			sinon.assert.match(
+				document.cookie,
+				sinon.match('FTConsent=categorynameChannelname:on')
+			);
+		});
+
+		it('appends to a cookie if the value does not exist', () => {
+			document.cookie = mockCookie('otherThing:off');
+			helpers.updateConsentCookie(consentObject);
+			sinon.assert.match(
+				document.cookie,
+				sinon.match('FTConsent=otherThing:off,categorynameChannelname:on')
+			);
+		});
+
+		it('only updates the relevant value', () => {
+			document.cookie = mockCookie(
+				'otherThing:off,categorynameChannelname:on,foo:on'
+			);
+			helpers.updateConsentCookie(consentObject);
+			sinon.assert.match(
+				document.cookie,
+				sinon.match(
+					'FTConsent=otherThing:off,categorynameChannelname:on,foo:on'
+				)
+			);
+		});
 	});
 });

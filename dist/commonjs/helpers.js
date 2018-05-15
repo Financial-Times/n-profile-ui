@@ -78,7 +78,8 @@ function buildConsentRecord (fow, keyedConsents, source) {
 	if (!source) {
 		throw new Error('Missing consent source');
 	}
-	for (let [key, value] of Object.entries(keyedConsents)) {
+	for (let key of Object.keys(keyedConsents)) {
+		const value = keyedConsents[key];
 		const consent = extractMetaFromString(key);
 		if (consent) {
 			const { category, channel, lbi } = consent;
@@ -100,3 +101,52 @@ function buildConsentRecord (fow, keyedConsents, source) {
 	return consentRecord;
 }
 exports.buildConsentRecord = buildConsentRecord;
+function updateConsentCookie (consent, cookieOptions = {
+	name: 'FTConsent',
+	path: '/',
+	domain: '.ft.com',
+	maxAge: 30 * 24 * 60 * 60 * 1000
+}) {
+	const category = Object.keys(consent)[0];
+	const channel = Object.keys(consent[category])[0];
+	const status = consent[category][channel].status;
+	const cookieFlag = normaliseCookieFlag(category, channel);
+	const { name, path, domain, maxAge } = cookieOptions;
+	const cookieValues = parseConsentCookie(name) || {};
+	Object.assign(cookieValues, { [cookieFlag]: status });
+	const cookie = [
+		`${name}=${serializeCookie(cookieValues)}`,
+		`domain=${domain}`,
+		`path=${path}`,
+		`max-age=${maxAge}`
+	];
+	document.cookie = cookie.join('; ');
+}
+exports.updateConsentCookie = updateConsentCookie;
+function parseConsentCookie (name) {
+	const rx = new RegExp(`${name}=(.*?);`);
+	const matched = document.cookie.match(rx);
+	if (!matched) {
+		return null;
+	}
+	const [, cookie] = matched;
+	const consents = cookie.split(',').reduce((acc, consentExpression) => {
+		const [flag, state] = consentExpression.split(':');
+		if (flag && state) {
+			acc[flag] = state === 'on';
+		}
+		return acc;
+	}, {});
+	return Object.keys(consents).length ? consents : null;
+}
+function normaliseCookieFlag (category, channel) {
+	function ucFirst (str) {
+		return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+	}
+	return `${category.toLowerCase()}${ucFirst(channel.toLowerCase())}`;
+}
+function serializeCookie (cookieObject) {
+	return Object.keys(cookieObject)
+		.map(cookieFlag => `${cookieFlag}:${cookieObject[cookieFlag] ? 'on' : 'off'}`)
+		.join(',');
+}
