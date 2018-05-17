@@ -115,7 +115,7 @@ export function updateConsentCookie (consent, cookieOptions = {
 	document.cookie = cookie.join('; ');
 }
 function parseConsentCookie (name) {
-	const rx = new RegExp(`${name}=(.*?);`);
+	const rx = new RegExp(`${name}=([^;]*)`);
 	const matched = document.cookie.match(rx);
 	if (!matched) {
 		return null;

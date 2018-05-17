@@ -42,11 +42,11 @@ export class LiveUpdateConsent extends ConsentForm {
 				if (radioWrapper) {
 					radioWrapper.classList.remove('consent-form--saved');
 					callback(consent, e)
-						.then(response => {
-							if (response.status < 400) {
+						.then(result => {
+							if (result === 'success') {
 								return this.saveSuccess(radioWrapper);
 							}
-							if (response.status === 403) {
+							if (result === 'redirect') {
 								return this.redirect();
 							}
 							this.saveFail(radioWrapper);

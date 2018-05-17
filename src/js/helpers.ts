@@ -221,7 +221,7 @@ interface UnmarshalledCookie {
 }
 
 function parseConsentCookie(name: string): UnmarshalledCookie | null {
-	const rx = new RegExp(`${name}=(.*?);`);
+	const rx = new RegExp(`${name}=([^;]*)`);
 	const matched = document.cookie.match(rx);
 
 	if (!matched) {

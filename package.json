@@ -8,7 +8,7 @@
     "precommit": "make build-for-commit && node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "commit": "commit-wizard",
-    "prepush": "make verify-with-tslint -j3"
+    "prepush": "make test verify-with-tslint -j3"
   },
   "repository": {
     "type": "git",

@@ -26,6 +26,15 @@ export default function (callback) {
 			body: JSON.stringify({
 				data: consent
 			})
+		})
+		.then(response => {
+			if (response.status < 400) {
+				return 'success';
+			}
+			if (response.status === 403) {
+				return 'redirect';
+			}
+			return 'fail';
 		});
 	});
 };
