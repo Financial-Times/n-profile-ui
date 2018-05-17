@@ -8,3 +8,5 @@ const update_on_save_1 = require('./update-on-save');
 exports.UpdateConsentOnSave = update_on_save_1.UpdateConsentOnSave;
 const message_1 = require('./message');
 exports.ConsentMessage = message_1.ConsentMessage;
+const helpers = require('../helpers');
+exports.helpers = helpers;
