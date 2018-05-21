@@ -55,8 +55,8 @@ $two-thirds-width: percentage(2 / 3);
 	background-color: oColorsGetPaletteColor($name: 'wheat');
 	padding-left: oTypographySpacingSize(5);
 	padding-right: oTypographySpacingSize(5);
-	padding-top: 14px;
-	padding-bottom: oTypographySpacingSize(6);
+	padding-top: oTypographySpacingSize(3);
+	padding-bottom: oTypographySpacingSize(3);
 }
 
 .consent-form__consent-info-para {

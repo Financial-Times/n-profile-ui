@@ -7,6 +7,10 @@
 	margin-right: oTypographySpacingSize(4);
 }
 
+.margin-top-none {
+	margin-top: 0;
+}
+
 .margin-top-x1 {
 	margin-top: oTypographySpacingSize(1);
 }
@@ -37,6 +41,14 @@
 
 .margin-bottom-x6 {
 	margin-bottom: oTypographySpacingSize(6);
+}
+
+.margin-bottom-x7 {
+	margin-bottom: oTypographySpacingSize(7);
+}
+
+.margin-bottom-x8 {
+	margin-bottom: oTypographySpacingSize(8);
 }
 
 .margin-bottom-x9 {
