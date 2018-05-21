@@ -33,8 +33,10 @@ export class ConsentMessage {
 		this.element.classList.remove('consent-message--hidden');
 	}
 
-	public init() {
-		if(this.options.hideOnInit) {
+	public init(showMessage: boolean) {
+		if(showMessage) {
+			this.show();
+		} else {
 			this.hide();
 		}
 	}
