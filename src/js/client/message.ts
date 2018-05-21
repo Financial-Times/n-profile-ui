@@ -26,16 +26,16 @@ export class ConsentMessage {
 	}
 
 	public hide() {
-		this.element.classList.add('.consent-message--hidden');
+		this.element.classList.add('consent-message--hidden');
 	}
 
 	public show() {
-		this.element.classList.remove('.consent-message--hidden');
+		this.element.classList.remove('consent-message--hidden');
 	}
 
 	public init() {
 		if(this.options.hideOnInit) {
-			this.show();
+			this.hide();
 		}
 	}
 }
