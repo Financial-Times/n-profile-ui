@@ -11,12 +11,14 @@ class LiveUpdateConsent extends consent_1.ConsentForm {
 	saveSuccess (radioWrapper) {
 		if (radioWrapper) {
 			radioWrapper.classList.remove('consent-form--error');
+			radioWrapper.classList.remove('consent-form--saving');
 			radioWrapper.classList.add('consent-form--saved');
 		}
 		this.savedEvent({ success: true });
 	}
 	saveFail (radioWrapper) {
 		if (radioWrapper) {
+			radioWrapper.classList.remove('consent-form--saving');
 			radioWrapper.classList.add('consent-form--error');
 			const unchecked = radioWrapper.querySelector('.consent-form__radio-button:not(:checked)');
 			if (unchecked) {
@@ -42,6 +44,7 @@ class LiveUpdateConsent extends consent_1.ConsentForm {
 				const consent = this.consentFromRadio(radio);
 				const radioWrapper = radio.closest('.consent-form');
 				if (radioWrapper) {
+					radioWrapper.classList.add('consent-form--saving');
 					radioWrapper.classList.remove('consent-form--saved');
 					callback(consent, e)
 						.then(result => {

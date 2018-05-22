@@ -2,10 +2,12 @@
 @include oFormsRadioCheckboxFeatures($class: 'consent-form');
 @include oFormsRadioButtonsStyledFeature($class: 'consent-form');
 @include oFormsInlineFeature($class: 'consent-form');
+@include oFormsStatusFeature($class: 'consent-form');
 
 $two-thirds-width: percentage(2 / 3);
 
 .consent-form {
+	@include oTypographySans;
 	max-width: none;
 	padding-left: 0;
 	padding-right: 0;

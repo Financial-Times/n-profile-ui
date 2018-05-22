@@ -15,6 +15,7 @@
 			<input type="radio" name="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}" value="no" class="consent-form__radio-button consent-form__radio-button--negative" id="{{{category}}}-{{{channel}}}-no" aria-describedby="legend-{{{category}}}-{{{channel}}}" data-trackable="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}-no"{{#if checkedNo}} checked{{/if}}{{#each elementAttrs}} {{{name}}}{{#if value}}="{{{value}}}"{{/if}}{{/each}} />
 			<label for="{{{category}}}-{{{channel}}}-no" class="consent-form__label">No</label>
 		</div>
+		<div class="consent-form__status" aria-hidden="false" aria-live="true"></div>
 		<div class="consent-form__errortext">There was a problem saving, please try later.</div>
 	</div>
 	{{#if advisory}}
