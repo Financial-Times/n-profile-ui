@@ -3,11 +3,21 @@
 	padding-top: oTypographySpacingSize(4);
 }
 
+.subheading--minor {
+	padding-top: oTypographySpacingSize(2);
+}
+
 .subheading__title {
 	@include oTypographyProductHeadingLevel5;
 	@include oTypographyBold(sans);
 	margin-top: 0;
 	margin-bottom: 0;
+	.subheading--minor & {
+		@include oTypographyProductHeadingLevel7;
+		@include oTypographyBold(sans);
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 .subheading__link {

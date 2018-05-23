@@ -35,6 +35,9 @@
 		</div>
 	</div>
 	{{/each}}
+	{{#if formOfWords.copy.submitPreamble}}
+	{{{formOfWords.copy.submitPreamble}}}
+	{{/if}}
 	{{#unless formOfWords.error}}
 	<div class="consent-form__submit-wrapper">
 		<button type="submit" class="consent-form__submit">

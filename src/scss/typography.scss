@@ -15,6 +15,12 @@
 	margin-bottom: 0;
 }
 
+.consent-form__heading-level-4 {
+	@include oTypographySansBold(0);
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .heading-level-3-bordered {
 	@include oTypographyProductHeadingLevel7;
 	padding-top: oTypographySpacingSize(4);
@@ -25,7 +31,6 @@
 .consent-form__link--external {
 	@include oTypographyLinkExternal;
 }
-
 
 .text--scale-2 {
 	@include oTypographySans(2);
