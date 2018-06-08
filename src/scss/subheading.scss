@@ -3,7 +3,8 @@
 	padding-top: oTypographySpacingSize(4);
 }
 
-.subheading--minor {
+.subheading--level-2,
+.subheading--level-3 {
 	padding-top: oTypographySpacingSize(2);
 }
 
@@ -12,7 +13,13 @@
 	@include oTypographyBold(sans);
 	margin-top: 0;
 	margin-bottom: 0;
-	.subheading--minor & {
+	.subheading--level-2 & {
+		@include oTypographyProductHeadingLevel6;
+		@include oTypographyBold(sans);
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.subheading--level-3 & {
 		@include oTypographyProductHeadingLevel7;
 		@include oTypographyBold(sans);
 		margin-top: 0;
@@ -25,7 +32,9 @@
 	@include oTypographySans(0);
 }
 
-.subheading--minor:before,
-.subheading--minor:after {
+.subheading--level-2:before,
+.subheading--level-2:after,
+.subheading--level-3:before,
+.subheading--level-3:after{
 	border-top-width: 1px;
 }
