@@ -11,7 +11,6 @@ $two-thirds-width: percentage(2 / 3);
 	max-width: none;
 	padding-left: 0;
 	padding-right: 0;
-	margin-bottom: oTypographySpacingSize(9);
 	&.hidden {
 		display: none;
 	}
@@ -26,10 +25,7 @@ $two-thirds-width: percentage(2 / 3);
 }
 
 .consent-form__section {
-	margin-bottom: oTypographySpacingSize(8);
-	&:last-child {
-		margin-bottom: 0;
-	}
+	margin-bottom: oTypographySpacingSize(4);
 }
 
 .consent-form__section-label {
