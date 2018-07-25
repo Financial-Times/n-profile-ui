@@ -53,4 +53,4 @@ unit-test:
 client-test:
 	jest ./test/client/*.spec.ts --config=./test/jest.config.json
 
-test: verify a11y unit-test client-test
+test: eslint-fix-dist verify a11y unit-test client-test
