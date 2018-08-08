@@ -125,3 +125,8 @@ $two-thirds-width: percentage(2 / 3);
 		width: 80%;
 	}
 }
+
+// to prevent status jumping vertically when label appears
+.consent-form__status {
+	min-height: 14px;
+}
