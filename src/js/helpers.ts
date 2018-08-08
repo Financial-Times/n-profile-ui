@@ -96,6 +96,7 @@ export function populateConsentModel(
 	return fow;
 }
 
+// TODO - used only in next-consent-proxy, move there?
 export function validateConsent(
 	fow: string | FowAPI.Fow,
 	category: string,
