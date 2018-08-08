@@ -8,14 +8,14 @@ Your app should render the <form> element and required hidden fields detailed in
 
 Then include the [consent.html](https://github.com/Financial-Times/n-profile-ui/blob/master/templates/consent.html) template from n-profile-ui
 
-If you want to render a 'changes saved' message, a [partial is available to [include in your app page](https://github.com/Financial-Times/next-control-centre/blob/master/views/layouts/manage-cookies.html#L6)
+If you want to render a 'changes saved' message, a partial is available to [include in your app page](https://github.com/Financial-Times/next-control-centre/blob/master/views/layouts/manage-cookies.html#L6)
 
 
 ## Helper functions
  
 ### buildConsentRecord
 
-Accepts some user consent data (eg submitted from a form), a form of words ID and a consent source (the dewey code of the application sending the data eg 'next-signup'), and returns a consent record suitable for saving to the single consent store.
+Accepts some user consent data (eg submitted from a form), a form of words ID and a consent source (the system code of the application sending the data eg 'next-signup'), and returns a consent record suitable for saving to the single consent store.
 
 ### populateConsentModel
 
