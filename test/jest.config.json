@@ -9,5 +9,6 @@
     "ts-jest": {
       "tsConfigFile": "../tsconfig.esm.json"
     }
-  }
+  },
+  "testURL": "http://localhost"
 }
