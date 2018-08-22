@@ -42,15 +42,17 @@
 	{{#if formOfWords.copy.submitPreamble}}
 	{{{formOfWords.copy.submitPreamble}}}
 	{{/if}}
-	{{#unless formOfWords.error}}
-	<div class="consent-form__submit-wrapper">
-		<button type="submit" class="consent-form__submit" data-trackable="manage-cookies-accept">
-			{{#if formOfWords.copy.submitButton}}
-			{{{formOfWords.copy.submitButton}}}
-			{{else}}
-			Confirm
-			{{/if}}
-		</button>
-	</div>
-	{{/unless}}
+	{{#if showSubmitButton}}
+		{{#unless formOfWords.error}}
+		<div class="consent-form__submit-wrapper">
+			<button type="submit" class="consent-form__submit">
+				{{#if formOfWords.copy.submitButton}}
+				{{{formOfWords.copy.submitButton}}}
+				{{else}}
+				Confirm
+				{{/if}}
+			</button>
+		</div>
+		{{/unless}}
+	{{/if}}
 </div>
