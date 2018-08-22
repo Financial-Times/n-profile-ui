@@ -30,7 +30,11 @@
 			subheadingLevel=subheadingLevel}}
 		<div>
 			{{#each channels}}
-			{{>n-profile-ui/templates/components/yes-no-switch category=../category}}
+			{{>n-profile-ui/templates/components/yes-no-switch
+				category=../category
+				toggleOnLabel=../../toggleOnLabel
+				toggleOffLabel=../../toggleOffLabel
+			}}
 			{{/each}}
 		</div>
 	</div>
