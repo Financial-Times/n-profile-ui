@@ -21,15 +21,16 @@ describe('Live consent form', () => {
 		};
 	});
 
-	it('redirects the page when the user\'s session has expired, and doesn\'t check the selected radio', async done => {
+	it('redirects the page when the user\'s session has expired', done => {
 		const redirectLocation = '/login';
 		stubFetch({ responseCode: 403 });
-		const locationSpy = sinon.spy(window.location, 'assign');
-		radioButton().click();
-		afterFormSaved = () => {
-			expect(locationSpy.calledWith(redirectLocation)).toEqual(true);
-			expect(radioButton().checked).toEqual(false);
+		const locationStub = sinon.stub(window.location, 'assign');
+
+		locationStub.callsFake(location => {
+			expect(location).toEqual(redirectLocation);
 			done();
-		};
+		});
+
+		radioButton().click();
 	});
 });
