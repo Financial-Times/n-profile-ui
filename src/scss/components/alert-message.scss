@@ -1,21 +1,15 @@
 @import 'o-message/main';
 
-@mixin alertMessage($type, $status) {
-	@include oMessage($class: 'consent-message', $types: $type, $status: $status);
+@include oMessage($opts: (
+	'types': ('alert'),
+	'states': ('error', 'success'),
+	'layouts': ('inner')
+));
 
-	.consent-message--hidden {
-		display: none;
-	}
-
-	.consent-message__content-block {
-		display: block;
-	}
+.consent-message--hidden {
+	display: none;
 }
 
-@mixin errorMessage() {
-	@include alertMessage($type: 'alert-inner', $status: 'error');
-}
-
-@mixin successMessage() {
-	@include alertMessage($type: 'alert-inner', $status: 'success');
+.consent-message__content-block {
+	display: block;
 }

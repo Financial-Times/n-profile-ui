@@ -11,19 +11,19 @@ export class LiveUpdateConsent extends ConsentForm {
 
 	private saveSuccess (radioWrapper) {
 		if (radioWrapper) {
-			radioWrapper.classList.remove('consent-form--error');
-			radioWrapper.classList.remove('consent-form--saving');
-			radioWrapper.classList.add('consent-form--saved');
+			radioWrapper.classList.remove('o-forms-input--error');
+			radioWrapper.classList.remove('o-forms-input--saving');
+			radioWrapper.classList.add('o-forms-input--saved');
 		}
 		this.savedEvent({ success: true });
 	}
 
 	private saveFail (radioWrapper) {
 		if (radioWrapper) {
-			radioWrapper.classList.remove('consent-form--saving');
-			radioWrapper.classList.add('consent-form--error');
+			radioWrapper.classList.remove('o-forms-input--saving');
+			radioWrapper.classList.add('o-forms-input--error');
 			// reset radio to previous value
-			const unchecked = radioWrapper.querySelector('.consent-form__radio-button:not(:checked)');
+			const unchecked = radioWrapper.querySelector('.o-forms-input__radio-button:not(:checked)');
 			if (unchecked) {
 				unchecked.checked = true;
 			}
@@ -36,7 +36,7 @@ export class LiveUpdateConsent extends ConsentForm {
 	}
 
 	private savedEvent ({ success }) {
-		const event = new CustomEvent('consent-form:saved', {
+		const event = new CustomEvent('o-forms-input:saved', {
 			detail: {
 				success
 			}
@@ -48,10 +48,10 @@ export class LiveUpdateConsent extends ConsentForm {
 		this.radios.forEach((radio: HTMLInputElement) => {
 			radio.addEventListener('change', (e) => {
 				const consent = this.consentFromRadio(radio);
-				const radioWrapper = radio.closest('.consent-form');
+				const radioWrapper = radio.closest('.o-forms-input');
 				if (radioWrapper) {
-					radioWrapper.classList.add('consent-form--saving');
-					radioWrapper.classList.remove('consent-form--saved');
+					radioWrapper.classList.add('o-forms-input--saving');
+					radioWrapper.classList.remove('o-forms-input--saved');
 					callback(consent, e)
 						.then(result => {
 							if (result === 'success') {

@@ -1,8 +1,8 @@
-<div class="consent-message consent-message--alert-inner consent-message--error" data-o-component="o-message">
-	<div class="consent-message__container">
-		<div class="consent-message__content">
-			<p class="consent-message__content-main">
-				<span class="consent-message__content-highlight consent-message__content-block">
+<div class="o-message o-message--alert o-message--inner o-message--error" data-o-component="o-message">
+	<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight consent-message__content-block">
 					{{#if highlight}}
 						{{{highlight}}}
 					{{else}}
@@ -10,7 +10,7 @@
 					{{/if}}
 				</span>
 				{{#unless hideDetail}}
-				<span class="consent-message__content-detail">
+				<span class="o-message__content-detail">
 					{{#if detail}}
 						{{{detail}}}
 					{{else}}
@@ -20,24 +20,24 @@
 				{{/unless}}
 			</p>
 			{{#if additional}}
-			<p class="consent-message__content--additional">
+			<p class="o-message__content--additional">
 				{{{additional}}}
 			</p>
 			{{/if}}
 			{{#with actions}}
-			<div class="consent-message__actions">
+			<div class="o-message__actions">
 				{{#with primary}}
-					<a href="{{{url}}}" class="consent-message__actions__primary">{{{text}}}</a>
+					<a href="{{{url}}}" class="o-message__actions__primary">{{{text}}}</a>
 				{{/with}}
 				{{#with secondary}}
-					<a href="{{{url}}}" class="consent-message__actions__secondary">{{{text}}}</a>
+					<a href="{{{url}}}" class="o-message__actions__secondary">{{{text}}}</a>
 				{{/with}}
 			</div>
 			{{else}}
 				{{#unless hideActions}}
-				<div class="consent-message__actions">
-					<a href="/myft/alerts/" class="consent-message__actions__primary">Visit Contact Preferences</a>
-					<a href="https://help.ft.com/" class="consent-message__actions__secondary">Help centre</a>
+				<div class="o-message__actions">
+					<a href="/myft/alerts/" class="o-message__actions__primary">Visit Contact Preferences</a>
+					<a href="https://help.ft.com/" class="o-message__actions__secondary">Help centre</a>
 				</div>
 				{{/unless}}
 			{{/with}}

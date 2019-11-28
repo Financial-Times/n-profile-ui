@@ -1,132 +1,73 @@
-@include oFormsBaseFeatures($class: 'consent-form');
-@include oFormsRadioCheckboxFeatures($class: 'consent-form');
-@include oFormsRadioButtonsStyledFeature($class: 'consent-form');
-@include oFormsInlineFeature($class: 'consent-form');
-@include oFormsStatusFeature($class: 'consent-form');
+@include oForms($opts: (
+	'elements': ('radio-box'),
+	'features': ('inline', 'state')
+));
 
 $two-thirds-width: percentage(2 / 3);
 
+.consent-form__intro-text {
+	@include oTypographySans(2);
+	color: oColorsByName('black-80');
+	margin-bottom: oSpacingByName('s6');
+}
+
 .consent-form {
 	@include oTypographySans;
+	color: oColorsByName('black-80');
 	max-width: none;
+	margin: 0 0 20px;
 	padding-left: 0;
 	padding-right: 0;
+
 	&.hidden {
 		display: none;
 	}
-}
 
-.consent-form__group {
-	margin-left: auto;
-}
+	.consent-form__section {
+		margin-bottom: oSpacingByName('s4');
+	}
 
-.consent-form--scrollable {
-	overflow-y: auto;
-}
+	.consent-form__limit-width {
+		@include oGridRespondTo(M) {
+			width: 80%;
+		}
+	}
 
-.consent-form__section {
-	margin-bottom: oTypographySpacingSize(4);
-}
+	.consent-form__section-label {
+		margin-top: oSpacingByName('s2');
+	}
 
-.consent-form__section-label {
-	margin-top: oTypographySpacingSize(2);
-}
+	.consent-form__switches-group {
+		padding-top: oSpacingByName('s3');
+		margin-top: oSpacingByName('s2');
+		&--bordered {
+			border-top: 1px solid oColorsByName('black-30');
+			margin-top: oSpacingByName('s1');
+		}
+	}
 
-.consent-form__intro-text {
-	@include oTypographySans(2);
-	margin-bottom: oTypographySpacingSize(6)
-}
+	.consent-form__fieldset {
+		@include oTypographySans;
+		margin: 0 0 28px;
+		padding: 0;
+		border: none;
+	}
 
-.consent-form__switches-group {
-	padding-top: oTypographySpacingSize(3);
-	margin-top: oTypographySpacingSize(2);
-	&--bordered {
-		border-top: 1px solid oColorsGetPaletteColor($name: 'black-30');
-		margin-top: oTypographySpacingSize(1);
+	.o-forms-field--inline {
+		margin-bottom: 10px;
+
+		@include oGridRespondTo(S) {
+			.o-forms-input {
+				align-items: flex-end;
+			}
+		}
+	}
+
+	.o-forms-title__main {
+		font-weight: 400;
 	}
 }
 
 .consent-form-content {
-	background-color: oColorsGetPaletteColor($name: 'paper');
-}
-
-.consent-form__consent-info {
-	background-color: oColorsGetPaletteColor($name: 'wheat');
-	padding-left: oTypographySpacingSize(5);
-	padding-right: oTypographySpacingSize(5);
-	padding-top: oTypographySpacingSize(3);
-	padding-bottom: oTypographySpacingSize(3);
-}
-
-.consent-form__consent-info-para {
-	margin-bottom: oTypographySpacingSize(3);
-	&:last-of-type {
-		margin-bottom: 0;
-	}
-}
-
-.consent-form--inline {
-	max-width: none;
-	padding-left: 0;
-	padding-right: 0;
-	margin-bottom: oTypographySpacingSize(5);
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
-.consent-form__item-description {
-	margin-bottom: oTypographySpacingSize(3);
-	@include oGridRespondTo(M) {
-		margin-top: oTypographySpacingSize(3);
-		margin-bottom: 0;
-		order: 3;
-		flex-basis: $two-thirds-width;
-	}
-}
-
-// push up to o-forms
-
-.consent-form--inline-controls > .consent-form__inline-container {
-	@include oGridRespondTo($until: S) {
-		display: block;
-	}
-}
-
-.consent-form__label {
-	@include oTypographySans(0);
-	font-weight: normal;
-}
-
-.consent-form__label-bold {
-	@include oTypographySans(2);
-	font-weight: oFontsWeight(semibold);
-}
-.consent-form__item-advisory {
-	@include oTypographySans(0);
-	background-color: oColorsGetPaletteColor($name: 'wheat');
-	padding: oTypographySpacingSize(3) oTypographySpacingSize(5) oTypographySpacingSize(4) oTypographySpacingSize(5);
-	margin-top: oTypographySpacingSize(5);
-	@include oGridRespondTo($until: S) {
-		margin-bottom: oTypographySpacingSize(5);
-	}
-}
-
-.consent-form__item-advisory-para {
-	margin-top: 0;
-	margin-bottom: oTypographySpacingSize(2);
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
-.consent-form__limit-width {
-	@include oGridRespondTo(M) {
-		width: 80%;
-	}
-}
-
-// to prevent status jumping vertically when label appears
-.consent-form__status {
-	min-height: 14px;
+	background-color: oColorsByName('paper');
 }

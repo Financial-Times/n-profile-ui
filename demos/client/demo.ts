@@ -31,10 +31,11 @@ if (document.querySelector('[data-consent-component="live-update"]')) {
 
 	component = new LiveUpdateConsent({ selector });
 	component.onChange((consent, e) => {
-		const msg = 'Change event triggered';
-		logOutput(msg, consent);
+		const message = 'Change event triggered';
+		logOutput(message, consent);
 		// tslint:disable-next-line
-		console.log(msg, consent, e.target);
+		console.log(message, consent, e.target);
+		return Promise.resolve('success');
 	});
 
 } else if (document.querySelector('[data-consent-component="update-on-save"]')) {
@@ -44,27 +45,27 @@ if (document.querySelector('[data-consent-component="live-update"]')) {
 		checkValidityBeforeSubmit: true
 	});
 	component.onChange((consent, e) => {
-		const msg = `Input changed (form valid: ${component.checkValidity()})`;
-		logOutput(msg, consent);
+		const message = `Input changed (form valid: ${component.checkValidity()})`;
+		logOutput(message, consent);
 		// tslint:disable-next-line
-		console.log(msg, consent, e.target);
+		console.log(message, consent, e.target);
 	});
 	component.onSubmit((consent, e) => {
-		const msg = 'Submit event triggered';
-		logOutput(msg, consent);
+		const message = 'Submit event triggered';
+		logOutput(message, consent);
 		// tslint:disable-next-line
-		console.log(msg, consent, e.target);
+		console.log(message, consent, e.target);
 	});
 
 } else if (document.querySelector('[data-consent-component="messages"]')) {
 
 	component = {
 		success: new ConsentMessage({
-			selector: '.consent-msg',
+			selector: '.consent-message-demo',
 			hideOnInit: true
 		}),
 		error:  new ConsentMessage({
-			selector: '.consent-msg--error',
+			selector: '.consent-message-demo--error',
 			hideOnInit: true
 		})
 	};

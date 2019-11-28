@@ -2,7 +2,7 @@
   "copy": {
     "heading1": "We're improving how you stay up to date with the FT.",
     "straplineHeading": "Choose how we contact you.",
-    "dataUseLink": "How we use your data"
+    "straplineSmall": "Strapline small text."
   },
   "consents": [
     {

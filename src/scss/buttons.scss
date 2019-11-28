@@ -1,12 +1,17 @@
-.consent-form__submit,
-.consent-form__close {
-	@include oButtons($size: big, $theme: primary);
-	display: block;
-	min-width: 300px;
-	margin-left: auto;
-	margin-right: auto;
+@include oButtons($opts: (
+	'sizes': ('big'),
+	'types': ('primary')
+));
+
+.o-forms-input--radio-box input[type=radio].consent-form__radio-button--negative:checked + .o-forms-input__label {
+	background-color: #08474d;
 }
 
-.consent-form__submit {
-	margin-top: oTypographySpacingSize(8);
+.consent-form__submit,
+.consent-form__close {
+	display: block;
+	min-width: 300px;
+	margin-top: 32px;
+	margin-left: auto;
+	margin-right: auto;
 }

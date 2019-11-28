@@ -1,35 +1,35 @@
 .subheading {
-	@include oTeaserCollectionHeadingBorderTypography;
-	padding-top: oTypographySpacingSize(4);
+	@include oTeaserCollectionContentHeading();
+	padding-top: oSpacingByName('s1');
 }
 
 .subheading--level-2,
 .subheading--level-3 {
-	padding-top: oTypographySpacingSize(2);
+	padding-top: 8px;
 }
 
 .subheading__title {
-	@include oTypographyProductHeadingLevel5;
-	@include oTypographyBold(sans);
+	@include oTypographyHeading($level: 5);
+	@include oTypographySans($weight: 'semibold');
 	margin-top: 0;
 	margin-bottom: 0;
 	.subheading--level-2 & {
-		@include oTypographyProductHeadingLevel6;
-		@include oTypographyBold(sans);
+		@include oTypographyHeading($level: 6);
+		@include oTypographySans($weight: 'semibold');
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 	.subheading--level-3 & {
-		@include oTypographyProductHeadingLevel7;
-		@include oTypographyBold(sans);
+		@include oTypographyHeading($level: 6);
+		@include oTypographySans($weight: 'semibold');
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 }
 
 .subheading__link {
-	@include oTypographyLinkExternal;
-	@include oTypographySans(0);
+	@include oTypographyLink($external: true);
+	@include oTypographySans($scale: 0);
 }
 
 .subheading--level-2:before,

@@ -2,13 +2,13 @@ import oMessage from 'o-message';
 export class ConsentMessage {
 	constructor (options) {
 		this.options = options;
-		const element = document.querySelector(`${this.options.selector} > .consent-message`);
+		const element = document.querySelector(`${this.options.selector} > .o-message`);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
 		this.element = element;
 		this._message = new oMessage(this.element, {
-			messageClass: 'consent-message'
+			messageClass: 'o-message'
 		});
 		if (this.options.hideOnInit) {
 			this.hide();

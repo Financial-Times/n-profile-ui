@@ -3,10 +3,14 @@ $system-code: n-profile-ui !default;
 @import 'n-ui-foundations/main';
 @import '../../main.scss';
 
+html {
+	background-color: #fff1e5;
+}
+
 .demo-header {
-	@include oTypographySansBold($scale: 2);
-	border-bottom: 5px solid getColor('slate');
-	color: getColor('slate');
+	@include oTypographySans($scale: 2);
+	border-bottom: 5px solid oColorsByName('slate');
+	color: oColorsByName('slate');
 	margin-bottom: 2em;
 }
 
@@ -18,11 +22,11 @@ $system-code: n-profile-ui !default;
 	margin: 1em 0 0 2em;
 	padding: 1em;
 	@include oTypographySans($scale: 0);
-	background-color: getColor('slate');
-	color: getColor('white');
+	background-color: oColorsByName('slate');
+	color: oColorsByName('white');
 
 	h2 {
-		@include oTypographySansBold($scale: 1);
+		@include oTypographySans($scale: 1);
 		margin-top: 0;
 	}
 
@@ -42,20 +46,13 @@ $system-code: n-profile-ui !default;
 		font-size: 0.8em;
 		margin-top: 0;
 		overflow-x: scroll;
-		background-color: getColor('sky');
-		color: getColor('black');
+		background-color: oColorsByName('sky');
+		color: oColorsByName('black');
 	}
 }
 
 @media only screen and (max-width: 740px) {
 	.demo-consent__output-console {
 		margin-left: 0;
-	}
-}
-
-.consent-msg {
-	@include successMessage();
-	&--error {
-		@include errorMessage();
 	}
 }

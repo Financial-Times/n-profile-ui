@@ -4,13 +4,13 @@ const o_message_1 = require('o-message');
 class ConsentMessage {
 	constructor (options) {
 		this.options = options;
-		const element = document.querySelector(`${this.options.selector} > .consent-message`);
+		const element = document.querySelector(`${this.options.selector} > .o-message`);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
 		this.element = element;
 		this._message = new o_message_1.default(this.element, {
-			messageClass: 'consent-message'
+			messageClass: 'o-message'
 		});
 		if (this.options.hideOnInit) {
 			this.hide();

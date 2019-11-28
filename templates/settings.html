@@ -10,7 +10,7 @@
 {{/if}}
 
 {{#with formOfWords.error}}
-<div class="t-settings-error consent-msg consent-msg--error margin-top-x4 margin-bottom-x5">
+<div class="t-settings-error consent-message-demo consent-message-demo--error margin-top-x4 margin-bottom-x5">
 	{{>n-profile-ui/templates/components/error-message-core error=formOfWords.error}}
 </div>
 {{/with}}
@@ -45,7 +45,7 @@
 	{{#if showSubmitButton}}
 		{{#unless formOfWords.error}}
 		<div class="consent-form__submit-wrapper">
-			<button type="submit" class="consent-form__submit">
+			<button type="submit" class="consent-form__submit o-buttons o-buttons--primary o-buttons--big">
 				{{#if formOfWords.copy.submitButton}}
 				{{{formOfWords.copy.submitButton}}}
 				{{else}}

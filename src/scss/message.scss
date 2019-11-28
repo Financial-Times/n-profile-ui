@@ -1,8 +1,0 @@
-@import './components/alert-message';
-
-.consent-msg {
-	@include successMessage();
-	&--error {
-		@include errorMessage();
-	}
-}
