@@ -13,17 +13,17 @@
     "tests"
   ],
   "dependencies": {
-    "o-forms": "^6.0.0",
-    "o-buttons": "^5.11.4",
-    "o-icons": "^5.7.0",
-    "o-colors": "^4.4.0",
-    "o-typography": "^5.7.3",
-    "o-expander": "^4.4.4",
-    "o-overlay": "^2.4.1",
-    "o-banner": "^1.6.0",
-    "n-ui-foundations": "^3.0.1",
-    "o-message": "^2.2.1",
-    "o-teaser-collection": "^2.2.0",
-    "o-fonts": "^3.0.4"
+    "o-forms": "^8.0.0",
+    "o-buttons": "^6.0.2",
+    "o-icons": "^6.0.0",
+    "o-colors": "^5.0.0",
+    "o-typography": "^6.0.0",
+    "o-expander": "^5.0.0",
+    "o-overlay": "^3.0.0",
+    "o-banner": "^3.0.0",
+    "n-ui-foundations": "4.0.0-beta.2",
+    "o-message": "^4.0.0",
+    "o-teaser-collection": "^3.0.0",
+    "o-fonts": "^4.0.0"
   }
 }
