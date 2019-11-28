@@ -14,6 +14,33 @@
     "strict": true,
     "removeComments": true,
     "lib": ["es2017", "dom"],
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "types": [
+      "agent-base",
+      "body-parser",
+      "bunyan",
+      "connect",
+      "debug",
+      "events",
+      "express",
+      "express-serve-static-core",
+      "glob",
+      "handlebars",
+      "isomorphic-fetch",
+      "jest",
+      "js-yaml",
+      "mime",
+      "minimatch",
+      "node",
+      "normalize-package-data",
+      "range-parser",
+      "restify",
+      "semver",
+      "serve-static",
+      "sinon",
+      "unist",
+      "vfile-message",
+      "xml2js"
+    ]
   }
 }
