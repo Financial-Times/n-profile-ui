@@ -4,7 +4,7 @@ $system-code: n-profile-ui !default;
 @import '../../main.scss';
 
 html {
-	background-color: #fff1e5;
+	background-color: oColorsByName('paper');
 }
 
 .demo-header {
