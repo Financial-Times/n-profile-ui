@@ -2,23 +2,18 @@ import * as sinon from 'sinon';
 import stubFetch from './helpers/stub-fetch';
 import initConsentForm from './helpers/init-consent-form';
 
-let afterFormSaved = () => { };
-
 describe('Live consent form', () => {
 	beforeEach(() => {
-		initConsentForm(() => { afterFormSaved(); });
+		initConsentForm(() => { () => { } });
 	});
 
 	const radioButton = (): HTMLInputElement => document.querySelector('#categoryB-channel1-yes');
 
-	it('shows an updated switch value when the form is saved', async done => {
+	it('shows an updated switch value when the form is saved', async () => {
 		stubFetch();
 		expect(radioButton().checked).toEqual(false);
 		radioButton().click();
-		afterFormSaved = () => {
-			expect(radioButton().checked).toEqual(true);
-			done();
-		};
+		expect(radioButton().checked).toEqual(true);
 	});
 
 	it('redirects the page when the user\'s session has expired', done => {
