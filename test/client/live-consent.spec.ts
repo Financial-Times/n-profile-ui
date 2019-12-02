@@ -9,11 +9,25 @@ describe('Live consent form', () => {
 
 	const radioButton = (): HTMLInputElement => document.querySelector('#categoryB-channel1-yes');
 
-	it('shows an updated switch value when the form is saved', async () => {
+	const radioButtonGreatGrandparentElement = () => document.querySelector('#categoryB-channel1-yes').parentElement.parentElement.parentElement;
+
+	it('applies relevant classes to elements at respective stages of data being saved', () => {
 		stubFetch();
-		expect(radioButton().checked).toEqual(false);
+
+		let inputGreatGrandparentClassList
+
+		inputGreatGrandparentClassList = [...radioButtonGreatGrandparentElement().classList];
+
+		expect(inputGreatGrandparentClassList).toEqual(expect.arrayContaining(['o-forms-input', 'o-forms-input--radio-box']));
+		expect(inputGreatGrandparentClassList).not.toEqual(expect.arrayContaining(['o-forms-input--saving']));
+		expect(inputGreatGrandparentClassList).not.toEqual(expect.arrayContaining(['o-forms-input--saved']));
+
 		radioButton().click();
-		expect(radioButton().checked).toEqual(true);
+
+		inputGreatGrandparentClassList = [...radioButtonGreatGrandparentElement().classList];
+
+		expect(inputGreatGrandparentClassList).toEqual(expect.arrayContaining(['o-forms-input', 'o-forms-input--radio-box', 'o-forms-input--saving']));
+		expect(inputGreatGrandparentClassList).not.toEqual(expect.arrayContaining(['o-forms-input--saved']));
 	});
 
 	it('redirects the page when the user\'s session has expired', done => {
