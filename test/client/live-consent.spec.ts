@@ -2,32 +2,22 @@ import * as sinon from 'sinon';
 import stubFetch from './helpers/stub-fetch';
 import initConsentForm from './helpers/init-consent-form';
 
+let afterFormSaved = () => { };
+
 describe('Live consent form', () => {
 	beforeEach(() => {
-		initConsentForm(() => { () => { } });
+		initConsentForm(() => { afterFormSaved(); });
 	});
 
 	const radioButton = (): HTMLInputElement => document.querySelector('#categoryB-channel1-yes');
 
-	const radioButtonGreatGrandparentElement = () => document.querySelector('#categoryB-channel1-yes').parentElement.parentElement.parentElement;
-
-	it('applies relevant classes to elements at respective stages of data being saved', () => {
+	it('dispatches event to save form', done => {
 		stubFetch();
-
-		let inputGreatGrandparentClassList
-
-		inputGreatGrandparentClassList = [...radioButtonGreatGrandparentElement().classList];
-
-		expect(inputGreatGrandparentClassList).toEqual(expect.arrayContaining(['o-forms-input', 'o-forms-input--radio-box']));
-		expect(inputGreatGrandparentClassList).not.toEqual(expect.arrayContaining(['o-forms-input--saving']));
-		expect(inputGreatGrandparentClassList).not.toEqual(expect.arrayContaining(['o-forms-input--saved']));
-
+		expect(radioButton().checked).toEqual(false);
 		radioButton().click();
-
-		inputGreatGrandparentClassList = [...radioButtonGreatGrandparentElement().classList];
-
-		expect(inputGreatGrandparentClassList).toEqual(expect.arrayContaining(['o-forms-input', 'o-forms-input--radio-box', 'o-forms-input--saving']));
-		expect(inputGreatGrandparentClassList).not.toEqual(expect.arrayContaining(['o-forms-input--saved']));
+		afterFormSaved = () => {
+			done();
+		};
 	});
 
 	it('redirects the page when the user\'s session has expired', done => {

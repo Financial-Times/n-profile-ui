@@ -29,7 +29,7 @@ export class LiveUpdateConsent extends ConsentForm {
 		window.location.assign(`/login${document.referrer ? `?location=${document.referrer}` : ''}`);
 	}
 	savedEvent ({ success }) {
-		const event = new CustomEvent('o-forms-input:saved', {
+		const event = new CustomEvent('consent-form:saved', {
 			detail: {
 				success
 			}
