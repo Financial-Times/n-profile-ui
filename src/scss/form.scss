@@ -60,6 +60,14 @@ $two-thirds-width: percentage(2 / 3);
 			.o-forms-input {
 				align-items: flex-end;
 			}
+
+			.o-forms-input {
+				flex: initial;
+			}
+
+			.o-forms-title {
+				flex: 1 0 0;
+			}
 		}
 	}
 
