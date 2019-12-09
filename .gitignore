@@ -12,4 +12,3 @@ public
 .eslintrc.js
 .editorconfig
 *.DS_Store
-dist
