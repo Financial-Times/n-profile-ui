@@ -6,20 +6,21 @@
 	padding-bottom: oSpacingByName('s4');
 
 	&:after {
-		border-top: 1px solid oColorsByName('black');
+		border-top: 8px solid oColorsByName('black');
 		content: '';
 		left: 0;
 		top: 0;
 		position: absolute;
 		width: 100%;
 	}
-
-	padding-top: oSpacingByName('s1');
 }
 
 .subheading--level-2,
 .subheading--level-3 {
-	padding-top: 8px;
+	padding-top: oSpacingByIncrement(2);
+	&:after {
+		border-top-width: 1px;
+	}
 }
 
 .subheading__title {
@@ -41,11 +42,5 @@
 .subheading__link {
 	@include oTypographyLink($external: true);
 	@include oTypographySans($scale: 0);
-}
-
-.subheading--level-2:before,
-.subheading--level-2:after,
-.subheading--level-3:before,
-.subheading--level-3:after{
-	border-top-width: 1px;
+	margin-left: oSpacingByName('s2');
 }

@@ -3,8 +3,6 @@
 		{{{text}}}
 	</h2>
 	{{#ifSome linkText @root.flags.hideOutboundLinks}}
-	<div>
-		<a class="subheading__link" href="{{linkUrl}}" target="_blank" rel="noopener" aria-label="{{linkAriaLabel}}" data-trackable="{{trackable}}">{{linkText}}</a>
-	</div>
+	<a class="subheading__link" href="{{linkUrl}}" target="_blank" rel="noopener" aria-label="{{linkAriaLabel}}" data-trackable="{{trackable}}">{{linkText}}</a>
 	{{/ifSome}}
 </div>
