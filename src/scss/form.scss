@@ -78,3 +78,19 @@ $two-thirds-width: percentage(2 / 3);
 .consent-form-content {
 	background-color: oColorsByName('paper');
 }
+
+.consent-form__consent-info {
+	background-color: oColorsByName('wheat');
+	padding-left: oSpacingByName('s4');
+	padding-right: oSpacingByName('s4');
+	padding-top: oSpacingByName('s3');
+	padding-bottom: oSpacingByName('s3');
+}
+
+.consent-form__consent-info-para {
+	margin-bottom: oSpacingByName('s3');
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
