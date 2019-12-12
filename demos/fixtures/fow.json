@@ -2,7 +2,8 @@
   "copy": {
     "heading1": "We're improving how you stay up to date with the FT.",
     "straplineHeading": "Choose how we contact you.",
-    "straplineSmall": "Strapline small text."
+    "straplineSmall": "Strapline small text.",
+    "serviceMessagesInfo": "<div class=\"consent-form__consent-info-para\">We’ll still send you service messages about your account, security or legal notifications.</div><div class=\"consent-form__consent-info-para\">For more information about how we use your data, please refer to our <a class=\"consent-form__link--external\" href=\"http://help.ft.com/help/legal-privacy/privacy/\" target=\"_blank\">privacy</a> and <a class=\"consent-form__link--external\" href=\"http://help.ft.com/help/legal-privacy/cookies/\" target=\"_blank\">cookie</a> policies.</div>"
   },
   "consents": [
     {
