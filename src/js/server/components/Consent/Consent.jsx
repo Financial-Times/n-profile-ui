@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ErrorMessageCore, FOWHiddenInput } from '../';
+import { ErrorMessageCore, FOWHiddenInputs, YesNoSwitch } from '../';
+
+const Heading = ({ children, isSubsection }) => isSubsection ? <h2 className="consent-form__heading-level-1">{children}</h2> : <h2 className="consent-form__heading-level-1">{children}</h2>
 
 const Consent = ({
 	showHeading,
 	isSubsection,
 	formOfWords = {},
 	showSubmitButton
-}) => {
-	const Heading = React.createElement(`h${!isSubsection ? '1' : '2'}`);
-
-	return (
+}) => (
 		<>
 			{showHeading && (
 				<>
-					<Heading className="consent-form__heading-level-1">
+					<Heading isSubsection={isSubsection}>
 						{formOfWords.copy.heading1}
 						{formOfWords.copy.straplineHeading && (
 							<span className="consent-form__heading-strapline">
@@ -33,11 +32,11 @@ const Consent = ({
 					<ErrorMessageCore highlight={formOfWords.error} />
 				</div>
 			)}
-			<FOWHiddenInput />
-			<div name="consent" className="consent-form">
+			<FOWHiddenInputs formOfWords={formOfWords} />
+			<div className="consent-form">
 				<div className="consent-form__section-wrapper">
 					{formOfWords.consents &&
-						formOfWords.consents.forEach(
+						formOfWords.consents.map(
 							({ category, channels, heading, label }) => (
 								<div
 									className="consent-form__section"
@@ -56,10 +55,12 @@ const Consent = ({
 										{label}
 									</div>
 									<div className="consent-form__switches-group">
-										{channels.forEach(channel => (
+										{channels.map(({ label, ...rest}) => (
 											<YesNoSwitch
-												key={channel}
+												key={label}
 												category={category}
+												label={label}
+												{...rest}
 											/>
 										))}
 									</div>
@@ -68,9 +69,7 @@ const Consent = ({
 						)}
 				</div>
 				{formOfWords.copy && formOfWords.copy.serviceMessagesInfo && (
-					<div className="consent-form__consent-info margin-top-x8">
-						{formOfWords.copy.serviceMessagesInfo}
-					</div>
+					<div className="consent-form__consent-info margin-top-x8" dangerouslySetInnerHTML={{__html: formOfWords.copy.serviceMessagesInfo }}/>
 				)}
 				{showSubmitButton && (
 					<div className="consent-form__submit-wrapper">
@@ -87,7 +86,6 @@ const Consent = ({
 			</div>
 		</>
 	);
-};
 
 Consent.propTypes = {
 	showHeading: PropTypes.bool,

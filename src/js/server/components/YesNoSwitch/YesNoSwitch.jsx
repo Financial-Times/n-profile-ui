@@ -10,6 +10,7 @@ export const YesNoSwitch = ({
 	checkedYes,
 	checkedNo,
 	elementAttrs,
+	inputClass,
 	toggleOnLabel,
 	toggleOffLabel
 }) => (
@@ -32,12 +33,12 @@ export const YesNoSwitch = ({
 			</span>
 			<span className="o-forms-input o-forms-input--radio-box">
 				<div className="o-forms-input--radio-box__container">
-					<label htmlFor={`${category}--yes`}>
+					<label htmlFor={`${category}-${channel}-yes`}>
 						<input
 							type="radio"
 							name={`${
 								lbi ? 'lbi' : 'consent'
-							}}-${category}-${channel}`}
+							}-${category}-${channel}`}
 							value="yes"
 							className={`consent-form__radio-button ${inputClass &&
 								inputClass}`}
@@ -45,7 +46,7 @@ export const YesNoSwitch = ({
 							aria-describedby={`legend-${category}-${channel}`}
 							data-trackable={`${
 								lbi ? 'lbi' : 'consent'
-							}}-${category}-${channel}-yes`}
+							}-${category}-${channel}-yes`}
 							checked={checkedYes}
 							{...elementAttrs}
 						/>
@@ -57,19 +58,19 @@ export const YesNoSwitch = ({
 						</span>
 					</label>
 
-					<label htmlFor={`${category}--no`}>
+					<label htmlFor={`${category}-${channel}-no`}>
 						<input
 							type="radio"
 							name={`${
 								lbi ? 'lbi' : 'consent'
-							}}-${category}-${channel}`}
+							}-${category}-${channel}`}
 							value="no"
 							className="consent-form__radio-button consent-form__radio-button--negative"
 							id={`${category}-${channel}-no`}
 							aria-describedby={`legend-${category}-${channel}`}
 							data-trackable={`${
 								lbi ? 'lbi' : 'consent'
-							}}-${category}-${channel}-no`}
+							}-${category}-${channel}-no`}
 							checked={checkedNo}
 							{...elementAttrs}
 						/>
@@ -103,6 +104,7 @@ YesNoSwitch.propTypes = {
 	checkedYes: PropTypes.bool,
 	checkedNo: PropTypes.bool,
 	elementAttrs: PropTypes.object,
+	inputClass: PropTypes.string,
 	toggleOnLabel: PropTypes.string,
 	toggleOffLabel: PropTypes.string
 };
