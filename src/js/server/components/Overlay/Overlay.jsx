@@ -22,7 +22,7 @@ const Overlay = () => (
 	</>
 );
 
-FOWHiddenInputs.propTypes = {
+Overlay.propTypes = {
 	redirect: PropTypes.string
 };
 

@@ -2,8 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessageCore, FOWHiddenInput } from '../';
 
-const Consent = ({ showHeading, isSubsection, formOfWords }) => {
-	const Heading = `h${!isSubsection ? '1' : '2'}`;
+const Consent = ({
+	showHeading,
+	isSubsection,
+	formOfWords = {},
+	showSubmitButton
+}) => {
+	const Heading = React.createElement(`h${!isSubsection ? '1' : '2'}`);
 
 	return (
 		<>
@@ -25,43 +30,44 @@ const Consent = ({ showHeading, isSubsection, formOfWords }) => {
 			)}
 			{formOfWords.error && (
 				<div className="consent-message-demo consent-message-demo--error margin-bottom-x5">
-					<ErrorMessageCore error={formOfWords.error} />
+					<ErrorMessageCore highlight={formOfWords.error} />
 				</div>
 			)}
 			<FOWHiddenInput />
 			<div name="consent" className="consent-form">
 				<div className="consent-form__section-wrapper">
-					{formOfWords.consents.forEach(
-						({ category, channels, heading, label }) => (
-							<div
-								className="consent-form__section"
-								key={heading}
-							>
-								{isSubsection ? (
-									<h3 className="consent-form__heading-level-3">
-										{heading}
-									</h3>
-								) : (
-									<h2 className="consent-form__heading-level-3">
-										{heading}
-									</h2>
-								)}
-								<div className="consent-form__section-label consent-form__limit-width">
-									{label}
+					{formOfWords.consents &&
+						formOfWords.consents.forEach(
+							({ category, channels, heading, label }) => (
+								<div
+									className="consent-form__section"
+									key={heading}
+								>
+									{isSubsection ? (
+										<h3 className="consent-form__heading-level-3">
+											{heading}
+										</h3>
+									) : (
+										<h2 className="consent-form__heading-level-3">
+											{heading}
+										</h2>
+									)}
+									<div className="consent-form__section-label consent-form__limit-width">
+										{label}
+									</div>
+									<div className="consent-form__switches-group">
+										{channels.forEach(channel => (
+											<YesNoSwitch
+												key={channel}
+												category={category}
+											/>
+										))}
+									</div>
 								</div>
-								<div className="consent-form__switches-group">
-									{channels.forEach(channel => (
-										<YesNoSwitch
-											key={channel}
-											category={category}
-										/>
-									))}
-								</div>
-							</div>
-						)
-					)}
+							)
+						)}
 				</div>
-				{formOfWords.copy.serviceMessagesInfo && (
+				{formOfWords.copy && formOfWords.copy.serviceMessagesInfo && (
 					<div className="consent-form__consent-info margin-top-x8">
 						{formOfWords.copy.serviceMessagesInfo}
 					</div>
@@ -72,7 +78,7 @@ const Consent = ({ showHeading, isSubsection, formOfWords }) => {
 							type="submit"
 							className="consent-form__submit o-buttons o-buttons--primary o-buttons--big"
 						>
-							{formOfWords.copy.submitButton
+							{formOfWords.copy && formOfWords.copy.submitButton
 								? formOfWords.copy.submitButton
 								: 'Confirm'}
 						</button>
@@ -85,6 +91,7 @@ const Consent = ({ showHeading, isSubsection, formOfWords }) => {
 
 Consent.propTypes = {
 	showHeading: PropTypes.bool,
+	showSubmitButton: PropTypes.bool,
 	isSubsection: PropTypes.bool,
 	formOfWords: PropTypes.shape({
 		copy: PropTypes.shape({
@@ -101,7 +108,8 @@ Consent.propTypes = {
 				heading: PropTypes.string,
 				label: PropTypes.string
 			})
-		)
+		),
+		error: PropTypes.string
 	})
 };
 

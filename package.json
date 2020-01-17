@@ -54,7 +54,10 @@
     "node": "^8.9.4"
   },
   "dependencies": {
+    "@financial-times/dotcom-ui-flags": "^0.5.4",
     "@financial-times/n-user-api-client": "^2.7.0",
-    "isomorphic-fetch": "^3.0.0"
+    "isomorphic-fetch": "^3.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0"
   }
 }
