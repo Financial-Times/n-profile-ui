@@ -11,10 +11,10 @@ const Consent = ({
 	showSubmitButton
 }) => (
 		<>
-			{showHeading && (
+			{showHeading && formOfWords.copy && (
 				<>
 					<Heading isSubsection={isSubsection}>
-						{formOfWords.copy.heading1}
+						{formOfWords.copy.heading1 && formOfWords.copy.heading1}
 						{formOfWords.copy.straplineHeading && (
 							<span className="consent-form__heading-strapline">
 								{formOfWords.copy.straplineHeading}
