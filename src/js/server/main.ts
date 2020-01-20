@@ -14,7 +14,7 @@ export async function getFormOfWords(
 		timeout: 2000
 	} as RequestInit);
 	const json = await fow.json();
-	
+
 	return json;
 }
 
