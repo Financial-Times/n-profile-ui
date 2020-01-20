@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig.esm.json",
-  "exclude": [ "../node_modules", "../bower_components" ],
-  "compilerOptions": {
-    "outDir": "../public",
-    "rootDirs": ["./client", "../src/js"]
-  }
-}

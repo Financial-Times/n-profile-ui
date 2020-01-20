@@ -102,7 +102,7 @@ Consent.propTypes = {
 		consents: PropTypes.arrayOf(
 			PropTypes.shape({
 				category: PropTypes.string,
-				channels: PropTypes.arrayOf(PropTypes.string),
+				channels: PropTypes.arrayOf(PropTypes.object),
 				heading: PropTypes.string,
 				label: PropTypes.string
 			})
