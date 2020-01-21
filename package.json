@@ -5,7 +5,7 @@
   "main": "dist/commonjs/server",
   "scripts": {
     "test": "make test",
-    "precommit": "make build-production && node_modules/.bin/secret-squirrel",
+    "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "commit": "commit-wizard",
     "prepush": "make test verify-with-tslint -j3",
