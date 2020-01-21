@@ -1,9 +1,9 @@
 
-import * as helpers from "../helpers";
+import * as helpers from '../helpers';
 
 export { helpers };
 
-export { getFormOfWords } from "./main";
+export { getFormOfWords } from './main';
 
 export {
 	Banner,
@@ -16,4 +16,4 @@ export {
 	Settings,
 	Subheading,
 	YesNoSwitch,
-} from "./components"
+} from './components'
