@@ -13,6 +13,9 @@
     "rootDirs": [ "./src/js" ],
     "strict": true,
     "removeComments": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react",
     "lib": ["es2017", "dom"],
     "noImplicitAny": false,
     "types": [

@@ -14,13 +14,6 @@ watch:
 
 build-production: build
 
-build-for-commit: build eslint-fix-dist
-	git add dist
-
-eslint-fix-dist:
-	eslint --fix ./dist
-	eslint --rule 'indent: [error, tab]' --ext .js --fix ./dist
-
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
 

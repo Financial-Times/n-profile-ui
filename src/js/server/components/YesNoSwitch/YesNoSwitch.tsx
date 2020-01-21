@@ -1,7 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes } from 'react';
+import { FowAPI } from '../../../types/fow-api';
 
-export const YesNoSwitch = ({
+interface Props extends FowAPI.Channel {
+	category: string;
+	elementAttrs?: HTMLAttributes<HTMLInputElement>;
+	toggleOnLabel?: boolean;
+	advisory?: string;
+	checkedYes?: boolean;
+	inputClass?: string;
+	checkedNo?: boolean;
+	toggleOffLabel?: boolean;
+}
+
+const YesNoSwitch = ({
 	label,
 	category,
 	channel,
@@ -13,7 +24,7 @@ export const YesNoSwitch = ({
 	inputClass,
 	toggleOnLabel,
 	toggleOffLabel
-}) => (
+}: Props) => (
 	<fieldset className="consent-form__fieldset">
 		<legend className="o-normalise-visually-hidden">{label}</legend>
 		<div className="o-forms-field o-forms-field--inline">
@@ -94,19 +105,5 @@ export const YesNoSwitch = ({
 		</div>
 	</fieldset>
 );
-
-YesNoSwitch.propTypes = {
-	label: PropTypes.string,
-	category: PropTypes.string,
-	channel: PropTypes.string,
-	advisory: PropTypes.string,
-	lbi: PropTypes.bool,
-	checkedYes: PropTypes.bool,
-	checkedNo: PropTypes.bool,
-	elementAttrs: PropTypes.object,
-	inputClass: PropTypes.string,
-	toggleOnLabel: PropTypes.string,
-	toggleOffLabel: PropTypes.string
-};
 
 export default YesNoSwitch;

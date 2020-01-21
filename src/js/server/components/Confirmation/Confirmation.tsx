@@ -1,7 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-const Confirmation = ({ redirect }) => (
+interface Props {
+	redirect: string;
+}
+
+const Confirmation = ({ redirect }: Props) => (
 	<>
 		<h2 className="consent-form__heading-level-3 margin-bottom-x3">
 			Thank you
@@ -32,9 +35,5 @@ const Confirmation = ({ redirect }) => (
 		</div>
 	</>
 );
-
-Confirmation.propTypes = {
-	redirect: PropTypes.string
-};
 
 export default Confirmation;

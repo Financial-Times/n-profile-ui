@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Banner = () => (
 	<div className="consent-banner" data-consent-component="consent-banner">
@@ -24,7 +24,5 @@ const Banner = () => (
 		</div>
 	</div>
 );
-
-Banner.propTypes = {};
 
 export default Banner;

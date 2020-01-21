@@ -1,6 +1,9 @@
 'use strict';
+let __importDefault = (this && this.__importDefault) || function (mod) {
+	return (mod && mod.__esModule) ? mod : { 'default': mod };
+};
 Object.defineProperty(exports, '__esModule', { value: true });
-const o_message_1 = require('o-message');
+const o_message_1 = __importDefault(require('o-message'));
 class ConsentMessage {
 	constructor (options) {
 		this.options = options;

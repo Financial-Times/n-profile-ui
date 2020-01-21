@@ -1,15 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import * as flags from '@financial-times/dotcom-ui-flags';
+import { FowAPI } from '../../../types/fow-api';
 
-const SubHeading = ({
+interface Props extends Omit<FowAPI.Category, 'label'> {
+	linkAlign?: string;
+	linkAriaLabel?: string;
+	trackable?: string;
+	text: string;
+}
+
+const Subheading = ({
 	linkAlign,
 	linkText,
 	linkUrl,
 	linkAriaLabel,
-	trackable
-}) => {
-	const flagsClient = flags.init();
+	subheadingLevel,
+	trackable,
+	text
+}: Props) => {
+	const flagsClient = (flags as any).init();
 
 	return (
 		<div
@@ -18,9 +27,7 @@ const SubHeading = ({
 				'flex-row--justify-between'} subheading ${subheadingLevel &&
 				`subheading--level-${subheadingLevel}`}`}
 		>
-			<h2 className="flex-row__cell-grow subheading__title">
-				{props.text}
-			</h2>
+			<h2 className="flex-row__cell-grow subheading__title">{text}</h2>
 			{linkText && flagsClient.get('hideOutboundLinks') && (
 				<a
 					className="subheading__link"
@@ -37,12 +44,4 @@ const SubHeading = ({
 	);
 };
 
-SubHeading.propTypes = {
-	linkAlign: PropTypes.string,
-	linkText: PropTypes.string,
-	linkUrl: PropTypes.string,
-	linkAriaLabel: PropTypes.string,
-	trackable: PropTypes.bool
-};
-
-export default SubHeading;
+export default Subheading;

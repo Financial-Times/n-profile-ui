@@ -18,4 +18,3 @@ export async function getFormOfWords(
 	return json;
 }
 
-export { helpers };

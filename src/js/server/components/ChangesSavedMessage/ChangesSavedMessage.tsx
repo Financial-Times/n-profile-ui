@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const ChangesSavedMessage = () => (
 	<div className="consent-message-demo">
@@ -18,7 +18,5 @@ const ChangesSavedMessage = () => (
 		</div>
 	</div>
 );
-
-ChangesSavedMessage.propTypes = {};
 
 export default ChangesSavedMessage;

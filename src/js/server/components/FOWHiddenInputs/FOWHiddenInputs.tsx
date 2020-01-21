@@ -1,7 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import { FowAPI } from '../../../types/fow-api';
 
-const FOWHiddenInputs = ({ formOfWords }) => (
+interface Props {
+	formOfWords: FowAPI.Fow;
+}
+
+const FOWHiddenInputs = ({ formOfWords }: Props) => (
 	<>
 		<input type="hidden" name="formOfWordsId" value={formOfWords.id} />
 		<input
@@ -12,13 +16,5 @@ const FOWHiddenInputs = ({ formOfWords }) => (
 		<input type="hidden" name="consentSource" value={formOfWords.source} />
 	</>
 );
-
-FOWHiddenInputs.propTypes = {
-	formOfWords: PropTypes.shape({
-		id: PropTypes.string,
-		scope: PropTypes.string,
-		source: PropTypes.string
-	})
-};
 
 export default FOWHiddenInputs;

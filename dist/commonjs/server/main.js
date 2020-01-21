@@ -1,8 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
 require('isomorphic-fetch');
-const helpers = require('../helpers');
-exports.helpers = helpers;
 async function getFormOfWords (name, scope = 'FTPINK') {
 	if (!process.env.FOW_API_HOST) {
 		throw new Error('Missing FOW_API_HOST environment variable');

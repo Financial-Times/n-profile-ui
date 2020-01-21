@@ -1,5 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+
+interface Props {
+	highlight?: string;
+	detail?: string;
+	additional?: string;
+	actions?: {
+		primary: {
+			url: string;
+			text: string;
+		};
+		secondary: {
+			url: string;
+			text: string;
+		};
+	};
+	hideDetail?: boolean;
+	hideActions?: boolean;
+}
 
 const ErrorMessageCore = ({
 	highlight,
@@ -8,7 +25,7 @@ const ErrorMessageCore = ({
 	additional,
 	actions,
 	hideActions
-}) => (
+}: Props) => (
 	<div
 		className="o-message o-message--alert o-message--inner o-message--error"
 		data-o-component="o-message"
@@ -75,23 +92,5 @@ const ErrorMessageCore = ({
 		</div>
 	</div>
 );
-
-ErrorMessageCore.propTypes = {
-	highlight: PropTypes.string,
-	hideDetail: PropTypes.bool,
-	detail: PropTypes.string,
-	additional: PropTypes.string,
-	actions: PropTypes.shape({
-		primary: PropTypes.shape({
-			url: PropTypes.string,
-			text: PropTypes.string
-		}),
-		secondary: PropTypes.shape({
-			url: PropTypes.string,
-			text: PropTypes.string
-		})
-	}),
-	hideActions: PropTypes.bool
-};
 
 export default ErrorMessageCore;

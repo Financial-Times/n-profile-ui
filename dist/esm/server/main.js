@@ -1,5 +1,4 @@
 import 'isomorphic-fetch';
-import * as helpers from '../helpers';
 export async function getFormOfWords (name, scope = 'FTPINK') {
 	if (!process.env.FOW_API_HOST) {
 		throw new Error('Missing FOW_API_HOST environment variable');
@@ -11,4 +10,3 @@ export async function getFormOfWords (name, scope = 'FTPINK') {
 	const json = await fow.json();
 	return json;
 }
-export { helpers };
