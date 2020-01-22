@@ -9,7 +9,7 @@
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "commit": "commit-wizard",
     "prepush": "make test verify-with-tslint -j3",
-    "prepare": "npx snyk protect || npx snyk protect -d || true"
+    "prepare": "(npx snyk protect || npx snyk protect -d || true) && make build-production"
   },
   "repository": {
     "type": "git",
