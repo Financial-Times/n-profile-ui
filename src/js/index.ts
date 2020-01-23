@@ -1,12 +1,12 @@
-export { 
-    LiveUpdateConsent,
-    UpdateConsentOnSave,
-    ConsentMessage, 
-    Reconsent } from './client';
+export {
+	LiveUpdateConsent,
+	UpdateConsentOnSave,
+	ConsentMessage,
+	Reconsent } from './client';
 
-export { 
-    getFormOfWords,
-    Banner,
+export {
+	getFormOfWords,
+	Banner,
 	ChangesSavedMessage,
 	Confirmation,
 	Consent,
@@ -15,11 +15,9 @@ export {
 	Overlay,
 	Settings,
 	Subheading,
-    YesNoSwitch,
- } from './server';
+	YesNoSwitch,
+} from './server';
 
 import * as helpers from './helpers';
 
 export { helpers };
-
-

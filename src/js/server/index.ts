@@ -16,4 +16,4 @@ export {
 	Settings,
 	Subheading,
 	YesNoSwitch,
-} from './components'
+} from './components';
