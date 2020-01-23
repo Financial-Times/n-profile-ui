@@ -2,7 +2,7 @@
   "name": "@financial-times/n-profile-ui",
   "version": "0.0.0",
   "description": "UI components for profile / consent",
-  "main": "dist/commonjs/server",
+  "main": "dist/commonjs",
   "scripts": {
     "test": "make test",
     "precommit": "node_modules/.bin/secret-squirrel",

@@ -3,7 +3,7 @@ import * as helpers from '../helpers';
 
 export { helpers };
 
-export { getFormOfWords } from './main';
+export { getFormOfWords } from './getFormOfWords';
 
 export {
 	Banner,
