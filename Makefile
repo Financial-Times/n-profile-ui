@@ -4,20 +4,26 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
-build:
+clean:
 	rm -rf dist
-	tsc -p tsconfig.commonjs.json
-	tsc -p tsconfig.esm.json
+	
+
+build:
+	make clean	
+	page-kit build
 
 watch:
-	tsc -w -p tsconfig.commonjs.json -p tsconfig.esm.json
+	page-kit --development --watch
 
-build-production: build
+build-for-commit: 
+	build
+	git add dist
 
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
 
-verify-with-tslint: _verify_tslint verify
+verify-with-tslint: 
+	_verify_tslint verify
 
 a11y:
 	@node .pa11yci.js

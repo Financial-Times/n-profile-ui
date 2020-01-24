@@ -2,14 +2,15 @@
   "name": "@financial-times/n-profile-ui",
   "version": "0.0.0",
   "description": "UI components for profile / consent",
-  "main": "dist/commonjs",
+  "main": "dist/commonjs/server",
+  "browser": "dist/commonjs/client",
   "scripts": {
     "test": "make test",
-    "precommit": "node_modules/.bin/secret-squirrel",
+    "precommit": "make build-for-commit && node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "commit": "commit-wizard",
     "prepush": "make test verify-with-tslint -j3",
-    "prepare": "(npx snyk protect || npx snyk protect -d || true) && make build-production"
+    "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "repository": {
     "type": "git",
@@ -22,35 +23,25 @@
   },
   "homepage": "https://github.com/Financial-Times/n-profile-ui#readme",
   "devDependencies": {
+    "@financial-times/dotcom-build-bower-resolve": "^0.5.7",
+    "@financial-times/dotcom-build-js": "^0.5.7",
+    "@financial-times/dotcom-page-kit-cli": "^0.5.7",
     "@financial-times/n-gage": "^3.7.1",
     "@financial-times/n-internal-tool": "^2.2.4",
     "@types/express": "^4.11.1",
-    "@types/handlebars": "^4.0.37",
-    "@types/isomorphic-fetch": "0.0.34",
     "@types/jest": "^22.2.3",
     "@types/node": "^9.6.6",
     "@types/react": "^16.9.17",
     "@types/sinon": "^4.3.1",
-    "@types/xml2js": "0.4.5",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "bower": "^1.8.8",
-    "bower-resolve-webpack-plugin": "^1.0.4",
     "chalk": "^2.4.1",
     "eslint-plugin-react": "^7.18.0",
     "handlebars": "^4.0.11",
     "jest": "^22.4.3",
-    "node-sass": "^4.9.0",
     "pa11y-ci": "^2.1.1",
     "sinon": "^5.0.7",
     "snyk": "^1.168.0",
     "ts-jest": "^22.4.5",
-    "ts-node": "^6.0.3",
-    "tslint": "^5.10.0",
-    "typescript": "^3.7.2",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1"
+    "tslint": "^5.10.0"
   },
   "engines": {
     "node": "^8.9.4"
@@ -58,8 +49,7 @@
   "dependencies": {
     "@financial-times/dotcom-ui-flags": "^0.5.4",
     "@financial-times/n-user-api-client": "^2.7.0",
-    "isomorphic-fetch": "^3.0.0",
-    "prop-types": "^15.7.2",
+    "node-fetch": "^2.6.0",
     "react": "^16.12.0"
   }
 }
