@@ -25,7 +25,7 @@
       "express",
       "express-serve-static-core",
       "glob",
-      "node-fetch",
+      "isomorphic-fetch",
       "jest",
       "js-yaml",
       "mime",

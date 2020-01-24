@@ -1,4 +1,4 @@
-import 'node-fetch';
+import 'isomorphic-fetch';
 import { FowAPI } from '../types/fow-api';
 
 export async function getFormOfWords(

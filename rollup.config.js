@@ -1,9 +1,7 @@
 import typescript from 'rollup-plugin-typescript';
 import pkg from './package.json';
 
-const external = [
-	...Object.keys(pkg.dependencies),
-];
+const external = Object.keys(pkg.dependencies);
 
 export default [
 	{
@@ -12,10 +10,8 @@ export default [
 		output: {
 			file: pkg.browser,
 			format: 'es'
-        },
-        plugins: [
-            typescript(),
-        ]
+		},
+		plugins: [typescript()]
 	},
 	{
 		input: 'src/js/server/main.ts',
@@ -24,8 +20,6 @@ export default [
 			file: pkg.main,
 			format: 'cjs'
 		},
-		plugins: [
-            typescript(),
-		]
+		plugins: [typescript()]
 	}
 ];

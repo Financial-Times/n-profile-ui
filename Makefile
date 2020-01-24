@@ -16,8 +16,7 @@ watch:
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
 
-verify-with-tslint:
-	_verify_tslint verify
+verify-with-tslint: _verify_tslint verify
 
 a11y:
 	@node .pa11yci.js
