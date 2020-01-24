@@ -10,7 +10,7 @@ clean:
 build: clean
 	rollup -c
 
-build-production: build	
+build-production: build
 
 watch:
 	rollup -c --watch
