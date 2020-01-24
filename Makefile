@@ -6,23 +6,17 @@ node_modules/@financial-times/n-gage/index.mk:
 
 clean:
 	rm -rf dist
-	
 
-build:
-	make clean	
-	page-kit build
+build: clean
+	rollup -c
 
 watch:
-	page-kit --development --watch
-
-build-for-commit: 
-	build
-	git add dist
+	rollup -c --watch
 
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
 
-verify-with-tslint: 
+verify-with-tslint:
 	_verify_tslint verify
 
 a11y:
@@ -36,4 +30,4 @@ unit-test:
 client-test:
 	jest ./test/client/*.spec.ts --config=./test/jest.config.json
 
-test: verify a11y unit-test client-test
+test: a11y unit-test client-test
