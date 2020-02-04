@@ -34,15 +34,12 @@ const ErrorMessageCore = ({
 			<div className="o-message__content">
 				<p className="o-message__content-main">
 					<span className="o-message__content-highlight consent-message__content-block">
-						{highlight
-							? highlight
-							: "Your Contact Preferences couldn't be saved."}
+						{highlight ||
+							"Your Contact Preferences couldn't be saved."}
 					</span>
 					{!hideDetail && (
 						<span className="o-message__content-detail">
-							{detail
-								? detail
-								: 'These can be set anytime in myFT.'}
+							{detail || 'These can be set anytime in myFT.'}
 						</span>
 					)}
 				</p>

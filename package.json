@@ -25,6 +25,7 @@
   "devDependencies": {
     "@financial-times/n-gage": "^3.7.1",
     "@financial-times/n-internal-tool": "^2.2.4",
+    "@types/classnames": "^2.2.9",
     "@types/express": "^4.11.1",
     "@types/jest": "^22.2.3",
     "@types/node": "^9.6.6",
@@ -50,6 +51,7 @@
   "dependencies": {
     "@financial-times/dotcom-ui-flags": "^0.5.4",
     "@financial-times/n-user-api-client": "^2.7.0",
+    "classnames": "^2.2.6",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.12.0"
   }

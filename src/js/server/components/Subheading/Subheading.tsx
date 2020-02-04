@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import * as flags from '@financial-times/dotcom-ui-flags';
 import { FowAPI } from '../../../types/fow-api';
 
@@ -20,13 +21,16 @@ const Subheading = ({
 }: Props) => {
 	const flagsClient = (flags as any).init();
 
+	const classnames = classNames(
+		'flex-row',
+		'flex-row--align-baseline',
+		{ 'flex-row--justify-between': linkAlign === 'right' },
+		'subheading',
+		{ [`subheading--level-${subheadingLevel}`]: subheadingLevel }
+	);
+
 	return (
-		<div
-			className={`flex-row flex-row--align-baseline ${linkAlign ===
-				'right' &&
-				'flex-row--justify-between'} subheading ${subheadingLevel &&
-				`subheading--level-${subheadingLevel}`}`}
-		>
+		<div className={classnames}>
 			<h2 className="flex-row__cell-grow subheading__title">{text}</h2>
 			{linkText && flagsClient.get('hideOutboundLinks') && (
 				<a
