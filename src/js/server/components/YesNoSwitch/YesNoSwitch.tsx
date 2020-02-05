@@ -26,7 +26,7 @@ const YesNoSwitch = ({
 	toggleOnLabel,
 	toggleOffLabel
 }: Props) => {
-	const yesCheckboxClassnames = classNames('consent-form__radio-button', {
+	const yesCheckboxClasses = classNames('consent-form__radio-button', {
 		inputClass
 	});
 
@@ -57,7 +57,7 @@ const YesNoSwitch = ({
 									lbi ? 'lbi' : 'consent'
 								}-${category}-${channel}`}
 								value="yes"
-								className={yesCheckboxClassnames}
+								className={yesCheckboxClasses}
 								id={`${category}-${channel}-yes`}
 								aria-describedby={`legend-${category}-${channel}`}
 								data-trackable={`${

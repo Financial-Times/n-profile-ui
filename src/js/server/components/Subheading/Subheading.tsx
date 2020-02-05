@@ -21,7 +21,7 @@ const Subheading = ({
 }: Props) => {
 	const flagsClient = (flags as any).init();
 
-	const classnames = classNames(
+	const classes = classNames(
 		'flex-row',
 		'flex-row--align-baseline',
 		{ 'flex-row--justify-between': linkAlign === 'right' },
@@ -30,7 +30,7 @@ const Subheading = ({
 	);
 
 	return (
-		<div className={classnames}>
+		<div className={classes}>
 			<h2 className="flex-row__cell-grow subheading__title">{text}</h2>
 			{linkText && flagsClient.get('hideOutboundLinks') && (
 				<a
