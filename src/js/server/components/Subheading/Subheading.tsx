@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { default as classNames } from 'classnames';
 import * as flags from '@financial-times/dotcom-ui-flags';
 import { FowAPI } from '../../../types/fow-api';
 

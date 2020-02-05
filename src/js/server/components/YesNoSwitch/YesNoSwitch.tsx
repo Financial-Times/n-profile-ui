@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import classNames from 'classNames';
+import { default as classNames } from 'classnames';
 import { FowAPI } from '../../../types/fow-api';
 
 interface Props extends FowAPI.Channel {
