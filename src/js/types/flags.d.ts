@@ -1,3 +1,3 @@
 export interface Flags {
-    hideOutboundLinks?: boolean;
+hideOutboundLinks?: boolean;
 }
