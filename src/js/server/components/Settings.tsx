@@ -4,11 +4,13 @@ import {
 	Subheading,
 	FOWHiddenInputs,
 	YesNoSwitch
-} from '../';
-import { FowAPI } from '../../../types/fow-api';
+} from './';
+import { Flags } from '../../types/flags';
+import { FowAPI } from '../../types/fow-api';
 
 interface Props {
 	changesSaved: boolean;
+	flags?: Flags;
 	formOfWords: FowAPI.Fow;
 	toggleOnLabel: boolean;
 	showSubmitButton: boolean;
@@ -17,6 +19,7 @@ interface Props {
 
 const Settings = ({
 	changesSaved,
+	flags,
 	formOfWords,
 	toggleOnLabel,
 	toggleOffLabel,
@@ -60,6 +63,7 @@ const Settings = ({
 							<Subheading
 								channels={channels}
 								category={category}
+								flags={flags}
 								linkText={linkText}
 								linkUrl={linkUrl}
 								subheadingLevel={subheadingLevel}

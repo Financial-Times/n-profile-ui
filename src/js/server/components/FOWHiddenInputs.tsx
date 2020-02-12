@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FowAPI } from '../../../types/fow-api';
+import { FowAPI } from '../../types/fow-api';
 
 interface Props {
 	formOfWords: FowAPI.Fow;

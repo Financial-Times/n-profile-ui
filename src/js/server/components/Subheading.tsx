@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { default as classNames } from 'classnames';
-import * as flags from '@financial-times/dotcom-ui-flags';
-import { FowAPI } from '../../../types/fow-api';
+import { Flags } from '../../types/flags';
+import { FowAPI } from '../../types/fow-api';
 
 interface Props extends Omit<FowAPI.Category, 'label'> {
+	flags?: Flags;
 	linkAlign?: string;
 	linkAriaLabel?: string;
 	trackable?: string;
@@ -11,6 +12,7 @@ interface Props extends Omit<FowAPI.Category, 'label'> {
 }
 
 const Subheading = ({
+	flags,
 	linkAlign,
 	linkText,
 	linkUrl,
@@ -19,8 +21,6 @@ const Subheading = ({
 	trackable,
 	text
 }: Props) => {
-	const flagsClient = (flags as any).init();
-
 	const classes = classNames(
 		'flex-row',
 		'flex-row--align-baseline',
@@ -32,7 +32,7 @@ const Subheading = ({
 	return (
 		<div className={classes}>
 			<h2 className="flex-row__cell-grow subheading__title">{text}</h2>
-			{linkText && flagsClient.get('hideOutboundLinks') && (
+			{linkText && flags && flags.hideOutboundLinks && (
 				<a
 					className="subheading__link"
 					href={linkUrl}

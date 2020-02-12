@@ -4,8 +4,8 @@ import {
 	ErrorMessageCore,
 	FOWHiddenInputs,
 	YesNoSwitch
-} from '../';
-import { FowAPI } from '../../../types/fow-api';
+} from './';
+import { FowAPI } from '../../types/fow-api';
 
 interface Props {
 	showHeading: boolean;
@@ -25,7 +25,7 @@ const Consent = ({
 			<>
 				<ConsentHeading isSubsection={isSubsection}>
 					<>
-						{formOfWords.copy.heading1 && formOfWords.copy.heading1}
+						{formOfWords.copy.heading1}
 						{formOfWords.copy.straplineHeading && (
 							<span className="consent-form__heading-strapline">
 								{formOfWords.copy.straplineHeading}

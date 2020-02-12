@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Consent, Confirmation, Banner } from '../';
-import { FowAPI } from '../../../types/fow-api';
+import { Consent, Confirmation, Banner } from './';
+import { FowAPI } from '../../types/fow-api';
 
 interface Props {
 	formOfWords: FowAPI.Fow;

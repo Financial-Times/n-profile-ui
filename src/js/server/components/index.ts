@@ -1,12 +1,12 @@
-export { default as Banner } from './Banner/Banner';
-export { default as ChangesSavedMessage } from './ChangesSavedMessage/ChangesSavedMessage';
-export { default as Confirmation } from './Confirmation/Confirmation';
-export { default as ConsentHeading } from './ConsentHeading/ConsentHeading';
-export { default as ErrorMessageCore } from './ErrorMessageCore/ErrorMessageCore';
-export { default as FOWHiddenInputs } from './FOWHiddenInputs/FOWHiddenInputs';
-export { default as Subheading } from './Subheading/Subheading';
-export { default as YesNoSwitch } from './YesNoSwitch/YesNoSwitch';
+export { default as Banner } from './Banner';
+export { default as ChangesSavedMessage } from './ChangesSavedMessage';
+export { default as Confirmation } from './Confirmation';
+export { default as ConsentHeading } from './ConsentHeading';
+export { default as ErrorMessageCore } from './ErrorMessageCore';
+export { default as FOWHiddenInputs } from './FOWHiddenInputs';
+export { default as Subheading } from './Subheading';
+export { default as YesNoSwitch } from './YesNoSwitch';
 
-export { default as Consent } from './Consent/Consent';
-export { default as Overlay } from './Overlay/Overlay';
-export { default as Settings } from './Settings/Settings';
+export { default as Consent } from './Consent';
+export { default as Overlay } from './Overlay';
+export { default as Settings } from './Settings';
