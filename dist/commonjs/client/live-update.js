@@ -1,6 +1,5 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.LiveUpdateConsent = void 0;
 const consent_1 = require('./consent');
 class LiveUpdateConsent extends consent_1.ConsentForm {
 	constructor (opts) {

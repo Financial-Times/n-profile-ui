@@ -1,6 +1,5 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.UpdateConsentOnSave = void 0;
 const consent_1 = require('./consent');
 const helpers_1 = require('../helpers');
 class UpdateConsentOnSave extends consent_1.ConsentForm {
