@@ -1,6 +1,5 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.ConsentMessage = void 0;
 const o_message_1 = require('o-message');
 class ConsentMessage {
 	constructor (options) {
