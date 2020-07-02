@@ -17,7 +17,7 @@
 					<input
 						type="radio"
 						name="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}"
-						value="{{#if toggleOnLabel}}{{toggleOnLabel}}{{else}}Yes{{/if}}"
+						value="yes"
 						aria-label="{{#if toggleOnLabel}}{{toggleOnLabel}}{{else}}Yes{{/if}}"
 						class="consent-form__radio-button{{#if inputClass}} {{inputClass}}{{/if}}"
 						id="{{{category}}}-{{{channel}}}-yes"
@@ -38,8 +38,8 @@
 					<input
 						type="radio"
 						name="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}"
-						value="{{#if toggleOffLabel}}{{toggleOffLabel}}{{else}}no{{/if}}"
-						aria-label="no"
+						value="no"
+						aria-label="{{#if toggleOffLabel}}{{toggleOffLabel}}{{else}}no{{/if}}"
 						class="consent-form__radio-button consent-form__radio-button--negative"
 						id="{{{category}}}-{{{channel}}}-no"
 						aria-describedby="legend-{{{category}}}-{{{channel}}}"
