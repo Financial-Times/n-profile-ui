@@ -20,10 +20,8 @@
     "types": [
       "agent-base",
       "body-parser",
-      "bunyan",
       "connect",
       "debug",
-      "events",
       "express",
       "express-serve-static-core",
       "glob",
@@ -35,7 +33,6 @@
       "node",
       "normalize-package-data",
       "range-parser",
-      "restify",
       "semver",
       "serve-static",
       "sinon",
