@@ -53,6 +53,10 @@ $two-thirds-width: percentage(2 / 3);
 		border: none;
 	}
 
+	.o-forms-field label {
+		margin: 0px;
+	}
+
 	.o-forms-field--inline {
 		margin-bottom: 10px;
 
