@@ -57,6 +57,7 @@ const YesNoSwitch = ({
 									lbi ? 'lbi' : 'consent'
 								}-${category}-${channel}`}
 								value="yes"
+								aria-label="yes"
 								className={yesCheckboxClasses}
 								id={`${category}-${channel}-yes`}
 								aria-describedby={`legend-${category}-${channel}`}
@@ -81,6 +82,7 @@ const YesNoSwitch = ({
 									lbi ? 'lbi' : 'consent'
 								}-${category}-${channel}`}
 								value="no"
+								aria-label="no"
 								className="consent-form__radio-button consent-form__radio-button--negative"
 								id={`${category}-${channel}-no`}
 								aria-describedby={`legend-${category}-${channel}`}
