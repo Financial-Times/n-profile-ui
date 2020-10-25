@@ -54,6 +54,6 @@
   },
   "dependencies": {
     "@financial-times/n-user-api-client": "^2.7.0",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^3.0.0"
   }
 }
