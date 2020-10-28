@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
+exports.ConsentForm = void 0;
 const helpers_1 = require('../helpers');
 class ConsentForm {
 	constructor (opts) {

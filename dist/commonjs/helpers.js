@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
+exports.buildConsentRecord = exports.validateConsent = exports.populateConsentModel = exports.decorateChannel = exports.extractMetaFromString = exports.isConsentField = void 0;
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
 function isConsentField (name) {
 	return Rx.test(name);
