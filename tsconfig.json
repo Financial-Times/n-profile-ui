@@ -1,0 +1,44 @@
+{
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "dist",
+    "demos",
+    "test"
+  ],
+  "compilerOptions": {
+    "sourceMap": false,
+    "outDir": "./dist",
+    "rootDirs": [ "./src/js" ],
+    "strict": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["es2017", "dom"],
+    "noImplicitAny": false,
+    "types": [
+      "agent-base",
+      "body-parser",
+      "connect",
+      "debug",
+      "express",
+      "express-serve-static-core",
+      "glob",
+      "isomorphic-fetch",
+      "jest",
+      "js-yaml",
+      "mime",
+      "minimatch",
+      "node",
+      "normalize-package-data",
+      "range-parser",
+      "semver",
+      "serve-static",
+      "sinon",
+      "unist",
+      "vfile-message",
+      "xml2js"
+    ]
+  }
+}

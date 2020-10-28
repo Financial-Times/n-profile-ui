@@ -1,11 +1,12 @@
 import { LiveUpdateConsent } from '../../../src/js/client/live-update';
 import './polyfills';
-import loadHtml from './load-html';
+
+import { loadHTML } from './load-html';
 
 const formOfWords = require('../../fixtures/form-of-words.json');
 
 export default function (callback) {
-	document.body.innerHTML = loadHtml({
+	document.body.innerHTML = loadHTML({
 		formOfWords: { ...formOfWords, source: 'test' }
 	});
 

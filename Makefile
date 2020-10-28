@@ -4,43 +4,21 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
-build:
+clean:
 	rm -rf dist
-	tsc -p tsconfig.commonjs.json
-	tsc -p tsconfig.esm.json
 
-watch:
-	tsc -w -p tsconfig.commonjs.json -p tsconfig.esm.json
+build: clean
+	rollup -c
 
 build-production: build
 
-build-for-commit: build eslint-fix-dist
-	git add dist
-
-eslint-fix-dist:
-	eslint --fix ./dist
-	eslint --rule 'indent: [error, tab]' --ext .js --fix ./dist
+watch:
+	rollup -c --watch
 
 _verify_tslint:
 	@if [ -e tslint.json ]; then tslint -c tslint.json "src/**/*.ts" "test/**/*.ts" && $(DONE); fi
 
 verify-with-tslint: _verify_tslint verify
-
-build-demo:
-	# transpiling client-side code
-	rm -rf public
-	tsc -p demos/tsconfig.demo.json
-	webpack-cli --config demos/webpack.config.demo.js
-	# copying views
-	rm -rf bower_components/n-profile-ui
-	mkdir bower_components/n-profile-ui
-	cp -r templates/ bower_components/n-profile-ui/templates/
-	# building styles
-	node-sass demos/scss/demo.scss public/main.css --include-path bower_components
-	@$(DONE)
-
-demo: build-demo
-	ts-node --project demos/tsconfig.demo.json demos/app.ts
 
 a11y:
 	@node .pa11yci.js
@@ -53,4 +31,4 @@ unit-test:
 client-test:
 	jest ./test/client/*.spec.ts --config=./test/jest.config.json
 
-test: eslint-fix-dist verify a11y unit-test client-test
+test: a11y unit-test client-test

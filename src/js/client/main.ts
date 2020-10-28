@@ -1,13 +1,6 @@
-import { Reconsent } from './reconsent';
-import { LiveUpdateConsent } from './live-update';
-import { UpdateConsentOnSave } from './update-on-save';
-import { ConsentMessage } from './message';
-import * as helpers from '../helpers';
+export { Reconsent } from './reconsent';
+export { LiveUpdateConsent } from './live-update';
+export { UpdateConsentOnSave } from './update-on-save';
+export { ConsentMessage } from './message';
 
-export {
-	Reconsent,
-	LiveUpdateConsent,
-	UpdateConsentOnSave,
-	ConsentMessage,
-	helpers
-};
+export * from '../helpers'
