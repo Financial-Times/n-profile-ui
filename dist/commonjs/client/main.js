@@ -1,12 +1,13 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
+exports.helpers = exports.ConsentMessage = exports.UpdateConsentOnSave = exports.LiveUpdateConsent = exports.Reconsent = void 0;
 const reconsent_1 = require('./reconsent');
-exports.Reconsent = reconsent_1.Reconsent;
+Object.defineProperty(exports, 'Reconsent', { enumerable: true, get: function () { return reconsent_1.Reconsent; } });
 const live_update_1 = require('./live-update');
-exports.LiveUpdateConsent = live_update_1.LiveUpdateConsent;
+Object.defineProperty(exports, 'LiveUpdateConsent', { enumerable: true, get: function () { return live_update_1.LiveUpdateConsent; } });
 const update_on_save_1 = require('./update-on-save');
-exports.UpdateConsentOnSave = update_on_save_1.UpdateConsentOnSave;
+Object.defineProperty(exports, 'UpdateConsentOnSave', { enumerable: true, get: function () { return update_on_save_1.UpdateConsentOnSave; } });
 const message_1 = require('./message');
-exports.ConsentMessage = message_1.ConsentMessage;
+Object.defineProperty(exports, 'ConsentMessage', { enumerable: true, get: function () { return message_1.ConsentMessage; } });
 const helpers = require('../helpers');
 exports.helpers = helpers;
