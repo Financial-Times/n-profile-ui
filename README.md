@@ -1,3 +1,12 @@
+# 🔥 DO NOT DELETE THIS BRANCH! 🔥 
+
+`chore/handlebars-to-jsx` is currently depended upon directly by... 
+
+- [`Financial-Times/next-profile`](https://github.com/Financial-Times/next-profile/blob/master/package.json#L66)
+- [`Financial-Times/next-subscribe`](https://github.com/Financial-Times/next-subscribe/blob/1f36b43a7785b1db2df2ea1696f17f36037d388a/package.json#L32)
+
+Discussion is underway on the best way to migrate to getting repos to depend on npm modules instead
+
 # n-profile-ui
 
 ## UI handlebars templates for GDPR consent
