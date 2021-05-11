@@ -8,5 +8,7 @@ export { default as Subheading } from './Subheading';
 export { default as YesNoSwitch } from './YesNoSwitch';
 
 export { default as Consent } from './Consent';
+export { default as ConsentLite } from './ConsentLite';
+
 export { default as Overlay } from './Overlay';
 export { default as Settings } from './Settings';
