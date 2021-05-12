@@ -1,10 +1,10 @@
-import * as sinon from "sinon";
-import stubFetch from "./helpers/stub-fetch";
-import initConsentForm from "./helpers/init-consent-form";
+import * as sinon from 'sinon';
+import stubFetch from './helpers/stub-fetch';
+import initConsentForm from './helpers/init-consent-form';
 
 let afterFormSaved = () => {};
 
-describe("Live consent form", () => {
+describe('Live consent form', () => {
 	beforeEach(() => {
 		initConsentForm(() => {
 			afterFormSaved();
@@ -12,10 +12,10 @@ describe("Live consent form", () => {
 	});
 
 	const radioButton = (): HTMLInputElement =>
-		document.querySelector("#categoryB-channel1-yes") ||
-		document.createElement("input");
+		document.querySelector('#categoryB-channel1-yes') ||
+		document.createElement('input');
 
-	it("dispatches event to save form", (done) => {
+	it('dispatches event to save form', (done) => {
 		stubFetch();
 		expect(radioButton().checked).toEqual(false);
 		radioButton().click();
@@ -25,9 +25,9 @@ describe("Live consent form", () => {
 	});
 
 	it.skip("redirects the page when the user's session has expired", (done) => {
-		const redirectLocation = "/login";
+		const redirectLocation = '/login';
 		stubFetch({ responseCode: 403 });
-		const locationStub = sinon.stub(window.location, "assign");
+		const locationStub = sinon.stub(window.location, 'assign');
 
 		locationStub.callsFake((location) => {
 			expect(location).toEqual(redirectLocation);

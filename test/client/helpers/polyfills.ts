@@ -1,10 +1,10 @@
-import logger from "@financial-times/n-logger";
+import logger from '@financial-times/n-logger';
 
-process.on("unhandledRejection", (reason, p) => {
-	logger.info("Unhandled Rejection at: Promise", {
+process.on('unhandledRejection', (reason, p) => {
+	logger.info('Unhandled Rejection at: Promise', {
 		p,
 		reason,
-		stack: reason && reason["stack"],
+		stack: reason && reason['stack'],
 	});
 });
 
