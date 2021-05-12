@@ -1,18 +1,18 @@
-import logger from '@financial-times/n-logger';
+import logger from "@financial-times/n-logger";
 
-process.on('unhandledRejection', (reason, p) => {
-	const { stack } = reason;
-	logger.info(
-		'Unhandled Rejection at: Promise',
-		{ p, reason, stack }
-	);
+process.on("unhandledRejection", (reason, p) => {
+	logger.info("Unhandled Rejection at: Promise", {
+		p,
+		reason,
+		stack: reason && reason["stack"],
+	});
 });
 
 beforeAll(() => {
 	(window as any).Headers = class {
 		constructor() {}
 	};
-	(window as any).Element.prototype.closest = function(selector) {
+	(window as any).Element.prototype.closest = function (selector) {
 		let el = this;
 		while (el) {
 			if (el.matches(selector)) {
