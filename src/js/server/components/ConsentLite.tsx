@@ -14,28 +14,30 @@ interface Props {
 }
 
 const ConsentFields = ({ formOfWords }) => (
-		<div className="consent-form__section-wrapper">
-			<div className="o-forms-field">
-				<span className="o-forms-input o-forms-input--checkbox">
-					{formOfWords.consents &&
-						formOfWords.consents.map(
-						({ category, label }) => (
-							<CheckBox
-								label={label}
-								category={category}
-							/>
-						))
-					}
-				</span>
-			</div>
+	<div className="consent-form__section-wrapper">
+		<div className="o-forms-field">
+			<span className="o-forms-input o-forms-input--checkbox">
+				{formOfWords.consents &&
+					formOfWords.consents.map(
+						({ category, label }) => {
+							if (category && label) (
+								<CheckBox
+									label={label}
+									category={category}
+								/>
+							)
+						})
+				}
+			</span>
 		</div>
+	</div>
 );
 
 const CheckBox = ({ label, category}) => {
 	return(
-        <label htmlFor={`${category}`}>
+        <label htmlFor={category}>
             <input
-				id={`${category}`}
+				id={category}
 				type="checkbox"
 				name={`consent-${category}-byEmail}`}
 				value="yes"
