@@ -46,7 +46,7 @@
     "typescript": "^3.7.5"
   },
   "engines": {
-    "node": "^8.9.4"
+    "node": "^12.22.1"
   },
   "dependencies": {
     "@financial-times/n-user-api-client": "^2.7.0",
