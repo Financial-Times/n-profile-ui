@@ -19,32 +19,31 @@ const ConsentFields = ({ formOfWords }) => (
 			<span className="o-forms-input o-forms-input--checkbox">
 				{formOfWords.consents &&
 					formOfWords.consents.map(
-						({ category, label }) => {
-							if (category && label) (
-								<CheckBox
-									label={label}
-									category={category}
-								/>
-							)
-						})
+						({ category, label }) => (
+							<CheckBox
+								label={label}
+								category={category}
+							/>
+						)
+					)
 				}
 			</span>
 		</div>
 	</div>
 );
 
-const CheckBox = ({ label, category}) => {
-	return(
-        <label htmlFor={category}>
-            <input
+const CheckBox = ({ label, category }) => {
+	return (
+		<label htmlFor={category}>
+			<input
 				id={category}
 				type="checkbox"
-				name={`consent-${category}-byEmail}`}
+				name={`consent-${category}-byEmail`}
 				value="yes"
 				checked
 			/>
 			<span className="o-forms-input__label">{label}</span>
-        </label>
+		</label>
 	);
 };
 
