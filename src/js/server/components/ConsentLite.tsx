@@ -21,6 +21,7 @@ const ConsentFields = ({ formOfWords }) => (
 					formOfWords.consents.map(
 						({ category, label }) => (
 							<CheckBox
+								key={category}
 								label={label}
 								category={category}
 							/>
@@ -40,7 +41,7 @@ const CheckBox = ({ label, category }) => {
 				type="checkbox"
 				name={`consent-${category}-byEmail`}
 				value="yes"
-				checked
+				defaultChecked
 			/>
 			<span className="o-forms-input__label">{label}</span>
 		</label>
