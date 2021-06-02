@@ -73,7 +73,7 @@ const SubmitButton = ({ formOfWords }) => (
 	<div className="consent-form__submit-wrapper">
 		<button
 			type="submit"
-			className="consent-form__submit o-buttons o-buttons--primary o-buttons--big"
+			className="consent-form__submit o-buttons o-buttons--primary o-buttons--big ncf__button--submit"
 		>
 			{formOfWords.copy && formOfWords.copy.submitButton
 				? formOfWords.copy.submitButton
