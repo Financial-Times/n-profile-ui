@@ -11,6 +11,7 @@ interface Props {
 	isSubsection: boolean;
 	formOfWords: FowAPI.Fow;
 	label: string;
+	hideFooter: boolean;
 }
 
 const ConsentFields = ({ formOfWords }) => (
@@ -48,19 +49,34 @@ const CheckBox = ({ label, category }) => {
 	);
 };
 
-const MoreInfo = () => (
-	<div className="consent-form__consent-info-para">
-		For more information about how we use your data, please refer to our
-		<a className="consent-form__link--external"
-			href="http://help.ft.com/help/legal-privacy/privacy/"
-			target="_blank">&nbsp;privacy</a>
-		&nbsp;and
-		<a className="consent-form__link--external"
-			href="http://help.ft.com/help/legal-privacy/cookies/"
-			target="_blank">&nbsp;cookie</a>
-		&nbsp;policies.
-	</div>
-);
+const MoreInfo = ({ formOfWords }) => {
+	const defaultMoreInfo = (style) => (
+		<div className="consent-form__consent-info-para" style={style}>
+			For more information about how we use your data, please refer to our
+			<a className="consent-form__link--external"
+				href="http://help.ft.com/help/legal-privacy/privacy/"
+				target="_blank">&nbsp;privacy</a>
+			&nbsp;and
+			<a className="consent-form__link--external"
+				href="http://help.ft.com/help/legal-privacy/cookies/"
+				target="_blank">&nbsp;cookie</a>
+			&nbsp;policies.
+		</div>
+	);
+
+	switch (formOfWords.moreInfoCustom) {
+		case 'inArticleSignUp':
+			return <div className="consent-form__consent-info-para">
+				Full
+				<a className="consent-form__link--external"
+					href="http://help.ft.com/help/legal-privacy/terms-conditions/"
+					target="_blank">&nbsp;Terms and Conditions</a>
+				&nbsp;apply.&nbsp;{defaultMoreInfo({display: "inline"})}
+			</div>
+		default:
+			return defaultMoreInfo({});
+	}
+};
 
 const Footer = () => (
 	<div className="manage-account-footer">
@@ -87,6 +103,7 @@ const ConsentLite = ({
 	isSubsection,
 	formOfWords,
 	showSubmitButton,
+	hideFooter,
 }: Props) => (
 	<>
 		{showHeading && formOfWords.copy && (
@@ -110,11 +127,11 @@ const ConsentLite = ({
 		<FOWHiddenInputs formOfWords={formOfWords} />
 		<div className="consent-form">
 			<ConsentFields formOfWords={formOfWords} />
-			<MoreInfo />
+			<MoreInfo formOfWords={formOfWords}/>
 			{showSubmitButton && (
 				<SubmitButton formOfWords={formOfWords} />
 			)}
-			<Footer />
+			{!hideFooter && (<Footer />)}
 		</div>
 	</>
 );
