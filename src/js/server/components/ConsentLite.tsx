@@ -11,7 +11,7 @@ interface Props {
 	isSubsection: boolean;
 	formOfWords: FowAPI.Fow;
 	label: string;
-	hideFooter: boolean;
+	showFooter: boolean;
 }
 
 const ConsentFields = ({ formOfWords }) => (
@@ -103,7 +103,7 @@ const ConsentLite = ({
 	isSubsection,
 	formOfWords,
 	showSubmitButton,
-	hideFooter,
+	showFooter = true,
 }: Props) => (
 	<>
 		{showHeading && formOfWords.copy && (
@@ -131,7 +131,7 @@ const ConsentLite = ({
 			{showSubmitButton && (
 				<SubmitButton formOfWords={formOfWords} />
 			)}
-			{!hideFooter && (<Footer />)}
+			{showFooter && (<Footer />)}
 		</div>
 	</>
 );
