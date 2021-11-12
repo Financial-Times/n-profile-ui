@@ -15,8 +15,8 @@
   },
   "homepage": "https://github.com/Financial-Times/n-profile-ui#readme",
   "volta": {
-    "node": "12.22.7",
-    "npm": "7.20.2"
+    "node": "16.13.0",
+    "npm": "8.1.3"
   },
   "engines": {
     "node": "12.x",
@@ -54,11 +54,15 @@
   },
   "scripts": {
     "test": "make test",
-    "precommit": "make build && node_modules/.bin/secret-squirrel",
-    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "commit": "commit-wizard",
-    "prepush": "make test verify-with-tslint -j3",
     "prepare": "(npx snyk protect || npx snyk protect -d || true) && make build",
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
+      "pre-commit": "make build && node_modules/.bin/secret-squirrel",
+      "pre-push": "make test verify-with-tslint -j3"
+    }
   }
 }

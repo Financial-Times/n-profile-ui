@@ -17,7 +17,7 @@ export default function (callback) {
 		callback();
 	});
 	consentForm.onChange((consent) => {
-		const url = consentForm.element.getAttribute('action');
+		const url = consentForm.element.getAttribute('action')!;
 		return fetch(url, {
 			method: 'POST',
 			credentials: 'include',
