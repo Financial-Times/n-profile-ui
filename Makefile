@@ -26,9 +26,9 @@ a11y:
 	@$(DONE)
 
 unit-test:
-	jest ./test/unit/*.spec.ts --config=./test/jest.config.json
+	jest ./test/unit/*.spec.ts
 
 client-test:
-	jest ./test/client/*.spec.ts --config=./test/jest.config.json
+	jest ./test/client/*.spec.ts
 
 test: a11y unit-test client-test

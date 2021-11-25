@@ -1,6 +1,7 @@
 import logger from '@financial-times/n-logger';
 
 process.on('unhandledRejection', (reason, p) => {
+	// @ts-ignore
 	const { stack } = reason;
 	logger.info(
 		'Unhandled Rejection at: Promise',
