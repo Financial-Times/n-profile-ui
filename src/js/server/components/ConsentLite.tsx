@@ -67,7 +67,8 @@ const MoreInfo = ({ formOfWords }) => {
 	switch (formOfWords.moreInfoCustom) {
 		case 'inArticleSignUp':
 			return <div className="consent-form__consent-info-para">
-				By signing up for this email, you are registering for a free account with the FT. Full
+				By signing up for this email, you're registering for a free account with the FT.
+				You'll also receive our weekly Editor's Digest Newsletter. Full
 				<a className="consent-form__link--external"
 					href="http://help.ft.com/help/legal-privacy/terms-conditions/"
 					target="_blank">&nbsp;Terms and Conditions</a>
