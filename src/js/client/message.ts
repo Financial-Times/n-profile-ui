@@ -1,4 +1,4 @@
-import oMessage from 'o-message';
+import oMessage from '@financial-times/o-message';
 
 export interface ConsentMessageOptions {
 	selector: string;

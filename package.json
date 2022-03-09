@@ -73,6 +73,7 @@
     "@financial-times/o-banner": "^4.0.0",
     "@financial-times/o-buttons": "^7.5.0",
     "@financial-times/o-colors": "^6.4.2",
+    "@financial-times/o-expander": "^5.0.11",
     "@financial-times/o-forms": "^9.2.4",
     "@financial-times/o-icons": "^7.2.1",
     "@financial-times/o-message": "^5.2.1",
