@@ -31,4 +31,7 @@ unit-test:
 client-test:
 	jest ./test/client/*.spec.ts
 
-test: a11y unit-test client-test
+sass-build-test:
+	webpack --mode=development
+
+test: a11y unit-test client-test sass-build-test
