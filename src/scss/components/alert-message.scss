@@ -1,4 +1,4 @@
-@import 'o-message/main';
+@import '@financial-times/o-message/main';
 
 @include oMessage($opts: (
 	'types': ('alert'),

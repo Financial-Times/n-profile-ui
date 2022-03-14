@@ -1,5 +1,5 @@
-// import Overlay from 'o-overlay';
-// import expander from 'o-expander';
+// import Overlay from '@financial-times/o-overlay';
+// import expander from '@financial-times/o-expander';
 import { UpdateConsentOnSave } from './update-on-save';
 import { ConsentOptions } from './consent';
 
