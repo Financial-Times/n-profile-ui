@@ -1,0 +1,62 @@
+<fieldset class="consent-form__fieldset">
+	<legend class="o-normalise-visually-hidden">{{label}}</legend>
+	<div class="o-forms-field o-forms-field--inline">
+		<span class="o-forms-title">
+			<span class="o-forms-title__main" id="legend-{{{category}}}-{{{channel}}}" aria-hidden="true">
+				{{label}}
+			</span>
+			{{#if advisory}}
+			<div class="consent-form__item-advisory">
+				{{{advisory}}}
+			</div>
+			{{/if}}
+		</span>
+		<span class="o-forms-input o-forms-input--radio-box">
+			<div class="o-forms-input--radio-box__container">
+				<label for="{{{category}}}-{{{channel}}}-yes">
+					<input
+						type="radio"
+						name="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}"
+						value="yes"
+						aria-label="{{#if toggleOnLabel}}{{toggleOnLabel}}{{else}}yes{{/if}}"
+						class="consent-form__radio-button{{#if inputClass}} {{inputClass}}{{/if}}"
+						id="{{{category}}}-{{{channel}}}-yes"
+						aria-describedby="legend-{{{category}}}-{{{channel}}}"
+						data-trackable="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}-yes"
+						{{#if checkedYes}} checked{{/if}}
+						{{#each elementAttrs}} {{{name}}}{{#if value}}="{{{value}}}"{{/if}}{{/each}}
+					/>
+					<span class="o-forms-input__label" aria-hidden="true">
+						{{#if toggleOnLabel}}
+							{{toggleOnLabel}}
+						{{else}}
+							Yes
+						{{/if}}
+					</span>
+				</label>
+				<label for="{{{category}}}-{{{channel}}}-no">
+					<input
+						type="radio"
+						name="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}"
+						value="no"
+						aria-label="{{#if toggleOffLabel}}{{toggleOffLabel}}{{else}}no{{/if}}"
+						class="consent-form__radio-button consent-form__radio-button--negative"
+						id="{{{category}}}-{{{channel}}}-no"
+						aria-describedby="legend-{{{category}}}-{{{channel}}}"
+						data-trackable="{{#if lbi}}lbi{{else}}consent{{/if}}-{{{category}}}-{{{channel}}}-no"
+						{{#if checkedNo}} checked{{/if}}{{#each elementAttrs}} {{{name}}}{{#if value}}="{{{value}}}"{{/if}}{{/each}}
+					/>
+					<span class="o-forms-input__label" aria-hidden="true">
+						{{#if toggleOffLabel}}
+							{{toggleOffLabel}}
+						{{else}}
+							No
+						{{/if}}
+						</span>
+				</label>
+			</div>
+			<div class="o-forms-input__state" aria-hidden="false" aria-live="polite"></div>
+			<div class="o-forms-input__error">There was a problem saving, please try later.</div>
+		</span>
+	</div>
+</fieldset>

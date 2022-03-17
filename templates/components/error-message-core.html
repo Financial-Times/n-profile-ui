@@ -1,0 +1,46 @@
+<div class="o-message o-message--alert o-message--inner o-message--error" data-o-component="o-message">
+	<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight consent-message__content-block">
+					{{#if highlight}}
+						{{{highlight}}}
+					{{else}}
+						Your Contact Preferences couldn't be saved.
+					{{/if}}
+				</span>
+				{{#unless hideDetail}}
+				<span class="o-message__content-detail">
+					{{#if detail}}
+						{{{detail}}}
+					{{else}}
+						These can be set anytime in myFT.
+					{{/if}}
+				</span>
+				{{/unless}}
+			</p>
+			{{#if additional}}
+			<p class="o-message__content--additional">
+				{{{additional}}}
+			</p>
+			{{/if}}
+			{{#with actions}}
+			<div class="o-message__actions">
+				{{#with primary}}
+					<a href="{{{url}}}" class="o-message__actions__primary">{{{text}}}</a>
+				{{/with}}
+				{{#with secondary}}
+					<a href="{{{url}}}" class="o-message__actions__secondary">{{{text}}}</a>
+				{{/with}}
+			</div>
+			{{else}}
+				{{#unless hideActions}}
+				<div class="o-message__actions">
+					<a href="/myft/alerts/" class="o-message__actions__primary">Visit Contact Preferences</a>
+					<a href="https://help.ft.com/" class="o-message__actions__secondary">Help centre</a>
+				</div>
+				{{/unless}}
+			{{/with}}
+		</div>
+	</div>
+</div>

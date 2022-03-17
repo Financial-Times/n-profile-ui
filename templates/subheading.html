@@ -1,0 +1,8 @@
+<div class="flex-row flex-row--align-baseline{{#ifEquals linkAlign 'right'}} flex-row--justify-between{{/ifEquals}} subheading {{#if subheadingLevel}} subheading--level-{{subheadingLevel}}{{/if}}">
+	<h2 class="flex-row__cell-grow subheading__title">
+		{{{text}}}
+	</h2>
+	{{#ifSome linkText @root.flags.hideOutboundLinks}}
+	<a class="subheading__link" href="{{linkUrl}}" target="_blank" rel="noopener" aria-label="{{linkAriaLabel}}" data-trackable="{{trackable}}">{{linkText}}</a>
+	{{/ifSome}}
+</div>
