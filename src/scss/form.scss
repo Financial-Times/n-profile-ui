@@ -1,14 +1,14 @@
 @include oForms($opts: (
-	'elements': ('radio-box'),
+	'elements': ('radio-box','check-box', 'toggle'),
 	'features': ('inline', 'state')
 ));
+
 
 $two-thirds-width: percentage(2 / 3);
 
 .consent-form__intro-text {
 	@include oTypographySans(2);
 	color: oColorsByName('black-80');
-	margin-bottom: oSpacingByName('s6');
 }
 
 .consent-form {
@@ -54,7 +54,7 @@ $two-thirds-width: percentage(2 / 3);
 	}
 
 	.o-forms-field label {
-		margin: 0px;
+		margin: 0 0 12px;
 	}
 
 	.o-forms-field--inline {
