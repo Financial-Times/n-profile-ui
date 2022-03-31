@@ -1,7 +1,16 @@
-@include oForms($opts: (
-	'elements': ('radio-box','check-box', 'toggle'),
-	'features': ('inline', 'state')
-));
+@include oForms(
+	$opts: (
+		'elements': (
+			'radio-box',
+			'check-box',
+			'toggle',
+		),
+		'features': (
+			'inline',
+			'state',
+		),
+	)
+);
 
 $two-thirds-width: percentage(2 / 3);
 
@@ -25,9 +34,9 @@ $two-thirds-width: percentage(2 / 3);
 	.consent-form__section {
 		margin-bottom: oSpacingByName('s4');
 
-        .o-forms-input label {
-		    margin: 0 0 12px;
-	    }
+		.o-forms-input label {
+			margin: 0 0 12px;
+		}
 	}
 
 	.consent-form__limit-width {
