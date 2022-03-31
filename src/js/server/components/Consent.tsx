@@ -1,3 +1,5 @@
+// TODO:  We've added showToggleSwitch flag  for the new design we are A/B testing. https://financialtimes.atlassian.net/browse/ACQ-1472
+// Depending on the results from this test we will update the code in this component accordingly.
 import * as React from 'react';
 import {
 	ConsentHeading,
