@@ -54,7 +54,6 @@ const ToggleSwitch = ({ label, category, heading }) => {
 				defaultChecked
 			/>
 			<span className="o-forms-input__label">
-				{label}
 				<span className="o-forms-input__label__main">{heading}</span>
 				<span className="o-forms-input__label__prompt">{label}</span>
 			</span>

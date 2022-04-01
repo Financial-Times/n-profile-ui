@@ -15,7 +15,7 @@
 $two-thirds-width: percentage(2 / 3);
 
 .consent-form__intro-text {
-	@include oTypographySans(2);
+	@include oTypographySans(-1);
 	color: oColorsByName('black-80');
 }
 
@@ -34,8 +34,13 @@ $two-thirds-width: percentage(2 / 3);
 	.consent-form__section {
 		margin-bottom: oSpacingByName('s4');
 
-		.o-forms-input label {
-			margin: 0 0 12px;
+		.o-forms-input {
+			o-forms-input--toggle label {
+				margin: 0 0 12px;
+			}
+			label {
+				margin: 0px;
+			}
 		}
 	}
 
