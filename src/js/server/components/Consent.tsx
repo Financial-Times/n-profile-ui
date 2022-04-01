@@ -59,7 +59,10 @@ const Consent = ({
 	<>
 		{showHeading && formOfWords.copy && (
 			<>
-				<ConsentHeading isSubsection={isSubsection}>
+				<ConsentHeading
+					isSubsection={isSubsection}
+					showToggleSwitch={showToggleSwitch}
+				>
 					<>
 						{formOfWords.copy.heading1}
 						{formOfWords.copy.straplineHeading && (
