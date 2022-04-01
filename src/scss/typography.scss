@@ -21,6 +21,13 @@
 	margin-bottom: 0;
 }
 
+.consent-form__heading-level-6 {
+	@include oTypographyHeading($level: 6);
+	@include oTypographySans($weight: 'semibold');
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .heading-level-3-bordered {
 	@include oTypographyHeading($level: 6);
 	padding-top: oSpacingByName('s4');
