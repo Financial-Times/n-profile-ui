@@ -35,8 +35,10 @@ $two-thirds-width: percentage(2 / 3);
 		margin-bottom: oSpacingByName('s4');
 
 		.o-forms-input {
-			o-forms-input--toggle label {
-				margin: 0 0 12px;
+			&.o-forms-input--toggle {
+				> label:not(:last-child) {
+					margin: 0 0 12px;
+				}
 			}
 			label {
 				margin: 0px;
@@ -68,10 +70,6 @@ $two-thirds-width: percentage(2 / 3);
 		margin: 0 0 28px;
 		padding: 0;
 		border: none;
-	}
-
-	.o-forms-field label {
-		margin: 0 0 12px;
 	}
 
 	.o-forms-field--inline {
