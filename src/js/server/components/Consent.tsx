@@ -93,7 +93,7 @@ const Consent = ({
 								isSubsection={isSubsection}
 								showToggleSwitch={showToggleSwitch}
 							/>
-							<div className="consent-form__section-label consent-form__limit-width">
+							<div className="consent-form__section-label consent-form__full-width">
 								{label}
 							</div>
 							<div className={`${formFieldsClassName(showToggleSwitch)}`}>
