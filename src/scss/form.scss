@@ -46,9 +46,9 @@ $two-thirds-width: percentage(2 / 3);
 		}
 	}
 
-	.consent-form__limit-width {
+	.consent-form__full-width {
 		@include oGridRespondTo(M) {
-			width: 80%;
+			width: 100%;
 		}
 	}
 
