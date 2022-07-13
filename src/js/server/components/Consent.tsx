@@ -36,12 +36,13 @@ const ChannelHeading = ({ heading, isSubsection, showToggleSwitch }) => {
 
 const ToggleSwitch = ({ lbi, label, category, channel }) => {
 	return (
-		<label>
+		<label htmlFor={`${category}-${channel}`}>
 			<input
-				id={`${category}-${channel}`}
+				aria-labelledby={`${category}-${channel}`}
+				data-testid={`input-${category}-${channel}`}
 				name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
 				type="checkbox"
-				value="yes"
+				value="true"
 				defaultChecked
 			/>
 			<span className="o-forms-input__label">{label}</span>
