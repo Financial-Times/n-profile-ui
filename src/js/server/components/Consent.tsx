@@ -39,17 +39,17 @@ const ToggleSwitch = ({ lbi, label, category, channel }) => {
 		<label id={`${category}-${channel}`}>
 			<input
 				id={`input-${category}-${channel}`}
-                aria-labelledby={`${category}-${channel}`}
+				aria-labelledby={`${category}-${channel}`}
 				name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
 				type="checkbox"
 				value="yes"
-                defaultChecked
+				defaultChecked
 			/>
-            <span
-                className="o-forms-input__label"
-                aria-labelledby={`${category}-${channel}`}>
-                    {label}
-            </span>
+			<span
+				className="o-forms-input__label"
+				aria-labelledby={`${category}-${channel}`}>
+					{label}
+			</span>
 		</label>
 	);
 };
