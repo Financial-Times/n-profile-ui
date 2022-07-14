@@ -42,7 +42,7 @@ const ToggleSwitch = ({ lbi, label, category, channel }) => {
                 aria-labelledby={`${category}-${channel}`}
 				name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
 				type="checkbox"
-				value="true"
+				value="yes"
                 defaultChecked
 			/>
             <span
