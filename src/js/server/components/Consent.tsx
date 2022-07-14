@@ -43,7 +43,7 @@ const ToggleSwitch = ({ lbi, label, category, channel }) => {
 				name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
 				type="checkbox"
 				value="true"
-                checked
+                defaultChecked
 			/>
             <span
                 className="o-forms-input__label"
