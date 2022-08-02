@@ -151,11 +151,10 @@ workflows:
             - test
 
   nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            <<: *filters_only_main
+    when:
+      and:
+        - equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
+        - equal: [ "Nightly", << pipeline.schedule.name >> ]
     jobs:
       - build:
           context: next-nightly-build
