@@ -121,13 +121,21 @@ const MoreInfo = ({ formOfWords }) => {
 	}
 };
 
-const Footer = ({ serviceMessagesInfo }) =>
-	serviceMessagesInfo || (
+const Footer = ({ serviceMessagesInfo }) => {
+	return serviceMessagesInfo ? (
+		<div
+            className="consent-form__consent-info margin-top-x8"
+            dangerouslySetInnerHTML={{
+                __html: serviceMessagesInfo,
+            }}
+        />
+	) : (
 		<div className="manage-account-footer">
 			<div>Need to change anything?</div>
 			<a href="https://www.ft.com/myft/alerts">Manage your account</a>
 		</div>
 	);
+};
 
 const SubmitButton = ({ formOfWords }) => (
 	<div className="consent-form__submit-wrapper">
