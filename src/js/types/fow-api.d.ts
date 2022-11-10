@@ -18,7 +18,7 @@ export namespace FowAPI {
 	export interface Fow {
 		scope: string;
 		id: string;
-		moreInfoCustom: string;
+		moreInfoCustom?: string;
 		copy: {
 			serviceMessagesInfo: string;
 			heading1: string;
