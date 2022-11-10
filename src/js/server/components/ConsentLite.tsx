@@ -130,7 +130,11 @@ export const Footer = ({ formOfWords }: { formOfWords: FowAPI.Fow }) => {
     formOfWords.moreInfoCustom !== "inGoogleRegisterConsent";
 
   if (showServiceMessage) {
-    return formOfWords.copy.serviceMessagesInfo;
+    return (
+        <>
+            {formOfWords.copy.serviceMessagesInfo}
+        </>
+    )
   }
 
   return (
