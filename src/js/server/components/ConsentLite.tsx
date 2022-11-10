@@ -121,13 +121,25 @@ const MoreInfo = ({ formOfWords }) => {
 	}
 };
 
-const Footer = ({ serviceMessagesInfo }) =>
-	serviceMessagesInfo || (
-		<div className="manage-account-footer">
-			<div>Need to change anything?</div>
-			<a href="https://www.ft.com/myft/alerts">Manage your account</a>
-		</div>
-	);
+// const Footer = ({ serviceMessagesInfo }) =>
+// 	serviceMessagesInfo || (
+// 		<div className="manage-account-footer">
+// 			<div>Need to change anything?</div>
+// 			<a href="https://www.ft.com/myft/alerts">Manage your account</a>
+// 		</div>
+// 	);
+
+// serviceMessagesInfo is string
+// moreInfoCustom will be set for specific pages like Google register consent
+const Footer = ({ serviceMessagesInfo, moreInfoCustom }) =>
+    serviceMessagesInfo && moreInfoCustom !== 'inGoogleRegisterConsent'
+        ? serviceMessagesInfo
+        : (
+            <div className="manage-account-footer">
+                <div>Need to change anything?</div>
+                <a href="https://www.ft.com/myft/alerts">Manage your account</a>
+            </div>
+        )
 
 const SubmitButton = ({ formOfWords }) => (
 	<div className="consent-form__submit-wrapper">
@@ -180,7 +192,7 @@ const ConsentLite = ({
 			{!showToggleSwitch && <MoreInfo formOfWords={formOfWords} />}
 			{showSubmitButton && <SubmitButton formOfWords={formOfWords} />}
 			{showFooter && (
-				<Footer serviceMessagesInfo={formOfWords.copy.serviceMessagesInfo} />
+				<Footer serviceMessagesInfo={formOfWords.copy.serviceMessagesInfo} moreInfoCustom={formOfWords.moreInfoCustom} />
 			)}
 		</div>
 	</>
