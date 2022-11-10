@@ -121,17 +121,25 @@ const MoreInfo = ({ formOfWords }) => {
 	}
 };
 
-// serviceMessagesInfo is string
-// moreInfoCustom will be set for specific pages like Google register consent
-const Footer = ({ formOfWords }) =>
-formOfWords.copy.serviceMessagesInfo && formOfWords.moreInfoCustom !== 'inGoogleRegisterConsent'
-        ? formOfWords.copy.serviceMessagesInfo
-        : (
-            <div className="manage-account-footer">
-                <div>Need to change anything?</div>
-                <a href="https://www.ft.com/myft/alerts">Manage your account</a>
-            </div>
-        )
+/**
+ * moreInfoCustom will be set for specific pages like Google register consent
+ */
+export const Footer = ({ formOfWords }: { formOfWords: FowAPI.Fow }) => {
+  const showServiceMessage =
+    formOfWords.copy.serviceMessagesInfo &&
+    formOfWords.moreInfoCustom !== "inGoogleRegisterConsent";
+
+  if (showServiceMessage) {
+    return formOfWords.copy.serviceMessagesInfo;
+  }
+
+  return (
+    <div className="manage-account-footer">
+      <div>Need to change anything?</div>
+      <a href="https://www.ft.com/myft/alerts">Manage your account</a>
+    </div>
+  );
+};
 
 const SubmitButton = ({ formOfWords }) => (
 	<div className="consent-form__submit-wrapper">
