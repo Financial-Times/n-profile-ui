@@ -30,9 +30,33 @@ const YesNoSwitch = ({
 		inputClass
 	});
 
+	let legendLabel;
+	const getLegendLabel = (categoryDesc, channel) => {
+		switch (channel) {
+			case "byEmail":
+				return categoryDesc + " by email";
+			case "byPhoneCall":
+				return categoryDesc + " by phone call";
+			case "byPost":
+				return categoryDesc + " by post";
+			default:
+				return label;
+		}
+	}
+	switch (category) {
+		case "marketing":
+			legendLabel = getLegendLabel("Top stories & features", channel);
+			break;
+		case "enhancement":
+			legendLabel = getLegendLabel("Invites & offers from the FT", channel);
+			break;
+		default:
+			legendLabel = label;
+	}
+
 	return (
 		<fieldset className="consent-form__fieldset">
-			<legend className="o-normalise-visually-hidden">{label}</legend>
+			<legend className="o-normalise-visually-hidden">{legendLabel}</legend>
 			<div className="o-forms-field o-forms-field--inline">
 				<span className="o-forms-title">
 					<span
