@@ -23,7 +23,7 @@
     "npm": "7.x || 8.x"
   },
   "devDependencies": {
-    "@financial-times/dotcom-build-sass": "^7.2.4",
+    "@financial-times/dotcom-build-sass": "^7.2.5",
     "@financial-times/n-gage": "8.3.2",
     "@types/classnames": "^2.2.9",
     "@types/express": "4.17.13",
