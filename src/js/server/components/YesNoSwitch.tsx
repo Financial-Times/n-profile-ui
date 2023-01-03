@@ -56,7 +56,7 @@ const YesNoSwitch = ({
 
 	return (
 		<fieldset className="consent-form__fieldset">
-			<legend className="o-normalise-visually-hidden">blah</legend>
+			<legend className="o-normalise-visually-hidden">{legendLabel}</legend>
 			<div className="o-forms-field o-forms-field--inline">
 				<span className="o-forms-title">
 					<span
