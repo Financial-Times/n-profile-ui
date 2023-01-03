@@ -45,10 +45,10 @@ const YesNoSwitch = ({
 	}
 	switch (category) {
 		case "marketing":
-			legendLabel = getLegendLabel("Top stories & features", channel);
+			legendLabel = getLegendLabel("Get top stories & features", channel);
 			break;
 		case "enhancement":
-			legendLabel = getLegendLabel("Invites & offers from the FT", channel);
+			legendLabel = getLegendLabel("Recieve invites & offers from the FT", channel);
 			break;
 		default:
 			legendLabel = label;
