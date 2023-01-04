@@ -1,5 +1,16 @@
 <fieldset class="consent-form__fieldset">
-	<legend class="o-normalise-visually-hidden">{{label}}</legend>
+	{{#if overrideLegend}}
+		{{#if false}}
+		{{else ifEquals category 'enhancement'}}
+			<legend class="o-normalise-visually-hidden">Get top stories & features {{label}}</legend>
+		{{else ifEquals category 'marketing'}}
+			<legend class="o-normalise-visually-hidden">Recieve invites & offers from the FT {{label}}</legend>
+		{{else}}
+			<legend class="o-normalise-visually-hidden">{{label}}</legend>
+		{{/if}}
+	{{else}}
+		<legend class="o-normalise-visually-hidden">{{label}}</legend>
+	{{/if}}
 	<div class="o-forms-field o-forms-field--inline">
 		<span class="o-forms-title">
 			<span class="o-forms-title__main" id="legend-{{{category}}}-{{{channel}}}" aria-hidden="true">
