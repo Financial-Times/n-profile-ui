@@ -50,7 +50,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "@financial-times/n-user-api-client": "4.1.1",
+    "@financial-times/n-user-api-client": "4.1.2",
     "classnames": "^2.2.6",
     "isomorphic-fetch": "3.0.0",
     "react": "^16.12.0"
