@@ -21,6 +21,7 @@ const Overlay = ({ formOfWords }: Props) => (
 						isSubsection={false}
 						formOfWords={formOfWords}
 						showToggleSwitch={false}
+						includeUncheckedValues={false}
 					/>
 				</form>
 				<div className="consent-confirmation hidden">

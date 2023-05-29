@@ -123,6 +123,20 @@ export function validateConsent(
 	return true;
 }
 
+/**
+ * Recieves a string (or array of stings) value that indicates if the consent was checked or not
+ * and converts to "status" (boolean) value
+ * Posible values: 'yes', 'no', ['yes', 'no']
+ * ACQ-2216: side effect when adding a hidden input field to cover unchecked checkbox
+ */
+function convertStringConsentToBoolean(value) {
+	if (Array.isArray(value)) {
+		return Array.from(value).includes('yes');
+	}
+
+	return value === 'yes';
+}
+
 export function buildConsentRecord(
 	fow: string | FowAPI.Fow | null,
 	keyedConsents: ConsentModelData.KeyedValues,
@@ -133,6 +147,7 @@ export function buildConsentRecord(
 	// and keyedConsents:
 	// {
 	// 	lbi-categoryName-channelName: 'yes',
+	//  lbi-otherCategoryName-channelName: ['yes', 'no'] <-- ACQ-2216: side effect when adding a hidden input field to cover unchecked checkbox
 	// 	consent-categoryName-channelName: 'no'
 	// }
 
@@ -157,7 +172,7 @@ export function buildConsentRecord(
 				consentRecord = consentRecord || {};
 				consentRecord[category] = consentRecord[category] || {};
 				consentRecord[category][channel] = {
-					status: value === 'yes',
+					status: convertStringConsentToBoolean(value),
 					lbi,
 					source,
 					fow: fowId

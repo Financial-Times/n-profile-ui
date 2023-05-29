@@ -13,6 +13,7 @@ interface Props {
 	formOfWords: FowAPI.Fow;
 	label: string;
 	showFooter: boolean;
+	includeUncheckedValues: boolean;
 }
 
 const formsFieldClassName = (showToggleSwitch) => {
@@ -21,7 +22,11 @@ const formsFieldClassName = (showToggleSwitch) => {
 		: 'o-forms-input o-forms-input--checkbox';
 };
 
-const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
+const ConsentFields = ({
+	formOfWords,
+	showToggleSwitch,
+	includeUncheckedValues,
+}) => (
 	<div className="consent-form__section-wrapper">
 		<div className="o-forms-field">
 			<span className={`${formsFieldClassName(showToggleSwitch)}`}>
@@ -33,9 +38,15 @@ const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
 								label={label}
 								heading={heading}
 								category={category}
+								includeUncheckedValue={includeUncheckedValues}
 							/>
 						) : (
-							<CheckBox key={category} label={label} category={category} />
+							<CheckBox
+								key={category}
+								label={label}
+								category={category}
+								includeUncheckedValue={includeUncheckedValues}
+							/>
 						);
 					})}
 			</span>
@@ -43,13 +54,15 @@ const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
 	</div>
 );
 
-const ToggleSwitch = ({ label, category, heading }) => {
+const ToggleSwitch = ({ label, category, heading, includeUncheckedValue }) => {
+	const inputName = `consent-${category}-byEmail`;
+
 	return (
 		<label>
 			<input
 				id={`${category}-toggleSwitch`}
 				type="checkbox"
-				name={`consent-${category}-byEmail`}
+				name={inputName}
 				value="yes"
 				defaultChecked
 			/>
@@ -57,21 +70,39 @@ const ToggleSwitch = ({ label, category, heading }) => {
 				<span className="o-forms-input__label__main">{heading}</span>
 				<span className="o-forms-input__label__prompt">{label}</span>
 			</span>
+			{includeUncheckedValue && (
+				<input
+					id={`${category}-toggleSwitch_hidden`}
+					type="hidden"
+					name={inputName}
+					value="no"
+				/>
+			)}
 		</label>
 	);
 };
 
-const CheckBox = ({ label, category }) => {
+const CheckBox = ({ label, category, includeUncheckedValue }) => {
+	const inputName = `consent-${category}-byEmail`;
+
 	return (
 		<label htmlFor={category}>
 			<input
 				id={category}
 				type="checkbox"
-				name={`consent-${category}-byEmail`}
+				name={inputName}
 				value="yes"
 				defaultChecked
 			/>
 			<span className="o-forms-input__label">{label}</span>
+			{includeUncheckedValue && (
+				<input
+					id={`${category}_hidden`}
+					type="hidden"
+					name={inputName}
+					value="no"
+				/>
+			)}
 		</label>
 	);
 };
@@ -165,6 +196,7 @@ const ConsentLite = ({
 	formOfWords,
 	showSubmitButton,
 	showFooter = true,
+	includeUncheckedValues = false,
 }: Props) => (
 	<>
 		{showHeading && formOfWords.copy && (
@@ -192,6 +224,7 @@ const ConsentLite = ({
 			<ConsentFields
 				formOfWords={formOfWords}
 				showToggleSwitch={showToggleSwitch || false}
+				includeUncheckedValues={includeUncheckedValues}
 			/>
 			{!showToggleSwitch && <MoreInfo formOfWords={formOfWords} />}
 			{showSubmitButton && <SubmitButton formOfWords={formOfWords} />}

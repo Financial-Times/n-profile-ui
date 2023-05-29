@@ -128,7 +128,7 @@ describe('helper functions', () => {
 		const consentFields = {
 			'lbi-categoryA-channel1': 'no',
 			'lbi-categoryB-channel1': 'yes',
-			'consent-categoryB-channel2': 'yes',
+			'consent-categoryB-channel2': ['yes', 'no'],
 		};
 		const expectedResult = clone(fixtures.consentRecord);
 		delete expectedResult.categoryA.channel1.lastModified;
