@@ -8,6 +8,7 @@ import {
 	YesNoSwitch,
 } from './';
 import { FowAPI } from '../../types/fow-api';
+import ToggleSwitch from './ToggleSwitch';
 
 interface Props {
 	showHeading: boolean;
@@ -15,7 +16,6 @@ interface Props {
 	isSubsection: boolean;
 	showToggleSwitch: boolean;
 	formOfWords: FowAPI.Fow;
-	includeUncheckedValues: boolean;
 }
 
 const formFieldsClassName = (showToggleSwitch) => {
@@ -35,43 +35,12 @@ const ChannelHeading = ({ heading, isSubsection, showToggleSwitch }) => {
 	return <h2 className="consent-form__heading-level-3">{heading}</h2>;
 };
 
-const ToggleSwitch = ({ lbi, label, category, channel, includeUncheckedValue }) => {
-	const inputName = `${lbi ? 'lbi' : 'consent'}-${category}-${channel}`;
-
-	return (
-		<label id={`${category}-${channel}`}>
-			<input
-				id={`input-${category}-${channel}`}
-				aria-labelledby={`${category}-${channel}`}
-				name={inputName}
-				type="checkbox"
-				value="yes"
-				defaultChecked
-			/>
-			<span
-				className="o-forms-input__label"
-				aria-labelledby={`${category}-${channel}`}>
-					{label}
-			</span>
-			{includeUncheckedValue && (
-				<input
-					id={`input-${category}-${channel}_hidden`}
-					type="hidden"
-					name={inputName}
-					value="no"
-				/>
-			)}
-		</label>
-	);
-};
-
 const Consent = ({
 	showHeading,
 	isSubsection,
 	formOfWords,
 	showSubmitButton,
 	showToggleSwitch,
-	includeUncheckedValues,
 }: Props) => (
 	<>
 		{showHeading && formOfWords.copy && (
@@ -120,7 +89,6 @@ const Consent = ({
 											key={category}
 											label={label}
 											category={category}
-											includeUncheckedValue={includeUncheckedValues}
 											{...rest}
 										/>
 									) : (

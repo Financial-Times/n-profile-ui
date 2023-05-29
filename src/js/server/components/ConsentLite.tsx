@@ -4,6 +4,7 @@
 import * as React from 'react';
 import { ConsentHeading, FOWHiddenInputs } from './';
 import { FowAPI } from '../../types/fow-api';
+import ToggleSwitch from './ToggleSwitch';
 
 interface Props {
 	showToggleSwitch: boolean;
@@ -13,7 +14,6 @@ interface Props {
 	formOfWords: FowAPI.Fow;
 	label: string;
 	showFooter: boolean;
-	includeUncheckedValues: boolean;
 }
 
 const formsFieldClassName = (showToggleSwitch) => {
@@ -25,7 +25,6 @@ const formsFieldClassName = (showToggleSwitch) => {
 const ConsentFields = ({
 	formOfWords,
 	showToggleSwitch,
-	includeUncheckedValues,
 }) => (
 	<div className="consent-form__section-wrapper">
 		<div className="o-forms-field">
@@ -38,14 +37,12 @@ const ConsentFields = ({
 								label={label}
 								heading={heading}
 								category={category}
-								includeUncheckedValue={includeUncheckedValues}
 							/>
 						) : (
 							<CheckBox
 								key={category}
 								label={label}
 								category={category}
-								includeUncheckedValue={includeUncheckedValues}
 							/>
 						);
 					})}
@@ -54,35 +51,7 @@ const ConsentFields = ({
 	</div>
 );
 
-const ToggleSwitch = ({ label, category, heading, includeUncheckedValue }) => {
-	const inputName = `consent-${category}-byEmail`;
-
-	return (
-		<label>
-			<input
-				id={`${category}-toggleSwitch`}
-				type="checkbox"
-				name={inputName}
-				value="yes"
-				defaultChecked
-			/>
-			<span className="o-forms-input__label">
-				<span className="o-forms-input__label__main">{heading}</span>
-				<span className="o-forms-input__label__prompt">{label}</span>
-			</span>
-			{includeUncheckedValue && (
-				<input
-					id={`${category}-toggleSwitch_hidden`}
-					type="hidden"
-					name={inputName}
-					value="no"
-				/>
-			)}
-		</label>
-	);
-};
-
-const CheckBox = ({ label, category, includeUncheckedValue }) => {
+const CheckBox = ({ label, category }) => {
 	const inputName = `consent-${category}-byEmail`;
 
 	return (
@@ -95,14 +64,12 @@ const CheckBox = ({ label, category, includeUncheckedValue }) => {
 				defaultChecked
 			/>
 			<span className="o-forms-input__label">{label}</span>
-			{includeUncheckedValue && (
-				<input
-					id={`${category}_hidden`}
-					type="hidden"
-					name={inputName}
-					value="no"
-				/>
-			)}
+			<input
+				id={`${category}_hidden`}
+				type="hidden"
+				name={inputName}
+				value="no"
+			/>
 		</label>
 	);
 };
@@ -196,7 +163,6 @@ const ConsentLite = ({
 	formOfWords,
 	showSubmitButton,
 	showFooter = true,
-	includeUncheckedValues = false,
 }: Props) => (
 	<>
 		{showHeading && formOfWords.copy && (
@@ -224,7 +190,6 @@ const ConsentLite = ({
 			<ConsentFields
 				formOfWords={formOfWords}
 				showToggleSwitch={showToggleSwitch || false}
-				includeUncheckedValues={includeUncheckedValues}
 			/>
 			{!showToggleSwitch && <MoreInfo formOfWords={formOfWords} />}
 			{showSubmitButton && <SubmitButton formOfWords={formOfWords} />}
