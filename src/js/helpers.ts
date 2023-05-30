@@ -129,9 +129,9 @@ export function validateConsent(
  * Posible values: 'yes', 'no', ['yes', 'no']
  * ACQ-2216: side effect when adding a hidden input field to cover unchecked checkbox
  */
-function convertStringConsentToBoolean(value) {
+function getConsentStatus(value) {
 	if (Array.isArray(value)) {
-		return Array.from(value).includes('yes');
+		return value.includes('yes');
 	}
 
 	return value === 'yes';
@@ -172,7 +172,7 @@ export function buildConsentRecord(
 				consentRecord = consentRecord || {};
 				consentRecord[category] = consentRecord[category] || {};
 				consentRecord[category][channel] = {
-					status: convertStringConsentToBoolean(value),
+					status: getConsentStatus(value),
 					lbi,
 					source,
 					fow: fowId

@@ -37,6 +37,7 @@ const ConsentFields = ({
 								label={label}
 								heading={heading}
 								category={category}
+								isLite={true}
 							/>
 						) : (
 							<CheckBox
