@@ -14,6 +14,6 @@ export namespace ConsentModelData {
 	}
 
 	export interface KeyedValues {
-		[name: string]: string;
+		[name: string]: string | string[];
 	}
 }

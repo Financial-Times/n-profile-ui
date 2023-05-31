@@ -8,6 +8,7 @@ import {
 	YesNoSwitch,
 } from './';
 import { FowAPI } from '../../types/fow-api';
+import ToggleSwitch from './ToggleSwitch';
 
 interface Props {
 	showHeading: boolean;
@@ -32,26 +33,6 @@ const ChannelHeading = ({ heading, isSubsection, showToggleSwitch }) => {
 	}
 
 	return <h2 className="consent-form__heading-level-3">{heading}</h2>;
-};
-
-const ToggleSwitch = ({ lbi, label, category, channel }) => {
-	return (
-		<label id={`${category}-${channel}`}>
-			<input
-				id={`input-${category}-${channel}`}
-				aria-labelledby={`${category}-${channel}`}
-				name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
-				type="checkbox"
-				value="yes"
-				defaultChecked
-			/>
-			<span
-				className="o-forms-input__label"
-				aria-labelledby={`${category}-${channel}`}>
-					{label}
-			</span>
-		</label>
-	);
 };
 
 const Consent = ({

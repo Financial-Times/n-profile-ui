@@ -4,6 +4,7 @@
 import * as React from 'react';
 import { ConsentHeading, FOWHiddenInputs } from './';
 import { FowAPI } from '../../types/fow-api';
+import ToggleSwitch from './ToggleSwitch';
 
 interface Props {
 	showToggleSwitch: boolean;
@@ -21,7 +22,10 @@ const formsFieldClassName = (showToggleSwitch) => {
 		: 'o-forms-input o-forms-input--checkbox';
 };
 
-const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
+const ConsentFields = ({
+	formOfWords,
+	showToggleSwitch,
+}) => (
 	<div className="consent-form__section-wrapper">
 		<div className="o-forms-field">
 			<span className={`${formsFieldClassName(showToggleSwitch)}`}>
@@ -33,9 +37,14 @@ const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
 								label={label}
 								heading={heading}
 								category={category}
+								isLite={true}
 							/>
 						) : (
-							<CheckBox key={category} label={label} category={category} />
+							<CheckBox
+								key={category}
+								label={label}
+								category={category}
+							/>
 						);
 					})}
 			</span>
@@ -43,35 +52,25 @@ const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
 	</div>
 );
 
-const ToggleSwitch = ({ label, category, heading }) => {
-	return (
-		<label>
-			<input
-				id={`${category}-toggleSwitch`}
-				type="checkbox"
-				name={`consent-${category}-byEmail`}
-				value="yes"
-				defaultChecked
-			/>
-			<span className="o-forms-input__label">
-				<span className="o-forms-input__label__main">{heading}</span>
-				<span className="o-forms-input__label__prompt">{label}</span>
-			</span>
-		</label>
-	);
-};
-
 const CheckBox = ({ label, category }) => {
+	const inputName = `consent-${category}-byEmail`;
+
 	return (
 		<label htmlFor={category}>
 			<input
 				id={category}
 				type="checkbox"
-				name={`consent-${category}-byEmail`}
+				name={inputName}
 				value="yes"
 				defaultChecked
 			/>
 			<span className="o-forms-input__label">{label}</span>
+			<input
+				id={`${category}_hidden`}
+				type="hidden"
+				name={inputName}
+				value="no"
+			/>
 		</label>
 	);
 };
