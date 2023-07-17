@@ -58,6 +58,14 @@ export class ConsentForm {
 		);
 	}
 
+	protected getCheckboxes(checked?: boolean): Array<HTMLInputElement> {
+		return Array.from(
+			this.element.querySelectorAll(
+				`.consent-form__section input[type=checkbox]${checked ? ':checked' : ''}`
+			)
+		);
+	}
+
 	protected consentFromRadio(radio: HTMLInputElement): ConsentAPI.Record {
 		const consentObject = { [radio.name]: radio.value };
 		return buildConsentRecord(this.fow, consentObject, this.source);
