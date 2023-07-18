@@ -1,6 +1,4 @@
 import { UpdateConsentOnSave } from '../../src/js/client/update-on-save';
-import * as sinon from 'sinon';
-import { JSDOM } from 'jsdom';
 const formOfWords = require('../fixtures/form-of-words.json');
 import { loadHTML } from './helpers/load-html';
 
@@ -25,28 +23,6 @@ describe('helper functions', () => {
 					lbi: false,
 					source: 'test',
 					fow: 'testFow/testVersion',
-                    
-				},
-                channel2: {
-					status: true,
-					lbi: false,
-					source: 'test',
-					fow: 'testFow/testVersion',
-				},
-                channel3: {
-					status: true,
-					lbi: false,
-					source: 'test',
-					fow: 'testFow/testVersion',
-				},
-			},
-			categoryB: {
-                channel1: {
-					status: true,
-					lbi: false,
-					source: 'test',
-					fow: 'testFow/testVersion',
-                    
 				},
 				channel2: {
 					status: true,
@@ -54,12 +30,31 @@ describe('helper functions', () => {
 					source: 'test',
 					fow: 'testFow/testVersion',
 				},
-                channel3: {
+				channel3: {
 					status: true,
 					lbi: false,
 					source: 'test',
 					fow: 'testFow/testVersion',
-                    
+				},
+			},
+			categoryB: {
+				channel1: {
+					status: true,
+					lbi: false,
+					source: 'test',
+					fow: 'testFow/testVersion',
+				},
+				channel2: {
+					status: true,
+					lbi: false,
+					source: 'test',
+					fow: 'testFow/testVersion',
+				},
+				channel3: {
+					status: true,
+					lbi: false,
+					source: 'test',
+					fow: 'testFow/testVersion',
 				},
 			},
 		});
