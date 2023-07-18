@@ -17,6 +17,12 @@ export class UpdateConsentOnSave extends ConsentForm {
 		radios.forEach((radio: HTMLInputElement) => {
 			consentObject[radio.name] = radio.value;
 		});
+		
+		const checkboxes = this.getCheckboxes();
+
+		checkboxes.forEach((checkbox: HTMLInputElement) => {
+			consentObject[checkbox.name] = checkbox.checked ? 'yes' : 'no';
+		});
 
 		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
