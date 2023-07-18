@@ -24,10 +24,6 @@ export class UpdateConsentOnSave extends ConsentForm {
 			consentObject[checkbox.name] = checkbox.checked ? 'yes' : 'no';
 		});
 
-		console.log(checkboxes)
-		console.log(consentObject)
-
-
 		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
 

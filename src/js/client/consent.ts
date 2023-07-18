@@ -17,6 +17,7 @@ export class ConsentForm {
 	public source: string;
 	public submitButton: HTMLButtonElement | null;
 	public radios: Array<HTMLInputElement>;
+	public checkboxes: Array<HTMLInputElement>;
 	protected options: ConsentOptions;
 
 	constructor(opts: ConsentOptions) {
@@ -40,6 +41,7 @@ export class ConsentForm {
 
 		this.scope = this.getValue('formOfWordsScope') || 'FTPINK';
 		this.radios = this.getRadios();
+		this.checkboxes = this.getCheckboxes();
 
 		this.submitButton = this.element.querySelector('.consent-form__submit');
 		this.options = opts;
@@ -58,10 +60,10 @@ export class ConsentForm {
 		);
 	}
 
-	protected getCheckboxes(checked?: boolean): Array<HTMLInputElement> {
+	protected getCheckboxes(): Array<HTMLInputElement> {
 		return Array.from(
 			this.element.querySelectorAll(
-				`.consent-form__section input[type=checkbox]${checked ? ':checked' : ''}`
+				`.consent-form__section input[type=checkbox]`
 			)
 		);
 	}
