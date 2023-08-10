@@ -3,7 +3,7 @@
   "preset": "ts-jest",
   "testURL": "http://localhost",
   "testEnvironment": "jsdom",
-  "testRegex": "(/test/.*|(\\.|/)(spec))\\.ts$",
+  "testRegex": "(/test/.*\\.spec)\\.ts$",
   "moduleFileExtensions": ["js", "json", "node", "ts", "tsx"],
   "globals": {
     "ts-jest": {

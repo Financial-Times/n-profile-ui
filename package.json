@@ -24,6 +24,9 @@
   },
   "devDependencies": {
     "@dotcom-reliability-kit/logger": "^2.2.7",
+    "@dotcom-tool-kit/jest": "^3.2.0",
+    "@dotcom-tool-kit/pa11y": "^0.4.4",
+    "@dotcom-tool-kit/vault": "^3.1.3",
     "@financial-times/dotcom-build-sass": "^7.2.5",
     "@financial-times/n-gage": "8.3.2",
     "@types/classnames": "^2.2.9",
@@ -34,6 +37,7 @@
     "@types/sinon": "^4.3.1",
     "chalk": "^2.4.1",
     "check-engines": "1.5.0",
+    "dotcom-tool-kit": "^3.2.1",
     "eslint-plugin-react": "7.27.0",
     "jest": "27.3.1",
     "node-sass": "^7.0.1",
@@ -57,16 +61,18 @@
     "react": "^16.12.0"
   },
   "scripts": {
-    "test": "make test",
+    "test": "dotcom-tool-kit test:local",
     "commit": "commit-wizard",
     "prepare": "(npx snyk protect || npx snyk protect -d || true) && make build",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine",
+    "build": "dotcom-tool-kit build:local",
+    "start": "dotcom-tool-kit run:local"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
-      "pre-commit": "make build && node_modules/.bin/secret-squirrel",
-      "pre-push": "make test verify-with-tslint -j3"
+      "commit-msg": "dotcom-tool-kit git:commitmsg",
+      "pre-commit": "dotcom-tool-kit git:precommit && secret-squirrel",
+      "pre-push": "make test verify-with-tslint -j3 && make verify -j3"
     }
   },
   "peerDependencies": {
