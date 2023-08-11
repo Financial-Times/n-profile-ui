@@ -2,6 +2,7 @@ plugins:
   - "@dotcom-tool-kit/component"
   - "@dotcom-tool-kit/jest"
   - '@dotcom-tool-kit/pa11y'
+  - './toolkit/rollup'
 
 hooks: {}
 options: {}
