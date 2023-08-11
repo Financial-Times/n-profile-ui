@@ -23,6 +23,7 @@
     "npm": "7.x || 8.x"
   },
   "devDependencies": {
+    "@dotcom-reliability-kit/logger": "^2.2.7",
     "@financial-times/dotcom-build-sass": "^7.2.5",
     "@financial-times/n-gage": "8.3.2",
     "@types/classnames": "^2.2.9",
@@ -50,7 +51,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "@financial-times/n-user-api-client": "4.1.2",
+    "@financial-times/n-user-api-client": "5.0.0",
     "classnames": "^2.2.6",
     "isomorphic-fetch": "3.0.0",
     "react": "^16.12.0"

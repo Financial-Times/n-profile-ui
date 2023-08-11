@@ -1,4 +1,4 @@
-import logger from '@financial-times/n-logger';
+import logger from '@dotcom-reliability-kit/logger';
 
 process.on('unhandledRejection', (reason, p) => {
 	// @ts-ignore
