@@ -10,5 +10,6 @@ hooks:
     - Eslint
     - JestLocal
   test:ci:
+    - Eslint
     - JestCI
 options: {}

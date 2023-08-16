@@ -6,6 +6,5 @@ node_modules
 public
 dist
 
-.eslintrc.js
 .editorconfig
 *.DS_Store
