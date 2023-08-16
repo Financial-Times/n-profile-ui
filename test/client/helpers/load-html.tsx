@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Consent } from '../../../src/js/server/main';
 
-export const loadHTML = data =>
+export const loadHTML = (data) =>
 	ReactDOMServer.renderToString(
 		<div>
 			<form

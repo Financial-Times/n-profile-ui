@@ -5,7 +5,11 @@ import { buildConsentRecord } from '../helpers';
 export class UpdateConsentOnSave extends ConsentForm {
 	constructor(opts: ConsentOptions) {
 		super(opts);
-		if (this.submitButton && this.options.checkValidityBeforeSubmit && !this.checkValidity()) {
+		if (
+			this.submitButton &&
+			this.options.checkValidityBeforeSubmit &&
+			!this.checkValidity()
+		) {
 			this.submitButton.disabled = true;
 		}
 	}
@@ -17,7 +21,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 		radios.forEach((radio: HTMLInputElement) => {
 			consentObject[radio.name] = radio.value;
 		});
-		
+
 		const checkboxes = this.getCheckboxes();
 
 		checkboxes.forEach((checkbox: HTMLInputElement) => {
@@ -39,8 +43,12 @@ export class UpdateConsentOnSave extends ConsentForm {
 	public onChange(callback?: ConsentCallback) {
 		if (callback || this.options.checkValidityBeforeSubmit) {
 			this.radios.forEach((radio: HTMLInputElement) => {
-				radio.addEventListener('change', e => {
-					if (this.submitButton && this.options.checkValidityBeforeSubmit && this.checkValidity()) {
+				radio.addEventListener('change', (e) => {
+					if (
+						this.submitButton &&
+						this.options.checkValidityBeforeSubmit &&
+						this.checkValidity()
+					) {
 						this.submitButton.disabled = false;
 					}
 					if (callback) {
@@ -55,7 +63,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 	// TODO: Validation messages on failed update
 	public onSubmit(callback: ConsentCallback) {
 		if (this.submitButton) {
-			this.submitButton.addEventListener('click', e => {
+			this.submitButton.addEventListener('click', (e) => {
 				e.preventDefault();
 				e.stopPropagation();
 				callback(this.values, e);

@@ -8,11 +8,7 @@ interface Props {
 const FOWHiddenInputs = ({ formOfWords }: Props) => (
 	<>
 		<input type="hidden" name="formOfWordsId" value={formOfWords.id} />
-		<input
-			type="hidden"
-			name="formOfWordsScope"
-			value={formOfWords.scope}
-		/>
+		<input type="hidden" name="formOfWordsScope" value={formOfWords.scope} />
 		<input type="hidden" name="consentSource" value={formOfWords.source} />
 	</>
 );

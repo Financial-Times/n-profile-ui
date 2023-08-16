@@ -10,17 +10,19 @@ export class ConsentMessage {
 	private _message: any;
 
 	constructor(private options: ConsentMessageOptions) {
-		const element = document.querySelector(`${this.options.selector} > .o-message`);
+		const element = document.querySelector(
+			`${this.options.selector} > .o-message`
+		);
 		if (!element) {
 			throw new Error('Invalid selector');
 		}
 		this.element = element as HTMLElement;
 
 		this._message = new oMessage(this.element, {
-			messageClass: 'o-message'
+			messageClass: 'o-message',
 		});
 
-		if(this.options.hideOnInit) {
+		if (this.options.hideOnInit) {
 			this.hide();
 		}
 	}
@@ -34,7 +36,7 @@ export class ConsentMessage {
 	}
 
 	public init(showMessage: boolean) {
-		if(showMessage) {
+		if (showMessage) {
 			this.show();
 		} else {
 			this.hide();

@@ -1,8 +1,15 @@
 plugins:
   - "@dotcom-tool-kit/component"
   - "@dotcom-tool-kit/jest"
+  - "@dotcom-tool-kit/eslint"
+  - "@dotcom-tool-kit/prettier"
   - '@dotcom-tool-kit/pa11y'
   - './toolkit/rollup'
-
-hooks: {}
+hooks:
+  test:local:
+    - Eslint
+    - JestLocal
+  test:ci:
+    - Eslint
+    - JestCI
 options: {}

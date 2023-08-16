@@ -22,10 +22,7 @@ const formsFieldClassName = (showToggleSwitch) => {
 		: 'o-forms-input o-forms-input--checkbox';
 };
 
-const ConsentFields = ({
-	formOfWords,
-	showToggleSwitch,
-}) => (
+const ConsentFields = ({ formOfWords, showToggleSwitch }) => (
 	<div className="consent-form__section-wrapper">
 		<div className="o-forms-field">
 			<span className={`${formsFieldClassName(showToggleSwitch)}`}>
@@ -40,11 +37,7 @@ const ConsentFields = ({
 								isLite={true}
 							/>
 						) : (
-							<CheckBox
-								key={category}
-								label={label}
-								category={category}
-							/>
+							<CheckBox key={category} label={label} category={category} />
 						);
 					})}
 			</span>
@@ -124,24 +117,20 @@ const MoreInfo = ({ formOfWords }) => {
  * moreInfoCustom will be set for specific pages like Google register consent
  */
 export const Footer = ({ formOfWords }: { formOfWords: FowAPI.Fow }) => {
-  const showServiceMessage =
-    formOfWords.copy.serviceMessagesInfo &&
-    formOfWords.moreInfoCustom !== "inGoogleRegisterConsent";
+	const showServiceMessage =
+		formOfWords.copy.serviceMessagesInfo &&
+		formOfWords.moreInfoCustom !== 'inGoogleRegisterConsent';
 
-  if (showServiceMessage) {
-    return (
-        <>
-            {formOfWords.copy.serviceMessagesInfo}
-        </>
-    )
-  }
+	if (showServiceMessage) {
+		return <>{formOfWords.copy.serviceMessagesInfo}</>;
+	}
 
-  return (
-    <div className="manage-account-footer">
-      <div>Need to change anything?</div>
-      <a href="https://www.ft.com/myft/alerts">Manage your account</a>
-    </div>
-  );
+	return (
+		<div className="manage-account-footer">
+			<div>Need to change anything?</div>
+			<a href="https://www.ft.com/myft/alerts">Manage your account</a>
+		</div>
+	);
 };
 
 const SubmitButton = ({ formOfWords }) => (
@@ -194,9 +183,7 @@ const ConsentLite = ({
 			/>
 			{!showToggleSwitch && <MoreInfo formOfWords={formOfWords} />}
 			{showSubmitButton && <SubmitButton formOfWords={formOfWords} />}
-			{showFooter && (
-				<Footer formOfWords={formOfWords} />
-			)}
+			{showFooter && <Footer formOfWords={formOfWords} />}
 		</div>
 	</>
 );

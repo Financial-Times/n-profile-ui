@@ -24,31 +24,34 @@ const YesNoSwitch = ({
 	elementAttrs,
 	inputClass,
 	toggleOnLabel,
-	toggleOffLabel
+	toggleOffLabel,
 }: Props) => {
 	const yesCheckboxClasses = classNames('consent-form__radio-button', {
-		inputClass
+		inputClass,
 	});
 
 	let legendLabel;
 	const getLegendLabel = (categoryDesc, channel) => {
 		switch (channel) {
-			case "byEmail":
-				return categoryDesc + " by email";
-			case "byPhoneCall":
-				return categoryDesc + " by phone call";
-			case "byPost":
-				return categoryDesc + " by post";
+			case 'byEmail':
+				return categoryDesc + ' by email';
+			case 'byPhoneCall':
+				return categoryDesc + ' by phone call';
+			case 'byPost':
+				return categoryDesc + ' by post';
 			default:
 				return label;
 		}
-	}
+	};
 	switch (category) {
-		case "marketing":
-			legendLabel = getLegendLabel("Get top stories & features", channel);
+		case 'marketing':
+			legendLabel = getLegendLabel('Get top stories & features', channel);
 			break;
-		case "enhancement":
-			legendLabel = getLegendLabel("Recieve invites & offers from the FT", channel);
+		case 'enhancement':
+			legendLabel = getLegendLabel(
+				'Recieve invites & offers from the FT',
+				channel
+			);
 			break;
 		default:
 			legendLabel = label;
@@ -67,9 +70,7 @@ const YesNoSwitch = ({
 						{label}
 					</span>
 					{advisory && (
-						<div className="consent-form__item-advisory">
-							{advisory}
-						</div>
+						<div className="consent-form__item-advisory">{advisory}</div>
 					)}
 				</span>
 				<span className="o-forms-input o-forms-input--radio-box">
@@ -77,9 +78,7 @@ const YesNoSwitch = ({
 						<label htmlFor={`${category}-${channel}-yes`}>
 							<input
 								type="radio"
-								name={`${
-									lbi ? 'lbi' : 'consent'
-								}-${category}-${channel}`}
+								name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
 								value="yes"
 								aria-label={`${toggleOnLabel || 'yes'}`}
 								className={yesCheckboxClasses}
@@ -91,10 +90,7 @@ const YesNoSwitch = ({
 								checked={checkedYes}
 								{...elementAttrs}
 							/>
-							<span
-								className="o-forms-input__label"
-								aria-hidden="true"
-							>
+							<span className="o-forms-input__label" aria-hidden="true">
 								{toggleOnLabel || 'Yes'}
 							</span>
 						</label>
@@ -102,9 +98,7 @@ const YesNoSwitch = ({
 						<label htmlFor={`${category}-${channel}-no`}>
 							<input
 								type="radio"
-								name={`${
-									lbi ? 'lbi' : 'consent'
-								}-${category}-${channel}`}
+								name={`${lbi ? 'lbi' : 'consent'}-${category}-${channel}`}
 								value="no"
 								aria-label={`${toggleOffLabel || 'no'}`}
 								className="consent-form__radio-button consent-form__radio-button--negative"
@@ -116,10 +110,7 @@ const YesNoSwitch = ({
 								checked={checkedNo}
 								{...elementAttrs}
 							/>
-							<span
-								className="o-forms-input__label"
-								aria-hidden="true"
-							>
+							<span className="o-forms-input__label" aria-hidden="true">
 								{toggleOffLabel || 'No'}
 							</span>
 						</label>
