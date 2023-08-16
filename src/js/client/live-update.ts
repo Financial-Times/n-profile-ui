@@ -16,6 +16,7 @@ export class LiveUpdateConsent extends ConsentForm {
 			radioWrapper.classList.add('o-forms-input--saved');
 		}
 		this.savedEvent({ success: true });
+		
 	}
 
 	private saveFail (radioWrapper) {

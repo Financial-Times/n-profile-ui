@@ -1,4 +1,4 @@
 hooks:
-  'build:local': Rollup
+  'build:local': RollupAndWatch
   'build:ci': Rollup
   'build:remote': Rollup
