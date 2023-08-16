@@ -40,3 +40,8 @@ alternatively, if the consent form will save when its submit button is clicked, 
 [UpdateOnSave](https://github.com/Financial-Times/n-profile-ui/blob/HEAD/src/js/client/update-on-save.ts) - helpers to validate and extract consent values to be merged into a form payload.
 
 [ConsentMessage](https://github.com/Financial-Times/n-profile-ui/blob/HEAD/src/js/client/message.ts) - a simple helper class to show / hide a message on a consent form.
+
+### Information on build
+
+When migrating to toolkit, we observed that webpack is ran with the tests on CI. It seems like its goal is to compile the sass files on the project. We replaced it with the webpack plugin. So we have both rollup used for the build in general and webpack for the sass files. Would be worth re-validating is that's needed. 
+
