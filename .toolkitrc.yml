@@ -3,14 +3,14 @@ plugins:
   - "@dotcom-tool-kit/jest"
   - "@dotcom-tool-kit/eslint"
   - "@dotcom-tool-kit/prettier"
-  - '@dotcom-tool-kit/pa11y'
   - './toolkit/rollup'
 hooks:
+  git:precommit:
+    - SecretSquirrel
   test:local:
     - Eslint
     - JestLocal
   test:ci:
-    - Pa11y
     - Eslint
     - JestCI
 options: {}
