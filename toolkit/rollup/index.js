@@ -21,7 +21,7 @@ class Rollup extends Task {
   }
 }
 
-const log = (...args) => logger.info('[Rollup]', ...args);
+const log = (message) => logger.info(`[Rollup] ${message}`);
 class RollupAndWatch extends Rollup {
   async run () {
     super.run().then((options) => {
