@@ -3,6 +3,7 @@ plugins:
   - "@dotcom-tool-kit/jest"
   - "@dotcom-tool-kit/eslint"
   - "@dotcom-tool-kit/prettier"
+  - '@dotcom-tool-kit/webpack'
   - './toolkit/rollup'
 hooks:
   git:precommit:
@@ -10,7 +11,12 @@ hooks:
   test:local:
     - Eslint
     - JestLocal
+  build:local:
+  - RollupAndWatch
+  build:ci:
+  - Rollup 
   test:ci:
     - Eslint
     - JestCI
+    - WebpackDevelopment
 options: {}
