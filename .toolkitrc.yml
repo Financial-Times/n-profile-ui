@@ -12,11 +12,15 @@ hooks:
     - Eslint
     - JestLocal
   build:local:
-  - RollupAndWatch
+    - RollupAndWatch
   build:ci:
-  - Rollup 
+    - Rollup
   test:ci:
     - Eslint
     - JestCI
     - WebpackDevelopment
-options: {}
+options:
+  '@dotcom-tool-kit/circleci':
+    nodeVersion:
+      - '18.17'
+      - '16.20'
