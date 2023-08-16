@@ -10,6 +10,7 @@ hooks:
     - Eslint
     - JestLocal
   test:ci:
+    - Pa11y
     - Eslint
     - JestCI
 options: {}
