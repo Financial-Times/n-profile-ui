@@ -3,10 +3,10 @@ export const fixtures = {
 	consentRecord: require('../fixtures/consent-record'),
 	viewModel: {
 		basedOnRecord: require('../fixtures/consent-view-model-record'),
-		basedOnGranularConsent: require('../fixtures/consent-view-model-granular')
-	}
+		basedOnGranularConsent: require('../fixtures/consent-view-model-granular'),
+	},
 };
 
-export function clone (obj: any): any {
+export function clone(obj: any): any {
 	return JSON.parse(JSON.stringify(obj));
 }

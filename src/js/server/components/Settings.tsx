@@ -1,10 +1,5 @@
 import * as React from 'react';
-import {
-	ErrorMessageCore,
-	Subheading,
-	FOWHiddenInputs,
-	YesNoSwitch
-} from './';
+import { ErrorMessageCore, Subheading, FOWHiddenInputs, YesNoSwitch } from './';
 import { Flags } from '../../types/flags';
 import { FowAPI } from '../../types/fow-api';
 
@@ -23,7 +18,7 @@ const Settings = ({
 	formOfWords,
 	toggleOnLabel,
 	toggleOffLabel,
-	showSubmitButton
+	showSubmitButton,
 }: Props) => (
 	<>
 		{formOfWords.copy.heading1 && (
@@ -50,14 +45,7 @@ const Settings = ({
 		<FOWHiddenInputs formOfWords={formOfWords} />
 		<div className="consent-form">
 			{formOfWords.consents.map(
-				({
-					category,
-					channels,
-					label,
-					linkText,
-					linkUrl,
-					subheadingLevel
-				}) => (
+				({ category, channels, label, linkText, linkUrl, subheadingLevel }) => (
 					<React.Fragment key={linkUrl}>
 						<div className="margin-bottom-x6">
 							<Subheading

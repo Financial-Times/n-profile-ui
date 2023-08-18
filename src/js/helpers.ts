@@ -23,7 +23,7 @@ export function extractMetaFromString(
 	return {
 		lbi,
 		channel,
-		category
+		category,
 	};
 }
 
@@ -57,7 +57,7 @@ export function decorateChannel(
 	return Object.assign(fowChannel, {
 		checkedYes,
 		checkedNo,
-		elementAttrs
+		elementAttrs,
 	});
 }
 
@@ -83,12 +83,16 @@ export function populateConsentModel(
 	fow.source = source;
 	fow.consents = fow.consents.map(
 		(categoryObj: FowAPI.Category): FowAPI.Category => {
-			categoryObj.channels.map((channelObj: FowAPI.Channel): FowAPI.Channel =>
-				decorateChannel({
-					fowChannel: channelObj,
-					consentChannel: getConsent(categoryObj.category, channelObj.channel),
-					elementAttrs
-				})
+			categoryObj.channels.map(
+				(channelObj: FowAPI.Channel): FowAPI.Channel =>
+					decorateChannel({
+						fowChannel: channelObj,
+						consentChannel: getConsent(
+							categoryObj.category,
+							channelObj.channel
+						),
+						elementAttrs,
+					})
 			);
 			return categoryObj;
 		}
@@ -109,13 +113,13 @@ export function validateConsent(
 		return true;
 	}
 	const categoryObj = fow.consents.find(
-		categoryObj => categoryObj.category === category
+		(categoryObj) => categoryObj.category === category
 	);
 	if (!categoryObj) {
 		throw new Error(`Category ${category} does not match form of words`);
 	}
 	const validChannel = categoryObj.channels.some(
-		channelObj => channelObj.channel === channel
+		(channelObj) => channelObj.channel === channel
 	);
 	if (!validChannel) {
 		throw new Error(`Channel ${channel} does not match form of words`);
@@ -175,7 +179,7 @@ export function buildConsentRecord(
 					status: getConsentStatus(value),
 					lbi,
 					source,
-					fow: fowId
+					fow: fowId,
 				};
 			}
 		}

@@ -19,7 +19,7 @@ const Subheading = ({
 	linkAriaLabel,
 	subheadingLevel,
 	trackable,
-	text
+	text,
 }: Props) => {
 	const classes = classNames(
 		'flex-row',

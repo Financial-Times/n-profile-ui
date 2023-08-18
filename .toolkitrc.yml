@@ -1,0 +1,24 @@
+plugins:
+  - "@dotcom-tool-kit/component"
+  - "@dotcom-tool-kit/jest"
+  - "@dotcom-tool-kit/eslint"
+  - "@dotcom-tool-kit/prettier"
+  - '@dotcom-tool-kit/webpack'
+  - './toolkit/rollup'
+hooks:
+  test:local:
+    - Eslint
+    - JestLocal
+  build:local:
+    - RollupDev
+  build:ci:
+    - Rollup
+  test:ci:
+    - Eslint
+    - JestCI
+    - WebpackDevelopment
+options:
+  '@dotcom-tool-kit/circleci':
+    nodeVersion:
+      - '18.17'
+      - '16.20'

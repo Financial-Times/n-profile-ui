@@ -1,0 +1,4 @@
+hooks:
+  'build:local': RollupDev
+  'build:ci': Rollup
+  'build:remote': Rollup

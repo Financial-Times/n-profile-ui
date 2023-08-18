@@ -24,7 +24,7 @@ const ErrorMessageCore = ({
 	detail,
 	additional,
 	actions,
-	hideActions
+	hideActions,
 }: Props) => (
 	<div
 		className="o-message o-message--alert o-message--inner o-message--error"
@@ -34,8 +34,7 @@ const ErrorMessageCore = ({
 			<div className="o-message__content">
 				<p className="o-message__content-main">
 					<span className="o-message__content-highlight consent-message__content-block">
-						{highlight ||
-							"Your Contact Preferences couldn't be saved."}
+						{highlight || "Your Contact Preferences couldn't be saved."}
 					</span>
 					{!hideDetail && (
 						<span className="o-message__content-detail">
@@ -44,9 +43,7 @@ const ErrorMessageCore = ({
 					)}
 				</p>
 				{additional && (
-					<p className="o-message__content--additional">
-						{additional}
-					</p>
+					<p className="o-message__content--additional">{additional}</p>
 				)}
 				{actions ? (
 					<div className="o-message__actions">
@@ -70,10 +67,7 @@ const ErrorMessageCore = ({
 				) : (
 					hideActions && (
 						<div className="o-message__actions">
-							<a
-								href="/myft/alerts/"
-								className="o-message__actions__primary"
-							>
+							<a href="/myft/alerts/" className="o-message__actions__primary">
 								Visit Contact Preferences
 							</a>
 							<a

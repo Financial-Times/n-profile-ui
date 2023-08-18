@@ -1,15 +1,14 @@
-
 import { ConsentForm, ConsentOptions, ConsentCallback } from './consent';
 
 export class LiveUpdateConsent extends ConsentForm {
 	constructor(opts: ConsentOptions) {
 		super(opts);
-		if(this.submitButton) {
+		if (this.submitButton) {
 			this.submitButton.style.display = 'none';
 		}
 	}
 
-	private saveSuccess (radioWrapper) {
+	private saveSuccess(radioWrapper) {
 		if (radioWrapper) {
 			radioWrapper.classList.remove('o-forms-input--invalid');
 			radioWrapper.classList.remove('o-forms-input--saving');
@@ -18,12 +17,14 @@ export class LiveUpdateConsent extends ConsentForm {
 		this.savedEvent({ success: true });
 	}
 
-	private saveFail (radioWrapper) {
+	private saveFail(radioWrapper) {
 		if (radioWrapper) {
 			radioWrapper.classList.remove('o-forms-input--saving');
 			radioWrapper.classList.add('o-forms-input--invalid');
 			// reset radio to previous value
-			const unchecked = radioWrapper.querySelector('.consent-form__radio-button:not(:checked)');
+			const unchecked = radioWrapper.querySelector(
+				'.consent-form__radio-button:not(:checked)'
+			);
 			if (unchecked) {
 				unchecked.checked = true;
 			}
@@ -32,14 +33,16 @@ export class LiveUpdateConsent extends ConsentForm {
 	}
 
 	private redirect() {
-		window.location.assign(`/login${document.referrer ? `?location=${document.referrer}` : ''}`);
+		window.location.assign(
+			`/login${document.referrer ? `?location=${document.referrer}` : ''}`
+		);
 	}
 
-	private savedEvent ({ success }) {
+	private savedEvent({ success }) {
 		const event = new CustomEvent('consent-form:saved', {
 			detail: {
-				success
-			}
+				success,
+			},
 		});
 		this.element.dispatchEvent(event);
 	}
@@ -53,7 +56,7 @@ export class LiveUpdateConsent extends ConsentForm {
 					radioWrapper.classList.add('o-forms-input--saving');
 					radioWrapper.classList.remove('o-forms-input--saved');
 					callback(consent, e)
-						.then(result => {
+						.then((result) => {
 							if (result === 'success') {
 								return this.saveSuccess(radioWrapper);
 							}
@@ -66,7 +69,6 @@ export class LiveUpdateConsent extends ConsentForm {
 							this.saveFail(radioWrapper);
 						});
 				}
-
 			});
 		});
 	}
