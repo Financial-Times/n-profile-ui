@@ -6,13 +6,11 @@ plugins:
   - '@dotcom-tool-kit/webpack'
   - './toolkit/rollup'
 hooks:
-  git:precommit:
-    - SecretSquirrel
   test:local:
     - Eslint
     - JestLocal
   build:local:
-    - RollupAndWatch
+    - RollupDev
   build:ci:
     - Rollup
   test:ci:

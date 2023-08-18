@@ -2,7 +2,6 @@ const { Task } = require('@dotcom-tool-kit/types');
 const rollup = require('rollup');
 const loadConfigFile = require('rollup/dist/loadConfigFile');
 const path = require('path');
-const logger = require('@dotcom-reliability-kit/logger');
 
 class Rollup extends Task {
   async run () {
@@ -21,24 +20,23 @@ class Rollup extends Task {
   }
 }
 
-const log = (message) => logger.info(`[Rollup] ${message}`);
-class RollupAndWatch extends Rollup {
+class RollupDev extends Rollup {
   async run () {
     super.run().then((options) => {
-      log('Watching for file changes');
+      this.logger.info('Watching for file changes');
       const watcher = rollup.watch(options);
 
       watcher.on('change', (id) => {
-        log(id, 'changed');
+        this.logger.info(`${id} changed`);
       });
       watcher.on('restart', () => {
-        log('restarting');
+        this.logger.info('restarting');
       });
       watcher.on('close', () => {
-        log('closing watcher');
+        this.logger.info('closing watcher');
       });
     });
   }
 }
 
-exports.tasks = [Rollup, RollupAndWatch];
+exports.tasks = [Rollup, RollupDev];

@@ -70,7 +70,6 @@
   },
   "scripts": {
     "test": "dotcom-tool-kit test:local",
-    "commit": "commit-wizard",
     "prepare": "(npx snyk protect || npx snyk protect -d || true)",
     "build": "npm run clean && dotcom-tool-kit build:local",
     "start": "dotcom-tool-kit run:local",
