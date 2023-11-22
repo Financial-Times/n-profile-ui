@@ -21,4 +21,3 @@ options:
   '@dotcom-tool-kit/circleci':
     nodeVersion:
       - '18.17'
-      - '16.20'
