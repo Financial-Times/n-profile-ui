@@ -5,7 +5,7 @@
   "main": "./dist/server/main.js",
   "browser": "./dist/client/main.js",
   "files": [
-    "./dist"
+    "dist"
   ],
   "repository": {
     "type": "git",
