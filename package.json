@@ -4,6 +4,7 @@
   "description": "UI components for profile / consent",
   "main": "./dist/server/main.js",
   "browser": "./dist/client/main.js",
+  "files": ["*"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Financial-Times/n-profile-ui.git"
