@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/Financial-Times/n-profile-ui#readme",
   "volta": {
-    "node": "18.17.1"
+    "node": "18.19.1"
   },
   "engines": {
-    "node": "16.x || 18.x",
-    "npm": "7.x || 8.x || 9.x"
+    "node": "18.x",
+    "npm": "8.x || 9.x || 10.x"
   },
   "devDependencies": {
     "@dotcom-reliability-kit/logger": "^2.2.7",
