@@ -1,5 +1,6 @@
+import * as ConsentAPI from './types/consent-api';
 import { FowAPI } from './types/fow-api';
-import { ConsentAPI } from './types/consent-api';
+
 import { ConsentModelData } from './types/helpers';
 
 const Rx = /\b(lbi|consent)-(\w+)-(\w+)\b/;
@@ -64,7 +65,7 @@ export function decorateChannel(
 interface PopulateConsentModelArgs {
 	fow: FowAPI.Fow;
 	source: string;
-	consent?: ConsentAPI.Record | ConsentAPI.Channel | null;
+	consent?: ConsentAPI.ConsentRecord | ConsentAPI.Channel | null;
 	elementAttrs?: Array<ElementAttr>;
 }
 
@@ -145,7 +146,7 @@ export function buildConsentRecord(
 	fow: string | FowAPI.Fow | null,
 	keyedConsents: ConsentModelData.KeyedValues,
 	source?: string
-): ConsentAPI.Record {
+): ConsentAPI.ConsentRecord {
 	// builds a consent record
 	// based on a form of words, source
 	// and keyedConsents:

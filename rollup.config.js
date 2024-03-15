@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 const external = Object.keys(pkg.dependencies);
@@ -12,6 +12,7 @@ export default [
       format: 'es',
     },
     plugins: [typescript()],
+    external: ['@financial-times/o-message']
   },
   {
     input: 'src/js/server/main.ts',

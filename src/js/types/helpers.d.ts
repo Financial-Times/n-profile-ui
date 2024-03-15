@@ -1,5 +1,4 @@
 import { FowAPI } from './fow-api';
-import { ConsentAPI } from './consent-api';
 
 export namespace ConsentModelData {
 	export interface Radio {
@@ -13,7 +12,5 @@ export namespace ConsentModelData {
 		checkedNo: boolean;
 	}
 
-	export interface KeyedValues {
-		[name: string]: string | string[];
-	}
+	export type KeyedValues = Record<string, string | string[]>;
 }

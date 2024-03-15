@@ -1,48 +1,34 @@
 {
-  "exclude": [
-    "node_modules",
-    "bower_components",
-    "dist",
-    "demos",
-    "test"
-  ],
-  "compilerOptions": {
-    "lib": ["ES2022", "dom"],
-    "module": "commonjs",
-    "target": "ES2022",
-    "sourceMap": false,
-    "outDir": "./dist",
-    "rootDirs": [
-      "./src/js"
-    ],
-    "strict": true,
-    "removeComments": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "noImplicitAny": false,
-    "types": [
-      "agent-base",
-      "body-parser",
-      "connect",
-      "debug",
-      "express",
-      "express-serve-static-core",
-      "glob",
-      "isomorphic-fetch",
-      "jest",
-      "js-yaml",
-      "mime",
-      "minimatch",
-      "node",
-      "normalize-package-data",
-      "range-parser",
-      "semver",
-      "serve-static",
-      "sinon",
-      "unist",
-      "vfile-message",
-      "xml2js"
-    ]
-  }
+	"exclude": ["node_modules", "bower_components", "dist", "demos", "test"],
+	"compilerOptions": {
+		"lib": ["ES2022", "dom"],
+		"module": "esnext",
+		"target": "ES2022",
+		"sourceMap": false,
+		"outDir": "./dist",
+		"rootDirs": ["./src/js"],
+		"strict": true,
+		"removeComments": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"jsx": "react",
+		"noEmit": true,
+		"noImplicitAny": false,
+		"types": [
+			"agent-base",
+			"body-parser",
+			"connect",
+			"express",
+			"express-serve-static-core",
+			"jest",
+			"mime",
+			"minimatch",
+			"node",
+			"normalize-package-data",
+			"range-parser",
+			"semver",
+			"serve-static",
+			"sinon"
+		]
+	}
 }
