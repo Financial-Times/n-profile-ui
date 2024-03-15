@@ -1,14 +1,14 @@
 // TODO:  We've added showToggleSwitch flag  for the new design we are A/B testing. https://financialtimes.atlassian.net/browse/ACQ-1472
 // Depending on the results from this test we will update the code in this component accordingly.
-import * as React from 'react';
-import {
-	ConsentHeading,
-	ErrorMessageCore,
-	FOWHiddenInputs,
-	YesNoSwitch,
-} from './';
 import { FowAPI } from '../../types/fow-api';
+
+import * as React from 'react';
+
 import ToggleSwitch from './ToggleSwitch';
+import YesNoSwitch from './YesNoSwitch';
+import ConsentHeading from './ConsentHeading';
+import FOWHiddenInputs from './FOWHiddenInputs';
+import ErrorMessageCore from './ErrorMessageCore';
 
 interface Props {
 	showHeading: boolean;

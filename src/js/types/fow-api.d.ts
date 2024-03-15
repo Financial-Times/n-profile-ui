@@ -8,7 +8,7 @@ export namespace FowAPI {
 	export interface Category {
 		label: string;
 		category: string;
-		channels: Array<Channel>;
+		channels: Channel[];
 		heading?: string;
 		linkText?: string;
 		linkUrl?: string;
@@ -29,6 +29,6 @@ export namespace FowAPI {
 		};
 		source: string;
 		error?: string;
-		consents: Array<Category>;
+		consents: Category[];
 	}
 }

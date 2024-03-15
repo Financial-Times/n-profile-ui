@@ -1,4 +1,4 @@
-import { ConsentAPI } from '../types/consent-api';
+import * as ConsentAPI from '../types/consent-api';
 import { ConsentForm, ConsentOptions, ConsentCallback } from './consent';
 import { buildConsentRecord } from '../helpers';
 
@@ -14,7 +14,7 @@ export class UpdateConsentOnSave extends ConsentForm {
 		}
 	}
 
-	public get values(): ConsentAPI.Record {
+	public get values(): ConsentAPI.ConsentRecord {
 		const radios = this.getRadios(true);
 		let consentObject = {};
 

@@ -1,7 +1,12 @@
-import * as React from 'react';
-import { ErrorMessageCore, Subheading, FOWHiddenInputs, YesNoSwitch } from './';
 import { Flags } from '../../types/flags';
 import { FowAPI } from '../../types/fow-api';
+
+import * as React from 'react';
+
+import ErrorMessageCore from './ErrorMessageCore';
+import FOWHiddenInputs from './FOWHiddenInputs';
+import Subheading from './Subheading';
+import YesNoSwitch from './YesNoSwitch';
 
 interface Props {
 	changesSaved: boolean;

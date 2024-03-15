@@ -1,6 +1,10 @@
-import * as React from 'react';
-import { Consent, Confirmation, Banner } from './';
 import { FowAPI } from '../../types/fow-api';
+
+import * as React from 'react';
+
+import Consent from './Consent';
+import Confirmation from './Confirmation';
+import Banner from './Banner';
 
 interface Props {
 	formOfWords: FowAPI.Fow;

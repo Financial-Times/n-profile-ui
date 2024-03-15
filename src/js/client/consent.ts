@@ -1,4 +1,4 @@
-import { ConsentAPI } from '../types/consent-api';
+import * as ConsentAPI from '../types/consent-api';
 import { buildConsentRecord } from '../helpers';
 
 export interface ConsentOptions {
@@ -7,7 +7,7 @@ export interface ConsentOptions {
 }
 
 export interface ConsentCallback {
-	(consent?: ConsentAPI.Record, e?: Event): Promise<any>;
+	(consent?: ConsentAPI.ConsentRecord, e?: Event): Promise<any>;
 }
 
 export class ConsentForm {
@@ -68,7 +68,7 @@ export class ConsentForm {
 		);
 	}
 
-	protected consentFromRadio(radio: HTMLInputElement): ConsentAPI.Record {
+	protected consentFromRadio(radio: HTMLInputElement): ConsentAPI.ConsentRecord {
 		const consentObject = { [radio.name]: radio.value };
 		return buildConsentRecord(this.fow, consentObject, this.source);
 	}
