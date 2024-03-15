@@ -1,42 +1,39 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const { fork } = require('node:child_process');
+
+const { hookFork, waitOnExit } = require('@dotcom-tool-kit/logger');
 const { Task } = require('@dotcom-tool-kit/types');
-const rollup = require('rollup');
-const loadConfigFile = require('rollup/dist/loadConfigFile');
-const path = require('path');
+
+const toolId = 'rollup';
+const binPath = require.resolve('.bin/rollup');
 
 class Rollup extends Task {
-  async run () {
-    const config = path.join(process.cwd(), 'rollup.config.js');
-    const { options, warnings } = await loadConfigFile(config);
+	/**
+	 * @param {any[]} args
+	 */
+	run(...args) {
+		this.logger.info(`running ${toolId} ${args.join(' ')}`);
 
-    // print any config warnings to the console
-    warnings.flush();
+		const child = fork(`${binPath}`, ['-c'], { silent: true });
+		hookFork(this.logger, 'build', child);
 
-    for (const optionsEntry of options) {
-      const bundle = await rollup.rollup(optionsEntry);
-      await Promise.all(optionsEntry.output.map(bundle.write));
-    }
-
-    return options;
-  }
+		return waitOnExit(toolId, child);
+	}
 }
 
 class RollupDev extends Rollup {
-  async run () {
-    super.run().then((options) => {
-      this.logger.info('Watching for file changes');
-      const watcher = rollup.watch(options);
+	/**
+	 * @param {any[]} args
+	 */
+	run(...args) {
+		this.logger.info(`running ${toolId} ${args.join(' ')}`);
 
-      watcher.on('change', (id) => {
-        this.logger.info(`${id} changed`);
-      });
-      watcher.on('restart', () => {
-        this.logger.info('restarting');
-      });
-      watcher.on('close', () => {
-        this.logger.info('closing watcher');
-      });
-    });
-  }
+		const child = fork(`${binPath}`, ['-cw'], { silent: true });
+		hookFork(this.logger, 'build', child);
+
+		return waitOnExit(toolId, child);
+	}
 }
 
 exports.tasks = [Rollup, RollupDev];
