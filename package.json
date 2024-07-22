@@ -37,7 +37,7 @@
     "@dotcom-tool-kit/types": "^3.6.0",
     "@dotcom-tool-kit/vault": "^3.2.0",
     "@dotcom-tool-kit/webpack": "^3.2.0",
-    "@financial-times/dotcom-build-sass": "^7.2.5",
+    "@financial-times/dotcom-build-sass": "^10.0.0",
     "@financial-times/eslint-config-next": "^7.1.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/classnames": "^2.3.0",
